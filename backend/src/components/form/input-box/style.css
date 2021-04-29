@@ -1,0 +1,360 @@
+.text-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+
+.text-input .text-input-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.text-input .text-input-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+}
+
+.text-input.native .text-input-flylabel {
+  display: none;
+}
+
+.text-input.native .text-input-prefix,
+.text-input.native .text-input-suffix {
+  position: absolute;
+  top: 0.5rem;
+  z-index: 1;
+}
+
+.text-input.native .text-input-prefix {
+  left: 0.5rem;
+}
+
+.text-input.native .text-input-suffix {
+  right: 0.5rem;
+}
+
+.text-input .form-control.is-invalid {
+  background-image: none;
+  color: #a30000;
+}
+
+.text-input .suffix-password.is-invalid {
+  color: #a30000;
+}
+
+.text-input .suffix-password {
+  display: block;
+  cursor: pointer;
+  color: #424242;
+  width: 1.5rem;
+}
+
+.text-input input::-webkit-input-placeholder {
+  color: #d8d8d8;
+}
+
+.text-input input:-ms-input-placeholder {
+  color: #d8d8d8;
+}
+
+.text-input input::-ms-input-placeholder {
+  color: #d8d8d8;
+}
+
+.text-input input::placeholder {
+  color: #d8d8d8;
+}
+
+.text-input.bottom-line .text-input-container .text-input-flylabel {
+  z-index: 1;
+  -webkit-transform: translate(0, 0.5rem) scale(1);
+          transform: translate(0, 0.5rem) scale(1);
+  pointer-events: none;
+  -webkit-transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  color: #424242;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.text-input.bottom-line .text-input-container .text-input-flylabel.flying {
+  -webkit-transform: translate(2px, -8px) scale(0.75);
+          transform: translate(2px, -8px) scale(0.75);
+}
+
+.text-input.bottom-line .text-input-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.text-input.bottom-line .text-input-line::before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #424242;
+}
+
+.text-input.bottom-line .text-input-line::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #009140;
+}
+
+.text-input.bottom-line:focus-within .text-input-container .text-input-flylabel {
+  -webkit-transform: translate(2px, -8px) scale(0.75);
+          transform: translate(2px, -8px) scale(0.75);
+  color: #009140;
+}
+
+.text-input.bottom-line:focus-within .text-input-line::after {
+  left: 0;
+  right: 0;
+}
+
+.text-input.bottom-line .text-input-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.text-input.bottom-line .text-input-wrapper input {
+  border: 0;
+  height: 100%;
+}
+
+.text-input.bottom-line .text-input-wrapper input:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+}
+
+.text-input.bottom-line .text-input-wrapper input::-webkit-input-placeholder {
+  color: #979797;
+}
+
+.text-input.bottom-line .text-input-wrapper input:-ms-input-placeholder {
+  color: #979797;
+}
+
+.text-input.bottom-line .text-input-wrapper input::-ms-input-placeholder {
+  color: #979797;
+}
+
+.text-input.bottom-line .text-input-wrapper input::placeholder {
+  color: #979797;
+}
+
+.text-input.bottom-line .input-group-prepend .input-group-text {
+  border: 0;
+  background-color: transparent;
+}
+
+.text-input.bottom-line .input-group-append .input-group-text {
+  border: 0;
+  background-color: transparent;
+}
+
+.text-input.bottom-line .text-input-prefix {
+  padding: 0.375rem 0.75rem;
+}
+
+.text-input.bottom-line .text-input-suffix {
+  padding: 0.375rem 0.75rem;
+}
+
+.text-input.bottom-line .text-input-error-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.text-input.out-line .text-input-container fieldset {
+  top: -6px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  -webkit-transition: border-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  border-style: solid;
+  border-color: #424242;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  padding-left: 8px;
+  pointer-events: none;
+}
+
+.text-input.out-line .text-input-container fieldset legend {
+  width: auto;
+  height: 11px;
+  display: block;
+  padding: 0;
+  font-size: 0.75rem;
+  max-width: 0.01px;
+  text-align: left;
+  -webkit-transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  visibility: hidden;
+}
+
+.text-input.out-line .text-input-container fieldset legend span {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.text-input.out-line .text-input-container fieldset.flying legend {
+  max-width: 1000px;
+  -webkit-transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+  transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+}
+
+.text-input.out-line .text-input-container fieldset.is-invalid {
+  border-color: #a30000;
+}
+
+.text-input.out-line .text-input-container .text-input-flylabel {
+  z-index: 1;
+  -webkit-transform: translate(0.625rem, 0.625rem) scale(1);
+          transform: translate(0.625rem, 0.625rem) scale(1);
+  pointer-events: none;
+  -webkit-transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  color: #424242;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.text-input.out-line .text-input-container .text-input-flylabel.flying {
+  -webkit-transform: translate(14px, -8px) scale(0.75);
+          transform: translate(14px, -8px) scale(0.75);
+}
+
+.text-input.out-line .text-input-container .text-input-flylabel.flying.is-invalid {
+  color: #a30000;
+  border-color: #a30000;
+}
+
+.text-input.out-line:focus-within .text-input-container fieldset {
+  border-color: #009140;
+}
+
+.text-input.out-line:focus-within .text-input-container fieldset legend {
+  max-width: 1000px;
+  -webkit-transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+  transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+}
+
+.text-input.out-line:focus-within .text-input-container .text-input-flylabel {
+  -webkit-transform: translate(14px, -8px) scale(0.75);
+          transform: translate(14px, -8px) scale(0.75);
+  color: #009140;
+}
+
+.text-input.out-line .text-input-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.text-input.out-line .text-input-wrapper input {
+  border: 0;
+  height: 100%;
+}
+
+.text-input.out-line .text-input-wrapper input:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+}
+
+.text-input.out-line .text-input-wrapper input::-webkit-input-placeholder {
+  color: #979797;
+}
+
+.text-input.out-line .text-input-wrapper input:-ms-input-placeholder {
+  color: #979797;
+}
+
+.text-input.out-line .text-input-wrapper input::-ms-input-placeholder {
+  color: #979797;
+}
+
+.text-input.out-line .text-input-wrapper input::placeholder {
+  color: #979797;
+}
+
+.text-input.out-line .input-group-prepend .input-group-text {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.text-input.out-line .input-group-append .input-group-text {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.text-input.out-line .text-input-prefix {
+  padding: 0.375rem 0.75rem;
+}
+
+.text-input.out-line .text-input-suffix {
+  padding: 0.375rem 0.75rem;
+}
+
+.text-input.out-line .text-input-error-box {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.error-message {
+  margin-top: 0.25rem;
+  font-size: 14px;
+  color: #a30000;
+}
+/*# sourceMappingURL=style.css.map */

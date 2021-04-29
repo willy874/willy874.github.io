@@ -1,0 +1,22 @@
+@import 'variables';
+@import 'mixin';
+@import 'reset';
+@import 'utilities';
+@import 'components/navbtn';
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  overflow: hidden;
+}
+
+#app {
+}
+
+#layout {
+}
+
+#backend {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

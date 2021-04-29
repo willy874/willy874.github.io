@@ -1,0 +1,288 @@
+.textarea-box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.textarea-box .textarea-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.textarea-box .textarea-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.textarea-box .textarea-wrapper textarea {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.textarea-box .form-control.is-invalid {
+  background-image: none;
+  color: #a30000;
+}
+
+.textarea-box textarea::-webkit-input-placeholder {
+  color: #d8d8d8;
+}
+
+.textarea-box textarea:-ms-input-placeholder {
+  color: #d8d8d8;
+}
+
+.textarea-box textarea::-ms-input-placeholder {
+  color: #d8d8d8;
+}
+
+.textarea-box textarea::placeholder {
+  color: #d8d8d8;
+}
+
+.textarea-box.bottom-line .textarea-container .textarea-flylabel {
+  z-index: 1;
+  -webkit-transform: translate(0, 0.5rem) scale(1);
+          transform: translate(0, 0.5rem) scale(1);
+  pointer-events: none;
+  -webkit-transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  color: #424242;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.textarea-box.bottom-line .textarea-container .textarea-flylabel.flying {
+  -webkit-transform: translate(2px, -8px) scale(0.75);
+          transform: translate(2px, -8px) scale(0.75);
+}
+
+.textarea-box.bottom-line .textarea-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.textarea-box.bottom-line .textarea-line::before {
+  content: '';
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #424242;
+}
+
+.textarea-box.bottom-line .textarea-line::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  background-color: #009140;
+}
+
+.textarea-box.bottom-line:focus-within .textarea-container .textarea-flylabel {
+  -webkit-transform: translate(2px, -8px) scale(0.75);
+          transform: translate(2px, -8px) scale(0.75);
+  color: #009140;
+}
+
+.textarea-box.bottom-line:focus-within .textarea-line::after {
+  left: 0;
+  right: 0;
+}
+
+.textarea-box.bottom-line .textarea-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.textarea-box.bottom-line .textarea-wrapper textarea {
+  border: 0;
+  height: 100%;
+}
+
+.textarea-box.bottom-line .textarea-wrapper textarea:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+}
+
+.textarea-box.bottom-line .textarea-wrapper textarea::-webkit-input-placeholder {
+  color: #979797;
+}
+
+.textarea-box.bottom-line .textarea-wrapper textarea:-ms-input-placeholder {
+  color: #979797;
+}
+
+.textarea-box.bottom-line .textarea-wrapper textarea::-ms-input-placeholder {
+  color: #979797;
+}
+
+.textarea-box.bottom-line .textarea-wrapper textarea::placeholder {
+  color: #979797;
+}
+
+.textarea-box.out-line .textarea-container fieldset {
+  top: -5px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  -webkit-transition: border-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: border-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  border-style: solid;
+  border-color: #424242;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  padding-left: 8px;
+  pointer-events: none;
+}
+
+.textarea-box.out-line .textarea-container fieldset legend {
+  width: auto;
+  height: 11px;
+  display: block;
+  padding: 0;
+  font-size: 0.75rem;
+  max-width: 0.01px;
+  text-align: left;
+  -webkit-transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  visibility: hidden;
+}
+
+.textarea-box.out-line .textarea-container fieldset legend span {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.textarea-box.out-line .textarea-container fieldset.flying legend {
+  max-width: 1000px;
+  -webkit-transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+  transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+}
+
+.textarea-box.out-line .textarea-container fieldset.is-invalid {
+  border-color: #a30000;
+}
+
+.textarea-box.out-line .textarea-container .textarea-flylabel {
+  z-index: 1;
+  -webkit-transform: translate(0.625rem, 0.625rem) scale(1);
+          transform: translate(0.625rem, 0.625rem) scale(1);
+  pointer-events: none;
+  -webkit-transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms, -webkit-transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+  color: #424242;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.textarea-box.out-line .textarea-container .textarea-flylabel.flying {
+  -webkit-transform: translate(14px, -6px) scale(0.75);
+          transform: translate(14px, -6px) scale(0.75);
+}
+
+.textarea-box.out-line:focus-within .textarea-container fieldset {
+  border-color: #009140;
+}
+
+.textarea-box.out-line:focus-within .textarea-container fieldset legend {
+  max-width: 1000px;
+  -webkit-transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+  transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+}
+
+.textarea-box.out-line:focus-within .textarea-container .textarea-flylabel {
+  -webkit-transform: translate(14px, -6px) scale(0.75);
+          transform: translate(14px, -6px) scale(0.75);
+  color: #009140;
+}
+
+.textarea-box.out-line .textarea-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.textarea-box.out-line .textarea-wrapper textarea {
+  border: 0;
+  height: 100%;
+}
+
+.textarea-box.out-line .textarea-wrapper textarea:focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+}
+
+.textarea-box.out-line .textarea-wrapper textarea::-webkit-input-placeholder {
+  color: #979797;
+}
+
+.textarea-box.out-line .textarea-wrapper textarea:-ms-input-placeholder {
+  color: #979797;
+}
+
+.textarea-box.out-line .textarea-wrapper textarea::-ms-input-placeholder {
+  color: #979797;
+}
+
+.textarea-box.out-line .textarea-wrapper textarea::placeholder {
+  color: #979797;
+}
+/*# sourceMappingURL=style.css.map */

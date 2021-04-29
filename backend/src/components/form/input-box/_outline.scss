@@ -1,0 +1,123 @@
+.text-input {
+  &.out-line {
+    .text-input-container {
+      fieldset {
+        top: -6px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        transition: border-color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        border-style: solid;
+        border-color: $input-label-color-normal;
+        border-width: 1px;
+        border-radius: 0.5rem;
+        padding-left: 8px;
+        pointer-events: none;
+        legend {
+          width: auto;
+          height: 11px;
+          display: block;
+          padding: 0;
+          font-size: 0.75rem;
+          max-width: 0.01px;
+          text-align: left;
+          transition: max-width 50ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+          visibility: hidden;
+          span {
+            padding-left: 5px;
+            padding-right: 5px;
+          }
+        }
+        &.flying {
+          legend {
+            max-width: 1000px;
+            transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+          }
+        }
+        &.is-invalid {
+          border-color: $input-label-color-danger;
+        }
+      }
+      .text-input-flylabel {
+        z-index: 1;
+        transform: translate(0.625rem, 0.625rem) scale(1);
+        pointer-events: none;
+        transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+          transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        transform-origin: top left;
+        color: $input-label-color-normal;
+        font-size: 1rem;
+        line-height: 1;
+        &.flying {
+          transform: translate(14px, -8px) scale(0.75);
+          &.is-invalid {
+            color: $input-label-color-danger;
+            border-color: $input-label-color-danger;
+          }
+        }
+      }
+    }
+    &:focus-within {
+      .text-input-container {
+        fieldset {
+          border-color: $input-label-color-active;
+          legend {
+            max-width: 1000px;
+            transition: max-width 100ms cubic-bezier(0, 0, 0.2, 1) 50ms;
+          }
+        }
+        .text-input-flylabel {
+          transform: translate(14px, -8px) scale(0.75);
+          color: $input-label-color-active;
+        }
+      }
+    }
+    .text-input-wrapper {
+      flex-grow: 1;
+      input {
+        border: 0;
+        height: 100%;
+        &:focus {
+          outline: 0;
+          box-shadow: none;
+          background-color: $input-background-color;
+        }
+        &::placeholder {
+          color: $input-placeholder-color;
+        }
+      }
+    }
+    .input-group-prepend {
+      .input-group-text {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+    .input-group-append {
+      .input-group-text {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+    .text-input-prefix {
+      padding: 0.375rem 0.75rem;
+    }
+    .text-input-suffix {
+      padding: 0.375rem 0.75rem;
+    }
+    .text-input-error-box {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+  }
+}

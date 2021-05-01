@@ -20,6 +20,14 @@ fs.readdir(path.join(__dirname, 'history')).then(folder => {
         const MigrationTable = require('./history/' + file)
         const Table = new MigrationTable({ connection, file })
         return Table.down()
+          .then(result => {
+            // console.log(result)
+          })
+          .catch(error => {
+            console.log('sqlMessage:', error.sqlMessage.red)
+            console.log('sqlQuery:', error.sql)
+            conn.end()
+          })
       }
     })
   const observable = new Observable(subscriber => {

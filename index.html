@@ -2,9 +2,330 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>竹子的個人空間</title>
+    <title>Resume</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Noto Sans TC", sans-serif;
+      }
+      .navbar-brand {
+        font-size: 1.75rem;
+        letter-spacing: 0.25rem;
+      }
+      .active .nav-link {
+        cursor: auto;
+      }
+      .nav-link:hover {
+        color: #fff !important;
+      }
+      @media (max-width: 992px) {
+        .nav-link {
+          padding-top: 1rem;
+          padding-bottom: 1rem;
+        }
+      }
+      a {
+        color: #fff;
+        font-size: 1.125rem;
+      }
+      a:hover {
+        color: #ccc;
+      }
+      .skill-list li {
+        padding-bottom: 0.5rem;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <header
+      class="bg-dark px-5"
+      style="position: fixed; top: 0; left: 0; right: 0; z-index: 100"
+    >
+      <nav
+        class="navbar navbar-expand-sm navbar-dark align-items-center justify-content-between"
+      >
+        <h1>
+          <a class="navbar-brand" href="#">履歷表</a>
+        </h1>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbar"
+          aria-controls="navbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link mx-sm-2" href="./index.html">自我介紹</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-sm-2" href="./portfolio.html">作品集</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="d-flex flex-wrap" style="min-height: 100vh; padding-top: 74px">
+      <div class="d-flex flex-column col-md-auto px-0">
+        <div class="text-center pt-4" style="background-color: #4ca8e6">
+          <img
+            src="./img/001.jpg"
+            style="
+              width: 100%;
+              max-width: 200px;
+              clip-path: polygon(
+                25% 0%,
+                75% 0%,
+                100% 25%,
+                100% 75%,
+                75% 100%,
+                25% 100%,
+                0% 75%,
+                0% 25%
+              );
+            "
+          />
+        </div>
+        <div class="pb-5 flex-grow-1" style="background-color: #244865">
+          <div
+            style="
+              border-width: 3rem 8rem 0 8rem;
+              border-color: #4ca8e6 transparent transparent transparent;
+              border-style: solid;
+            "
+          ></div>
+          <div class="px-lg-5 px-3">
+            <div class="text-white py-5 text-center" style="font-weight: 500">
+              <span class="display-4">蕭宇笙</span><br /><br />
+              <span class="h3">willy</span>
+              <span class="h3 ml-2">/</span>
+              <span class="h3 ml-2">28 Y</span>
+            </div>
+            <div
+              class="d-flex align-items-center h3 text-white font-weight-light py-2 mx-auto"
+              style="width: 300px"
+            >
+              <i class="fa fa-phone mr-3"></i>
+              <span class="h5">
+                <span>Mobile</span><br />
+                <span>0980730202</span>
+              </span>
+            </div>
+            <div
+              class="d-flex align-items-center h3 text-white font-weight-light py-2 mx-auto"
+              style="width: 300px"
+            >
+              <i class="fa fa-envelope-o mr-3"></i>
+              <span class="h5">
+                <span>E-mail</span><br />
+                <span>willy8742891@gmail.com</span>
+              </span>
+            </div>
+            <div
+              class="d-flex align-items-center h3 text-white font-weight-light py-2 mx-auto"
+              style="width: 300px"
+            >
+              <i class="fa fa-internet-explorer mr-3"></i>
+              <span class="h5">
+                <span>Website</span><br />
+                <a href="https://bamboodiary.com" target="_blank"
+                  >https://bamboodiary.com</a
+                >
+              </span>
+            </div>
+            <div
+              class="d-flex align-items-center h3 text-white font-weight-light py-2 mx-auto"
+              style="width: 300px"
+            >
+              <i class="fa fa-github mr-3"></i>
+              <span class="h5">
+                <span>Github</span><br />
+                <a href="https://github.com/willy874" target="_blank"
+                  >https://github.com/willy874</a
+                >
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md" style="background-color: #f6f6f6">
+        <div class="row py-3 px-4">
+          <div class="col-xl-6 py-3">
+            <h2
+              class="mb-3 h1 font-weight-bold text-primary d-flex align-items-center"
+            >
+              <i class="fa fa-lightbulb-o mr-3"></i>
+              <span>Skill</span>
+              <div
+                class="bg-primary flex-grow-1 mr-5 ml-3 mt-2"
+                style="height: 0.25rem"
+              ></div>
+            </h2>
+            <p class="mb-2">*為較熟悉技能</p>
+            <ul class="h5 skill-list text-dark list-unstyled">
+              <li>
+                <i class="fa fa-bolt mr-3"></i>CSS排版：
+                Flex*、Flaot、Grid、Table
+              </li>
+              <li><i class="fa fa-bolt mr-3"></i>CSS框架： Bootstrap</li>
+              <li><i class="fa fa-bolt mr-3"></i>CSS預處理： SCSS*、SASS</li>
+              <li><i class="fa fa-bolt mr-3"></i>JS框架： Mithril*、React</li>
+              <li><i class="fa fa-bolt mr-3"></i>JS： ES5*、ES6*</li>
+              <li><i class="fa fa-bolt mr-3"></i>後端語言： C#、PHP</li>
+              <li><i class="fa fa-bolt mr-3"></i>資料庫： MSSQL、MYSQL</li>
+              <li><i class="fa fa-bolt mr-3"></i>自動化： webpack*、rollup</li>
+              <li>
+                <i class="fa fa-bolt mr-3"></i>常用函式庫：
+                jQuery*、moment、echarts、validate
+              </li>
+              <li>
+                <i class="fa fa-bolt mr-3"></i>常用API： GoogleMaps、Youtube
+              </li>
+              <li><i class="fa fa-bolt mr-3"></i>管理介面： IIS、cPanel</li>
+              <li><i class="fa fa-bolt mr-3"></i>版本管理： Git</li>
+            </ul>
+          </div>
+          <div class="col-xl-6 py-3">
+            <h2
+              class="mb-3 h1 font-weight-bold text-primary d-flex align-items-center"
+            >
+              <i class="fa fa-user mr-3"></i>
+              <span>Introduction</span>
+              <div
+                class="bg-primary flex-grow-1 mr-5 ml-3 mt-2"
+                style="height: 0.25rem"
+              ></div>
+            </h2>
+            <p
+              class="text-dark"
+              style="letter-spacing: 1px; line-height: 1.625rem"
+            >
+              <i class="fa fa-comment mr-1"></i>
+              一開始基於興趣開始學習架站，本身是機電工程的我跨領域學習前端開發。然而，對於一個跨領域學習者，一路沒有任何幫助到真正進職場就業能讓前輩引導也是熬了許久，仰賴大量的嘗試與練習，直到熟手並掌握。
+            </p>
+            <p
+              class="text-dark"
+              style="letter-spacing: 1px; line-height: 1.625rem"
+            >
+              <i class="fa fa-comment mr-1"></i>
+              因目前職場使用的框架是Mithril，相較於前端三大框架較為冷門，採用類似React單向資料流管理，所以目前也仍在自學React的基礎用法，卻不確定使用方式是否與實際職場能否接軌，因而特別希望有前輩的專案範例能依樣畫葫蘆。
+            </p>
+            <p
+              class="text-dark"
+              style="letter-spacing: 1px; line-height: 1.625rem"
+            >
+              <i class="fa fa-comment mr-1"></i>
+              是個對於寫程式和工作有極端狂熱的執著，閒暇時喜歡自幹各種UI組件的設計，專案講求目標導向，協調團隊最大輸出。缺點大概就是比較粗心，卻也因為這樣，個性較善體人意，對於同伴錯誤容忍度高，高意願去讓使用者挑出毛病去修改完善作品。
+            </p>
+          </div>
+          <div class="col-xl-6 py-3">
+            <h2
+              class="mb-3 h1 font-weight-bold text-primary d-flex align-items-center"
+            >
+              <i class="fa fa-address-book-o mr-3"></i>
+              <span>Demand</span>
+              <div
+                class="bg-primary flex-grow-1 mr-5 ml-3 mt-2"
+                style="height: 0.25rem"
+              ></div>
+            </h2>
+            <p class="text-dark h5">
+              <i
+                class="fa fa-address-card-o mr-1 d-inline-block"
+                style="width: 2rem"
+              ></i>
+              期望職務：Front End Engineering Junior
+            </p>
+            <p class="text-dark h5">
+              <i class="fa fa-usd mr-1 d-inline-block" style="width: 2rem"></i>
+              期望薪資：40000~45000 /月
+            </p>
+            <p class="text-dark h5">
+              <i
+                class="fa fa-thumb-tack mr-1 d-inline-block"
+                style="width: 2rem"
+              ></i>
+              工作方式：周休二日，定點工作
+            </p>
+            <p class="text-dark h5">
+              <i
+                class="fa fa-clock-o mr-1 d-inline-block"
+                style="width: 2rem"
+              ></i>
+              最快就職：1個月
+            </p>
+          </div>
+          <div class="col-xl-6 py-3">
+            <h2
+              class="mb-3 h1 font-weight-bold text-primary d-flex align-items-center"
+            >
+              <i class="fa fa-address-card-o mr-3"></i>
+              <span>Experience</span>
+              <div
+                class="bg-primary flex-grow-1 mr-5 ml-3 mt-2"
+                style="height: 0.25rem"
+              ></div>
+            </h2>
+            <p class="text-dark h5">
+              <i
+                class="fa fa-address-card mr-1 d-inline-block"
+                style="width: 2rem"
+              ></i>
+              創鈞堂資訊有限公司 : FrontEndEngineering 2019/07 ~ 在職
+            </p>
+            <p class="text-dark h5">
+              <i
+                class="fa fa-address-card mr-1 d-inline-block"
+                style="width: 2rem"
+              ></i>
+              橙色國際有限公司 : ProductManager 2019/01 ~ 2019/06
+            </p>
+            <p class="text-dark h5">
+              <i
+                class="fa fa-address-card mr-1 d-inline-block"
+                style="width: 2rem"
+              ></i>
+              誼光公寓大廈管理有限公司 : CommunityOfficer 2018/03 ~ 2019/01
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

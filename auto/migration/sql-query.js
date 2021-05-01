@@ -8,82 +8,78 @@ const path = require('path')
  * 對資料庫進行 `CREATE TABLE IF NOT EXISTS <Table Name>`
  */
 exports.queryCreate = function () {
-  const conn = this.BlueprintConnection
-  const tables = this.BlueprintTables
-  const tableName = this.BlueprintTableName
-  const fileName = this.BlueprintFile
-  const primaryKey = this.BlueprintTables.find(t => t.primaryKey)
-  const lengthData = t => (t.length === undefined ? '' : ' (' + t.length + ')')
-  const nullable = t => (t.nullable ? ' NULL' : ' NOT NULL')
-  const autoIncrement = t => (t.auto ? ' AUTO_INCREMENT' : '')
-  const defaultData = t => (t.default === undefined ? '' : ` DEFAULT ${t.default}`)
-  const foreignKey = t => {
-    if (t.foreignKey && t.foreignKey.length) {
-      return `${t.foreignKey.map(f => `  FOREIGN KEY (${f.name}) REFERENCES ${f.table}(${f.key}) \n`)},`
+  return new Promise((resolve, reject) => {
+    const conn = this.BlueprintConnection
+    const tables = this.BlueprintTables
+    const tableName = this.BlueprintTableName
+    const fileName = this.BlueprintFile
+    const primaryKey = this.BlueprintTables.find(t => t.primaryKey)
+    const lengthData = t => (t.length === undefined ? '' : ' (' + t.length + ')')
+    const nullable = t => (t.nullable ? ' NULL' : ' NOT NULL')
+    const autoIncrement = t => (t.auto ? ' AUTO_INCREMENT' : '')
+    const defaultData = t => (t.default === undefined ? '' : ` DEFAULT ${t.default}`)
+    const foreignKey = t => {
+      if (t.foreignKey && t.foreignKey.length) {
+        return `${t.foreignKey.map(f => `  FOREIGN KEY (${f.name}) REFERENCES ${f.table}(${f.key}) \n`)},`
+      }
+      return ''
     }
-    return ''
-  }
-  const sqlQuery = `
+    const sqlQuery = `
 CREATE TABLE IF NOT EXISTS ${tableName} (
   ${tables.map(table =>`${table.name} ${table.type}${lengthData(table)}${nullable(table)}${autoIncrement(table)}${defaultData(table)}`).join(',\n  ')},
   ${tables.map(table =>foreignKey(table)).join('')}
   PRIMARY KEY (${primaryKey.name})
-);
-`
-  conn
-    .query(sqlQuery)
-    .on('result', result => {
-      console.log('Migration create'.green, path.join(__dirname, 'history', `${fileName}`).yellow, 'success.'.green)
-    })
-    .on('error', error => {
-      console.log('sqlMessage:', error.sqlMessage.red)
-      console.log('sqlQuery:', error.sql)
-      conn.end()
-    })
+);`
+    conn
+      .query(sqlQuery)
+      .on('result', result => {
+        console.log('Migration create'.green, path.join(__dirname, 'history', `${fileName}`).yellow, 'success.'.green)
+        resolve(result)
+      })
+      .on('error',reject)
+  })
 }
 /**
  * 
  */
 exports.queryUpdate = function () {
-  const conn = this.BlueprintConnection
-  const tables = this.BlueprintTables
-  const tableName = this.BlueprintTableName
-  const fileName = this.BlueprintFile
-  const sqlQuery = ``
-  console.log('sqlQuery:', sqlQuery)
-  conn
-    .query(sqlQuery)
-    .on('result', result => {
-      console.log('Migration update'.green, path.join(__dirname, 'history', `${fileName}`).yellow, 'success.'.green)
-    })
-    .on('error', error => {
-      console.log('sqlMessage:', error.sqlMessage.red)
-      console.log('sqlQuery:', error.sql)
-      conn.end()
-    })
+  return new Promise((resolve, reject) => {
+    const conn = this.BlueprintConnection
+    const tables = this.BlueprintTables
+    const tableName = this.BlueprintTableName
+    const fileName = this.BlueprintFile
+    const sqlQuery = ``
+    console.log('sqlQuery:', sqlQuery)
+    conn
+      .query(sqlQuery)
+      .on('result', result => {
+        console.log('Migration update'.green, path.join(__dirname, 'history', `${fileName}`).yellow, 'success.'.green)
+        resolve(result)
+      })
+      .on('error',reject)
+  })
 }
 /**
  * 對資料庫進行 `DROP TABLE <Table Name>`
  */
 exports.queryDrop = function () {
-  const conn = this.BlueprintConnection
-  const tableName = this.BlueprintTableName
-  if (this.BlueprintDrop) {
-    const sqlQueris =
-      this.BlueprintDrop.length === 0
-        ? [`DROP TABLE IF EXISTS ${tableName};`]
-        : this.BlueprintDrop.map(t => `ALTER TABLE ${tableName} DROP ${t};`)
-    sqlQueris.forEach(sqlQuery => {
-      conn
-        .query(sqlQuery)
-        .on('result', () => {
-          console.log(`Drop table ${tableName}.`.red)
-        })
-        .on('error', error => {
-          console.log('sqlMessage:', error.sqlMessage.red)
-          console.log('sqlQuery:', error.sql)
-          conn.end()
-        })
-    })
-  }
+  return new Promise((resolve, reject) => {
+    const conn = this.BlueprintConnection
+    const tableName = this.BlueprintTableName
+    if (this.BlueprintDrop) {
+      const sqlQueris =
+        this.BlueprintDrop.length === 0
+          ? [`DROP TABLE IF EXISTS ${tableName};`]
+          : this.BlueprintDrop.map(t => `ALTER TABLE ${tableName} DROP ${t};`)
+      sqlQueris.forEach(sqlQuery => {
+        conn
+          .query(sqlQuery)
+          .on('result', result => {
+            console.log(`Drop table ${tableName}.`.red)
+            resolve(result)
+          })
+          .on('error',reject)
+      })
+    }
+  })
 }

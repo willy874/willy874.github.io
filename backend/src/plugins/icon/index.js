@@ -1,6 +1,6 @@
 import { h } from 'vue';
 
-var add = {
+var require$$0 = {
   mount: '.icon-add',
   attrs: {
     viewBox: '0 0 448 448',
@@ -12,12 +12,7 @@ var add = {
   `,
 };
 
-var add$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': add
-});
-
-var arrowSolid = {
+var require$$1 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -30,12 +25,7 @@ var arrowSolid = {
   `,
 };
 
-var arrowSolid$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': arrowSolid
-});
-
-var arrow = {
+var require$$2 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -47,11 +37,6 @@ var arrow = {
     <polygon points="0,53.333 106.667,160 213.333,53.333 "/>
   `,
 };
-
-var arrow$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': arrow
-});
 
 var _delete = {
   mount: '.icon-add',
@@ -72,7 +57,7 @@ var _delete$1 = /*#__PURE__*/Object.freeze({
   'default': _delete
 });
 
-var edit = {
+var require$$4 = {
   mount: '.icon-add',
   attrs: {
     viewBox: '0 0 512 511',
@@ -85,11 +70,6 @@ var edit = {
     <path d="m496.382812 16.101562c-20.796874-20.800781-54.632812-20.800781-75.414062 0l-29.523438 29.523438 75.414063 75.414062 29.523437-29.527343c10.070313-10.046875 15.617188-23.445313 15.617188-37.695313s-5.546875-27.648437-15.617188-37.714844zm0 0"/>
   `,
 };
-
-var edit$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': edit
-});
 
 var require$$5 = {
   mount: '.icon-add',
@@ -104,7 +84,7 @@ var require$$5 = {
   `,
 };
 
-var home = {
+var require$$6 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -117,12 +97,7 @@ var home = {
   `,
 };
 
-var home$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': home
-});
-
-var play = {
+var require$$7 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -135,28 +110,11 @@ var play = {
   `,
 };
 
-var play$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': play
-});
-
 function getCjsExportFromNamespace (n) {
 	return n && n['default'] || n;
 }
 
-var require$$0 = getCjsExportFromNamespace(add$1);
-
-var require$$1 = getCjsExportFromNamespace(arrowSolid$1);
-
-var require$$2 = getCjsExportFromNamespace(arrow$1);
-
 var require$$3 = getCjsExportFromNamespace(_delete$1);
-
-var require$$4 = getCjsExportFromNamespace(edit$1);
-
-var require$$6 = getCjsExportFromNamespace(home$1);
-
-var require$$7 = getCjsExportFromNamespace(play$1);
 
 var pattern = {
   Add: require$$0,

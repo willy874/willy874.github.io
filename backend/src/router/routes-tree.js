@@ -10,14 +10,8 @@ const i18nMsg = i18n.messages[i18n.getLocale()]
 const routes = [
   {
     path: '/',
-    name: 'Root',
-    component: 'RootPage',
-  },
-  {
-    path: '/home',
-    name: 'Web',
-    component: 'HomePage',
-    children: [],
+    name: 'Dashboard',
+    component: 'DashboardPage',
   },
   // {
   //   path: '/backend',

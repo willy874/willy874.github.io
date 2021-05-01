@@ -3,13 +3,13 @@ import App from './App.vue'
 import config from './config'
 import router from './router'
 import store from './store'
-import { DialogInstall, IconInstall } from './plugins/bundle'
+import { DialogInstall } from './plugins/dialog'
+import { IconInstall } from './plugins/icon'
 import i18n from './plugins/i18n'
 import ComponentInstall from './components/install'
 import EventInstall from './event'
 import './index.css'
 
-console.log(config)
 const app = createApp(App)
   .use(router)
   .use(store)

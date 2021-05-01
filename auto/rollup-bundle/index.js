@@ -7,7 +7,8 @@ const cleaner = require('rollup-plugin-cleaner')
 const commonjs = require('rollup-plugin-commonjs')
 const loaderJson = require('@rollup/plugin-json')
 const path = require('path')
-const root = process.env.ROOT || path.join(__dirname, '..', '..')
+const root = path.join(__dirname, '..', '..')
+// const root = process.env.ROOT
 
 async function build(input = {}, output = {}) {
   // dirname & filename 合併

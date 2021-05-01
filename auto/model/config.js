@@ -1,6 +1,7 @@
-const data = require('./data')
+// const data = require('./data')
 const path = require('path')
-const root = process.env.ROOT || path.join(__dirname, '..', '..')
+const root = path.join(__dirname, '..', '..')
+// const root = process.env.ROOT
 
 module.exports = {
   root,
@@ -10,7 +11,7 @@ module.exports = {
     viewModel: path.join.apply(path, ['backend', 'src', 'models', 'data']),
   },
   type: 'csv',
-  data,
+  // data,
   overwrite: true,
   plugins: [],
 }

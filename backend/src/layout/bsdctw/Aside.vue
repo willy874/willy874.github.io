@@ -10,7 +10,7 @@
   >
     <div class="absolute inset-0 overflow-y-auto overflow-x-hidden">
       <aside id="aside">
-        <Navbar :routes="routesComputed" />
+        <!-- <Navbar :routes="routesComputed" /> -->
       </aside>
     </div>
   </div>
@@ -20,7 +20,7 @@
 import { reactive, computed, ref } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import Navbar from './Navbar'
+// import Navbar from './Navbar'
 import config from '@base/config'
 
 export default {
@@ -37,7 +37,7 @@ export default {
     }
   },
   components: {
-    Navbar,
+    // Navbar,
   },
 }
 </script>

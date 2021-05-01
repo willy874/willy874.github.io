@@ -5,9 +5,9 @@
         <img class="w-36 px-3 py-1" src="@base/assets/logo-light.png" alt="" />
       </div>
     </div>
-    <div class="border-b flex">
+    <div class="border-b flex" v-show="storeGlobal.windowInnerWidth < deviceSwitch">
       <div>
-        <div class="p-2" v-show="storeGlobal.windowInnerWidth < deviceSwitch">
+        <div class="p-2">
           <Navbtn class="" @btnClick="btnChange" />
         </div>
       </div>

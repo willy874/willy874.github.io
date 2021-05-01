@@ -1,10 +1,13 @@
-const route = require('./core')
+const Router = require('./core')
+const Controller = require('../controller')
 
-module.exports = (args) => {
-  const Route = new route(args)
-  Route.get('/', (req, res) => {
+module.exports = args => {
+  const router = new Router(args)
+  router.app.get('/', (req, res) => {
     res.send('Hello! This is serve system.')
   })
+  // Controller.NavigationController
+  // Controller.UserController
   /**
    * API
    */
@@ -15,17 +18,5 @@ module.exports = (args) => {
   // Route.api('get','/navigation', 'NavigationController@getNavigation')
   // Route.api('get','/navigation/:id?', 'NavigationController@getNavigationById')
 
-  Route.createSocket(args => {
-    const {
-      client
-    } = args
-    console.log('Socket connection')
-
-    client.on('close', () => {
-      console.log('Close connected')
-    })
-  })
-
-  return Route
+  return router
 }
-

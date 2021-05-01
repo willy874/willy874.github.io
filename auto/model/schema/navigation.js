@@ -69,7 +69,7 @@ module.exports = {
       description: '路由的代名',
     },
     {
-      name: 'group',
+      name: 'group_name',
       type: String,
       default: '',
       description: '路由的群組分類',

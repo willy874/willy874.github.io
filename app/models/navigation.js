@@ -15,7 +15,7 @@ module.exports = class NavigationModel extends Model {
         'component',
         'parent',
         'alias',
-        'group',
+        'group_name',
       ],
     })
   }

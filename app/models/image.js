@@ -13,7 +13,7 @@ module.exports = class ImageModel extends Model {
         'url',
         'alt',
         'title',
-        'json',
+        'infomation',
       ],
     })
   }

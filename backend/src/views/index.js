@@ -1,4 +1,3 @@
-import RootPage from './Home/Root.vue'
-import HomePage from './Home/Index.vue'
+import DashboardPage from './Dashboard/Index.vue'
 
-export { RootPage, HomePage }
+export { DashboardPage }

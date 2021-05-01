@@ -6,13 +6,18 @@
     "model": "node model",
     "svg": "node svg",
     "format": "prettier --write \"src/**/*.{js,vue,scss}\"",
-    "plugin": "node rollup-bundle"
+    "plugin": "node rollup-bundle",
+    "migration": "node migration",
+    "migrat:create": "node migration/create",
+    "migrat:update": "node migration/update",
+    "migrat:reset": "node migration/reset"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.4",
     "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
     "uuid": "^8.3.2",
     "validate.js": "^0.13.1",
     "vue": "^3.0.5"

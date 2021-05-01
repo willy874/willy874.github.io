@@ -1,7 +1,8 @@
 require('dotenv').config()
 require('colors')
 const path = require('path')
-const root = process.env.ROOT || path.join(__dirname, '..', '..')
+const root = path.join(__dirname, '..', '..')
+// const root = process.env.ROOT
 const createWebpackIndex = require('./create-webpack')
 const createNodeIndex = require('./create-node')
 

@@ -13,7 +13,7 @@ import { ImageModel } from './index'
  * @property {String} component 路由使用的組件
  * @property {String} parent 路由的父組件對象
  * @property {String} alias 路由的代名
- * @property {String} group 路由的群組分類
+ * @property {String} group_name 路由的群組分類
  * @property {ImageModel} icon 路由使用的Icon圖片
  */
 export default class NavigationModel extends DataModel {
@@ -30,7 +30,7 @@ export default class NavigationModel extends DataModel {
     this.component = entity.component || ''
     this.parent = entity.parent || ''
     this.alias = entity.alias || ''
-    this.group = entity.group || ''
+    this.group_name = entity.group_name || ''
     this.icon = new ImageModel(entity.icon)
     // proto set
     this.api = 'navigation'

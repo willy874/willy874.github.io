@@ -23,6 +23,7 @@ export default class RouterModel extends DataModel {
           return new RouterModel(child)
         })
       : []
+    console.log(Views)
     if (Object.keys(Views).includes(entity.component)) this.component = Views[entity.component]
     if (entity.parent) this.parent = entity.parent || null
     if (entity.alias) this.alias = entity.alias

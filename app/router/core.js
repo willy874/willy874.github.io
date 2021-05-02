@@ -20,15 +20,18 @@ ApiOptions.prototype.apiUrl = String()
 ApiOptions.prototype.callback = Function()
 
 /**
- * @name Router
+ * @name RouterModel
  * @property {*} entity
  * @property {ExpressApp} app
  * @property {Server} listen
  * @property {Array<ApiOptions>} methodList
  * @property {Array<ControllerModel>} controllerList
  * @property {AuthController} auth
+ * @prototype getController
+ * @prototype setController
+ * @prototype api
  */
-module.exports = class Router {
+module.exports = class RouterModel {
   constructor(args) {
     const entity = args ? args : {}
     this.entity = entity

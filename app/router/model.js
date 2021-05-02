@@ -2,8 +2,10 @@ const Controller = require('../controller')
 const ControllerModel = require('../controller/core')
 const Models = require('../models')
 const { FileName } = require('../function')
+const RouterModel = require('./core')
 
-module.exports = function createModelRouter(Router) {
+module.exports = function createRouterModel(args) {
+  const Router = new RouterModel(args)
   const createController = (name = new FileName('')) => {
     const TargetController = Controller[name.ConverBigHump() + 'Controller']
     if (TargetController && TargetController.prototype instanceof ControllerModel) {
@@ -75,4 +77,5 @@ module.exports = function createModelRouter(Router) {
       })
     )
   })
+  return Router
 }

@@ -4,11 +4,14 @@ const Controller = require('./core')
 // req.get('Authorization')
 
 module.exports = class AuthController extends Controller {
-  constructor(app){
-      super(app)
+  constructor(app) {
+    super(app)
+  }
+  AuthIndex(req, res, next) {
+    next()
   }
   middleware(req, res, next) {
-    console.log('Authorization',req.get('Authorization'))
+    console.log('Authorization', req.get('Authorization'))
     console.log(req.url)
     next()
   }

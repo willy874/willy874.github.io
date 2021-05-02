@@ -1,14 +1,98 @@
-const Controller = require('../controller')
 const SocketServer = require('ws').Server
 const fs = require('fs')
 const path = require('path')
+const Controller = require('../controller')
+const ControllerModel = require('../controller/core')
 
-module.exports = class Route {
+/**
+ * @interface ApiOptions
+ */
+function ApiOptions(args) {
+  Object.keys(args).forEach(key => (this[key] = args[key]))
+}
+ApiOptions.prototype.controller = new ControllerModel() || String()
+ApiOptions.prototype.method = String()
+ApiOptions.prototype.handle = Function() || String()
+ApiOptions.prototype.middleware = Function() || String()
+ApiOptions.prototype.prefix = String()
+ApiOptions.prototype.url = String()
+ApiOptions.prototype.apiUrl = String()
+ApiOptions.prototype.callback = Function()
+
+/**
+ * @name Router
+ * @property {*} entity
+ * @property {ExpressApp} app
+ * @property {Server} listen
+ * @property {Array<ApiOptions>} methodList
+ * @property {Array<ControllerModel>} controllerList
+ * @property {AuthController} auth
+ */
+module.exports = class Router {
   constructor(args) {
     const entity = args ? args : {}
     this.entity = entity
     this.app = entity.app
     this.listen = entity.listen
+    this.methodList = []
+    this.controllerList = []
+    this.auth = new Controller.AuthController(entity)
     // this.database = entity.database
+  }
+
+  getController(handle, controller) {
+    if (typeof handle === 'string') {
+      if (controller instanceof ControllerModel) {
+        return this.setController(controller)[handle]
+      } else if (typeof controller === 'string') {
+        const targetController = this.controllerList.find(c => c.constructor.name === controller)
+        return targetController && targetController[handle]
+      }
+    } else if (typeof handle === 'function') {
+      return handle
+    }
+    return undefined
+  }
+
+  setController(controller) {
+    if (!this.controllerList.find(c => c.constructor.name === controller.constructor.name)) {
+      this.controllerList.push(controller)
+    }
+    return controller
+  }
+
+  /**
+   * Create an API Router.
+   * @param {ApiOptions} ops
+   * @param {String|ControllerModel} ops.controller This API the Controller
+   * @param {String|Function} ops.method This API the HTTP method
+   * @param {String} ops.handle This API the handle function nname
+   * @param {String|Function} ops.middleware This API the middleware
+   * @param {String} ops.prefix This API the url prefix string.
+   * @param {String} ops.url This API the path.
+   */
+  api(ops = new ApiOptions()) {
+    const { controller, handle, method, middleware, prefix, url } = ops
+    const controllerMethod = this.getController(handle, controller)
+    if (controllerMethod && typeof controllerMethod === 'function') {
+      const apiUrl = `/api/${prefix}${url}`
+      this.methodList.push(
+        new ApiOptions({
+          ...ops,
+          apiUrl,
+          middleware: typeof middleware === 'function' ? middleware : this.auth[middleware],
+          callback: controllerMethod,
+        })
+      )
+      this.app[method](apiUrl, async (request, response) => {
+        const param = {
+          options: ops,
+          request,
+          response,
+        }
+        const account = await this.auth[middleware](param)
+        controllerMethod(account, param)
+      })
+    }
   }
 }

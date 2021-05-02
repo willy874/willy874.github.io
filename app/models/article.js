@@ -1,4 +1,4 @@
-const Model = require('../core')
+const Model = require('./core')
 
 module.exports = class ArticleModel extends Model {
   constructor() {

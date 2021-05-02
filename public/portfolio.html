@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        .navbar-brand {
+            font-size: 1.75rem;
+            letter-spacing: 0.25rem;
+        }
+
+        .active .nav-link {
+            cursor: auto;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
+
+        @media (max-width:992px) {
+            .nav-link {
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        a {
+            color: #fff;
+            font-size: 1.125rem;
+        }
+
+        a:hover {
+            color: #ccc;
+        }
+
+        figure img {
+            transition: all 0.3s;
+        }
+
+        figure:hover img {
+            transform: translateY(-3px);
+            box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-dark px-5" style="position: fixed;top:0; left:0;right: 0; z-index: 100">
+        <nav class="navbar navbar-expand-sm navbar-dark align-items-center justify-content-between">
+            <h1>
+                <a class="navbar-brand" href="#">履歷表</a>
+            </h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-sm-2" href="../index.html">自我介紹</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link mx-sm-2" href="./portfolio.html">作品集</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div style="background-color:#f6f6ff;padding-top: 74px;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 py-3 order-lg-1">
+                  <figure class="text-center">
+                      <a href="https://www.udd.gov.taipei/" target="_blank">
+                          <img src="./image/uddgov.jpg" style="width:100%;border-radius: 0.5rem;">
+                      </a>
+                      <figcaption class="h5 text-dark pt-2">臺北市都發局局網</figcaption>
+                  </figure>
+              </div>
+              <div class="col-lg-6 py-3 order-lg-1">
+                  <ul class="text-dark" style="letter-spacing: 1px;line-height:1.75rem;font-size: 1.125rem;">
+                      <li>串接GoogleMapsAPI</li>
+                      <li>符合無障礙A等級標章</li>
+                      <li>頁面模組化開發</li>
+                      <li>使用jQuery完成使用者行為</li>
+                      <li>配合設計完成切版，配合後端串接頁面</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 py-3 order-lg-2">
+                  <figure class="text-center order-lg-2">
+                      <a href="https://www-dev.optoma.com/cm2/" target="_blank">
+                          <img src="./image/optoma.jpg" style="width:100%;border-radius: 0.5rem;">
+                      </a>
+                      <figcaption class="h5 text-dark pt-2">奧圖碼英文網</figcaption>
+                  </figure>
+              </div>
+              <div class="col-lg-6 py-3 order-lg-1">
+                  <ul class="text-dark" style="letter-spacing: 1px;line-height:1.75rem;font-size: 1.125rem;">
+                      <li>串接YoutubeAPI</li>
+                      <li>採用webpack建構ES6環境開發</li>
+                      <li>應用CSS完成頁面動畫</li>
+                      <li>使用jQuery完成使用者行為</li>
+                      <li>採遠端合作開發</li>
+                      <li>配合設計完成切版，前後端分離串接頁面</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 py-3">
+                  <figure class="text-center order-lg-2">
+                      <a href="./FanDlade.html" target="_blank">
+                          <img src="./image/FanDlade.jpg" style="width:100%;border-radius: 0.5rem;object-fit: cover;height: 250px;">
+                      </a>
+                      <figcaption class="h5 text-dark pt-2">簡易CSS動畫</figcaption>
+                  </figure>
+              </div>
+              <div class="col-lg-6 py-3 order-lg-1">
+                  <ul class="text-dark" style="letter-spacing: 1px;line-height:1.75rem;font-size: 1.125rem;">
+                      <li>CSS Animation</li>
+                      <li>純粹使用 CSS 來呈現</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 py-3 order-lg-2">
+                  <figure class="text-center">
+                      <a href="./nutrition.html" target="_blank">
+                          <img src="./image/nutrition.jpg" style="width:100%;border-radius: 0.5rem;">
+                      </a>
+                      <figcaption class="h5 text-dark pt-2">Canvas動畫</figcaption>
+                  </figure>
+              </div>
+              <div class="col-lg-6 py-3 order-lg-1">
+                  <ul class="text-dark" style="letter-spacing: 1px;line-height:1.75rem;font-size: 1.125rem;">
+                      <li>採用原生 Canvas 進行製作</li>
+                      <li>套用緩動函數計算</li>
+                      <li>使用物件導向概念</li>
+                      <li>與設計師配合製作</li>
+                  </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 py-3 order-lg-1">
+                    <figure class="text-center" target="_blank">
+                        <a href="http://demo.tocin.bsdctw.tw/home" target="_blank">
+                            <img src="./image/tocin.jpg" style="width:100%;border-radius: 0.5rem;">
+                        </a>
+                        <figcaption class="h5 text-dark pt-2">東震購物官網</figcaption>
+                    </figure>
+                </div>
+                <div class="col-lg-6 py-3 order-lg-2">
+                    <ul class="text-dark" style="letter-spacing: 1px;line-height:1.75rem;font-size: 1.125rem;">
+                        <li>測試用帳號: P220327347 密碼: 5888</li>
+                        <li>使用 Vue2 進行SAP開發</li>
+                        <li>全域快取功能</li>
+                        <li>採用標準 RestfulAPI 規範</li>
+                        <li>與設計、後端協同製作</li>
+                        <li>
+                          特殊版面:
+                          <br><a class="text-primary" href="http://demo.tocin.bsdctw.tw/service/stronghold" target="_blank">SVG與表格互動</a>
+                          <br><a class="text-primary" href="http://demo.tocin.bsdctw.tw/member/shopcart/step/1" target="_blank">購物車</a>
+                          <br><a class="text-primary" href="http://demo.tocin.bsdctw.tw/member/natalchart" target="_blank">表單互動</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@ module.exports = function (ops, modelName) {
   const fn = new FileName(modelName)
   return (
     '' +
-    "const Model = require('../core')\n" +
+    "const Model = require('./core')\n" +
     '\n' +
     `module.exports = class ${modelName}Model extends Model {\n` +
     `constructor() {\n` +

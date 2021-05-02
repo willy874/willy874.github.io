@@ -1,4 +1,4 @@
-const Model = require('../core')
+const Model = require('./core')
 
 module.exports = class ImageModel extends Model {
   constructor() {

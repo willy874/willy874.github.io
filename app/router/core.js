@@ -89,12 +89,17 @@ module.exports = class RouterModel {
       )
       this.app[method](apiUrl, async (request, response) => {
         const param = {
+          ops,
           options: ops,
           request,
+          req: request,
           response,
+          res: response,
         }
-        const account = await this.auth[middleware](param)
-        controllerMethod(account, param)
+        const accumulator = await this.auth[middleware](param)
+        param.acc = accumulator
+        param.accumulator = accumulator
+        controllerMethod(param)
       })
     }
   }

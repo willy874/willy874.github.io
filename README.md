@@ -18,6 +18,8 @@
 
 1. Model 系統
 2. 動態 Router 系統
+3. 管理者權限管理系統
+4. 緩存資料庫
 
 ## [插件製作](https://github.com/willy874/willy874.github.io/tree/master/plugins)
 

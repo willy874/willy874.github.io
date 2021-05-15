@@ -64,8 +64,8 @@ module.exports = function (ops, modelName) {
     '\n' +
     commentText +
     `export default class ${modelName}Model extends ${model.extends}{\n` +
-    `constructor(){\n` +
-    `super()\n` +
+    `constructor(args){\n` +
+    `super(args)\n` +
     `const entity = args || {}\n` +
     model.tebles.map(table => `this.${table.name} = ${tableValueTable(table)}\n`).join('') +
     '// proto set\n' +

@@ -16,10 +16,7 @@ module.exports = function implements(...args) {
       }
       if (typeof item === 'object') {
         Object.keys(item).forEach(key => {
-          Object.defineProperty(target, key, {
-            value: item[key],
-            enumerable: false,
-          })
+          target[key] = item[key]
         })
       }
     }

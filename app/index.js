@@ -3,6 +3,7 @@ require('dotenv').config()
 const path = require('path')
 const express = require('express')
 const cors = require('cors')
+const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const app = express()
 const createRoute = require('./router/index')
@@ -16,6 +17,7 @@ const port = process.env.PORT
 app
   .use(cors())
   .use(cookieParser())
+  .use(bodyParser.json())
   .use(express.static(path.join(root, publicUrl)))
   .use(express.static(path.join(root, storageUrl)))
 app.root = root

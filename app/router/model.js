@@ -37,7 +37,7 @@ module.exports = function createRouterModel(args) {
     Router.api(
       Object.assign({}, config, {
         method: 'get',
-        url: `/${name.data.join('-')}/{:id?}`,
+        url: `/${name.data.join('-')}/:id?`,
         handle: `get${name.ConverBigHump()}ById`,
       })
     )
@@ -58,7 +58,7 @@ module.exports = function createRouterModel(args) {
     Router.api(
       Object.assign({}, config, {
         method: 'put',
-        url: `/${name.data.join('-')}/{:id?}`,
+        url: `/${name.data.join('-')}/:id?`,
         handle: `update${name.ConverBigHump()}ById`,
       })
     )
@@ -72,7 +72,7 @@ module.exports = function createRouterModel(args) {
     Router.api(
       Object.assign({}, config, {
         method: 'delete',
-        url: `/${name.data.join('-')}/{:id?}`,
+        url: `/${name.data.join('-')}/:id?`,
         handle: `delete${name.ConverBigHump()}ById`,
       })
     )

@@ -23,8 +23,9 @@ module.exports = function repository(modelName, ops = {}) {
     class AbstractModel extends BaseModel {
       constructor(args) {
         super(args)
+        this.nativeModel = BaseModel
       }
     }
-    return implements.call(new AbstractModel(ops), [SqlInterface])
+    return implements.apply(new AbstractModel(ops), [SqlInterface])
   }
 }

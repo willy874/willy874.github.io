@@ -7,8 +7,6 @@ module.exports = class Interface {
             this[key] = obj.prototype[key]
           }
         })
-      } else {
-        Object.assign(this, obj.prototype)
       }
     }
   }

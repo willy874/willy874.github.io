@@ -7,7 +7,7 @@ export default {
   setup() {
     const dialog = useDialog()
     const isPopupOpen = () => dialog.popups.length
-    const popupMove = e => {
+    const popupMove = (e) => {
       const offsetWidth = dialog.dropTarget.offsetWidth
       const offsetHeight = dialog.dropTarget.offsetHeight
       if (window.innerWidth - offsetWidth < e.pageX - dialog.dropOffsetX) {
@@ -27,7 +27,7 @@ export default {
     }
     const windowResize = () => {
       if (isPopupOpen()) {
-        dialog.popups.forEach(popup => {
+        dialog.popups.forEach((popup) => {
           const target = popup.ref
           const correctionValue = 8
           const offsetRight = target.offsetWidth + target.offsetLeft
@@ -57,18 +57,18 @@ export default {
             'pointer-events-none opacity-0': !isPopupOpen(),
           }),
           onClick: () => {
-            dialog.popups.forEach(popup => {
+            dialog.popups.forEach((popup) => {
               if (popup.onBackgroundClick) popup.onBackgroundClick(popup)
             })
           },
-          onDragover: e => {
+          onDragover: (e) => {
             if (dialog.dropTarget) {
               popupMove(e)
             }
           },
-          onTouchMove: event => {
+          onTouchMove: (event) => {
             if (dialog.dropTarget) {
-              const e = Array.apply([], event.touches).find(p => p.target === event.target)
+              const e = Array.apply([], event.touches).find((p) => p.target === event.target)
               popupMove(e)
             }
           },

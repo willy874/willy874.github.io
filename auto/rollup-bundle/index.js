@@ -63,7 +63,7 @@ async function build(input = {}, output = {}) {
 
 function buildFunction() {
   const bundleName = 'function'
-  const input = `${root}/plugins/function/index.js`
+  const input = `${root}/plugins/src/components/function/index.js`
   const external = ['dayjs', 'uuid', 'lodash']
   console.log('Rollup bundle '.green + 'input'.yellow + ' as '.green + bundleName.yellow + ' ' + input.blue)
   return Promise.all([
@@ -75,7 +75,7 @@ function buildFunction() {
 }
 function buildIcon() {
   const bundleName = 'icon'
-  const input = `${root}/plugins/icon/index.js`
+  const input = `${root}/plugins/src/components/icon/index.js`
   const external = ['vue']
   console.log('Rollup bundle '.green + 'input'.yellow + ' as '.green + bundleName.yellow + ' ' + input.blue)
   return Promise.all([
@@ -85,7 +85,7 @@ function buildIcon() {
 }
 function buildDialog() {
   const bundleName = 'dialog'
-  const input = `${root}/plugins/dialog/index.js`
+  const input = `${root}/plugins/src/components/dialog/index.js`
   const external = ['vue', 'classnames', 'uuid']
   console.log('Rollup bundle '.green + 'input'.yellow + ' as '.green + bundleName.yellow + ' ' + input.blue)
   return Promise.all([

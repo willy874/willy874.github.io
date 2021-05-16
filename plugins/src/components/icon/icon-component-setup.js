@@ -37,8 +37,7 @@ export default {
     }
     if (props.type === 'svg') {
       const attrs =
-        typeof Pattern[props.pattern] !== 'string' &&
-        'attrs' in Pattern[props.pattern]
+        typeof Pattern[props.pattern] !== 'string' && 'attrs' in Pattern[props.pattern]
           ? Pattern[props.pattern].attrs
           : {}
       return () =>

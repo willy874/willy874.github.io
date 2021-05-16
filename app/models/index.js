@@ -1,6 +1,5 @@
 module.exports = {
-  Article: require('./article.js'),
-  ImageRelation: require('./image-relation.js'),
-  Image: require('./image.js'),
-  Navigation: require('./navigation.js'),
+  ImageRelationModel: require('./image-relation.js'),
+  ImageModel: require('./image.js'),
+  NavigationModel: require('./navigation.js'),
 }

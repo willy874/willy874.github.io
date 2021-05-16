@@ -7,7 +7,6 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 const app = express()
 const createRoute = require('./router/index')
-// const root = process.env.ROOT || path.join(__dirname, '..')
 const root = path.join(__dirname)
 const baseUrl = process.env.BASE_URL
 const publicUrl = process.env.PUBLIC_URL
@@ -27,6 +26,10 @@ const Route = createRoute({
     // listen callback.
   }),
   database: {},
+  /**
+   * 設定要加入權限判斷的 Controller
+   */
+  authority: [],
 })
 console.log(`${baseUrl}:${port}`.blue)
 module.exports = Route

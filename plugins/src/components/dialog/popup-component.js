@@ -17,7 +17,7 @@ export default {
   setup(props) {
     // 解除 Proxy 代理
     const PopupView = {}
-    Object.keys(props.popup.view).forEach(key => {
+    Object.keys(props.popup.view).forEach((key) => {
       PopupView[key] = props.popup.view[key]
     })
     const dialog = useDialog()
@@ -30,7 +30,7 @@ export default {
       props.popup.ref = popupItem
       const position = props.popup.position
       const correctionValue = 20
-      const topMath = top => {
+      const topMath = (top) => {
         if (typeof top === 'number') {
           return top + 'px'
         } else if (typeof top === 'string') {
@@ -45,7 +45,7 @@ export default {
         }
         return 0
       }
-      const leftMath = left => {
+      const leftMath = (left) => {
         if (typeof left === 'number') {
           return left + 'px'
         } else if (typeof left === 'string') {
@@ -79,7 +79,7 @@ export default {
         {
           ref: popupItem,
           class: cx('absolute transition-opacity duration-300'),
-          onClick: e => e.stopPropagation(),
+          onClick: (e) => e.stopPropagation(),
           // change zIndex
           onMouseDown: () => {
             const indexOf = dialog.popups.indexOf(props.popup)
@@ -103,14 +103,14 @@ export default {
             props: Object.assign(props.popup.props, {
               index: props.index,
             }),
-            drag: e => {
+            drag: (e) => {
               e.dataTransfer.setDragImage(new Image(), 0, 0)
               dialog.dropTarget = popupItem
               dialog.dropOffsetX = e.pageX - popupItem.value.offsetLeft
               dialog.dropOffsetY = e.pageY - popupItem.value.offsetTop
             },
-            touch: event => {
-              const e = Array.apply([], event.touches).find(p => p.target === event.target)
+            touch: (event) => {
+              const e = Array.apply([], event.touches).find((p) => p.target === event.target)
               dialog.dropTarget = popupItem
               dialog.dropOffsetX = e.pageX - popupItem.value.offsetLeft
               dialog.dropOffsetY = e.pageY - popupItem.value.offsetTop

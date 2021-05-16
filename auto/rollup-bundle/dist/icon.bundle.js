@@ -1,6 +1,6 @@
 import { h } from 'vue';
 
-var add = {
+var require$$0 = {
   mount: '.icon-add',
   attrs: {
     viewBox: '0 0 448 448',
@@ -12,12 +12,7 @@ var add = {
   `,
 };
 
-var add$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': add
-});
-
-var arrowSolid = {
+var require$$1 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -30,12 +25,7 @@ var arrowSolid = {
   `,
 };
 
-var arrowSolid$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': arrowSolid
-});
-
-var arrow = {
+var require$$2 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -48,12 +38,7 @@ var arrow = {
   `,
 };
 
-var arrow$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': arrow
-});
-
-var _delete = {
+var require$$3 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -66,11 +51,6 @@ var _delete = {
     <polygon points="266.667,21.333 245.333,0 138.667,0 117.333,21.333 42.667,21.333 42.667,64 341.333,64 341.333,21.333 "/>
   `,
 };
-
-var _delete$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': _delete
-});
 
 var require$$4 = {
   mount: '.icon-add',
@@ -86,7 +66,7 @@ var require$$4 = {
   `,
 };
 
-var gearOption = {
+var require$$5 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -99,12 +79,7 @@ var gearOption = {
   `,
 };
 
-var gearOption$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': gearOption
-});
-
-var home = {
+var require$$6 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -117,12 +92,7 @@ var home = {
   `,
 };
 
-var home$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': home
-});
-
-var play = {
+var require$$7 = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -134,29 +104,6 @@ var play = {
     <path d="M405.284,201.188L130.804,13.28C118.128,4.596,105.356,0,94.74,0C74.216,0,61.52,16.472,61.52,44.044v406.124c0,27.54,12.68,43.98,33.156,43.98c10.632,0,23.2-4.6,35.904-13.308l274.608-187.904c17.66-12.104,27.44-28.392,27.44-45.884C432.632,229.572,422.964,213.288,405.284,201.188z"/>
   `,
 };
-
-var play$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': play
-});
-
-function getCjsExportFromNamespace (n) {
-	return n && n['default'] || n;
-}
-
-var require$$0 = getCjsExportFromNamespace(add$1);
-
-var require$$1 = getCjsExportFromNamespace(arrowSolid$1);
-
-var require$$2 = getCjsExportFromNamespace(arrow$1);
-
-var require$$3 = getCjsExportFromNamespace(_delete$1);
-
-var require$$5 = getCjsExportFromNamespace(gearOption$1);
-
-var require$$6 = getCjsExportFromNamespace(home$1);
-
-var require$$7 = getCjsExportFromNamespace(play$1);
 
 var pattern = {
   Add: require$$0,

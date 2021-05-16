@@ -40,7 +40,7 @@ module.exports = class RouterModel {
     this.methodList = []
     this.controllerList = []
     this.auth = new Controller.AuthController(entity)
-    // this.database = entity.database
+    this.authority = entity.authority || []
   }
 
   getController(handle, controller) {
@@ -75,32 +75,23 @@ module.exports = class RouterModel {
    * @param {String} ops.url This API the path.
    */
   api(ops = new ApiOptions()) {
-    const { controller, handle, method, middleware, prefix, url } = ops
+    const { controller, handle, method, middleware, authorization, prefix, url } = ops
     const controllerMethod = this.getController(handle, controller)
     if (controllerMethod && typeof controllerMethod === 'function') {
       const apiUrl = `/api/${prefix}${url}`
-      this.methodList.push(
-        new ApiOptions({
-          ...ops,
-          apiUrl,
-          middleware: typeof middleware === 'function' ? middleware : this.auth[middleware],
-          callback: controllerMethod,
-        })
-      )
-      this.app[method](apiUrl, async (request, response) => {
-        const param = {
-          ops,
-          options: ops,
-          request,
-          req: request,
-          response,
-          res: response,
-        }
-        const accumulator = await this.auth[middleware](param)
-        param.acc = accumulator
-        param.accumulator = accumulator
-        controllerMethod(param)
+      const options = new ApiOptions({
+        ...ops,
+        apiUrl,
+        middleware: typeof middleware === 'function' ? middleware : this.auth[middleware],
+        authorization: typeof authorization === 'function' ? authorization : this.auth[authorization],
+        callback: controllerMethod,
       })
+      this.methodList.push(options)
+      const routeMethods = [options.middleware, controllerMethod]
+      if (this.authority.some(name => Controller[name] && controller instanceof Controller[name])) {
+        routeMethods.splice(1, 0, this.auth[options.authorization])
+      }
+      this.app[method](apiUrl, routeMethods)
     }
   }
 }

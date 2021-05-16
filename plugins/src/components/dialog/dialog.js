@@ -20,15 +20,15 @@ export default class Dialog {
             view,
           })
     this.popups.push(popup)
-    return new Promise(resolve => {
-      popup.onClose = attrs => {
+    return new Promise((resolve) => {
+      popup.onClose = (attrs) => {
         resolve(attrs)
       }
     })
   }
 
   closePopup(id) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       Promise.all(
         this.popups
           .filter((popup, index) => {
@@ -40,8 +40,8 @@ export default class Dialog {
               return true
             }
           })
-          .map(popup => {
-            return new Promise(resolve => {
+          .map((popup) => {
+            return new Promise((resolve) => {
               popup.ref.style.opacity = '0'
               const end = () => {
                 popup.ref.removeEventListener('transitionend', end)
@@ -57,7 +57,7 @@ export default class Dialog {
           if (this.popups.length === 0) document.body.style.overflow = ''
         }
         if (typeof id === 'string') {
-          const index = this.popups.map(item => item.id).indexOf(id)
+          const index = this.popups.map((item) => item.id).indexOf(id)
           resolve(this.popups.splice(index, 1))
           if (this.popups.length === 0) document.body.style.overflow = ''
         } else {

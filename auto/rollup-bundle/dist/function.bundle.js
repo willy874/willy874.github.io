@@ -106,7 +106,7 @@ var observable = class Observable {
   }
 };
 
-var valueString = function valueString(value) {
+var valueString = function valueString(value, type) {
   switch (true) {
     case value === undefined:
       return 'undefined'
@@ -119,7 +119,9 @@ var valueString = function valueString(value) {
     case isNaN(value):
       return 'NaN'
     case Array.isArray(value):
-      return `[${value.map(v => valueString(v)).join(',')}]`
+      return type === 'sql'
+        ? `[${value.map(v => valueString(v)).join(',')}]`
+        : `(${value.map(v => valueString(v)).join(',')})`
     case typeof value === 'string':
       return `'${value}'`
     case typeof value === 'boolean':

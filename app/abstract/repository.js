@@ -12,20 +12,10 @@ const SqlInterface = require('./sql-interface')
  */
 module.exports = function repository(modelName, ops = {}) {
   const name = new FileName(modelName)
-  /**
-   * @class
-   * @type {Function}
-   * @extends {Model}
-   */
   const BaseModel = models[name.ConverBigHump()]
 
   if (BaseModel) {
-    class AbstractModel extends BaseModel {
-      constructor(args) {
-        super(args)
-        this.nativeModel = BaseModel
-      }
-    }
-    return implements.apply(new AbstractModel(ops), [SqlInterface])
+    console.log(BaseModel)
+    return implements.apply(new BaseModel(), [SqlInterface])
   }
 }

@@ -13,8 +13,8 @@ import DataModel from '../proto/data'
  * @property {String} infomation 該圖片的資訊的json資料
  */
 export default class ImageModel extends DataModel {
-  constructor() {
-    super()
+  constructor(args) {
+    super(args)
     const entity = args || {}
     this.id = entity.id || 0
     this.name = entity.name || ''

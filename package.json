@@ -11,6 +11,10 @@
     "model": "cd auto & node model",
     "svg": "cd auto & node svg",
     "plugin": "cd auto & node rollup-bundle",
+    "migration": "cd auto & node migration",
+    "demo": "cd plugins & npm run serve",
+    "backend": "cd backend & npm run dev",
+    "web": "cd web & npm run dev",
     "app": "cd app & node index"
   },
   "repository": {

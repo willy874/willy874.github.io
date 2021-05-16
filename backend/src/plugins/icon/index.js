@@ -1,6 +1,6 @@
 import { h } from 'vue';
 
-var require$$0 = {
+var add = {
   mount: '.icon-add',
   attrs: {
     viewBox: '0 0 448 448',
@@ -12,7 +12,12 @@ var require$$0 = {
   `,
 };
 
-var require$$1 = {
+var add$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': add
+});
+
+var arrowSolid = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -25,7 +30,12 @@ var require$$1 = {
   `,
 };
 
-var require$$2 = {
+var arrowSolid$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': arrowSolid
+});
+
+var arrow = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -37,6 +47,11 @@ var require$$2 = {
     <polygon points="0,53.333 106.667,160 213.333,53.333 "/>
   `,
 };
+
+var arrow$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': arrow
+});
 
 var _delete = {
   mount: '.icon-add',
@@ -57,7 +72,7 @@ var _delete$1 = /*#__PURE__*/Object.freeze({
   'default': _delete
 });
 
-var require$$4 = {
+var edit = {
   mount: '.icon-add',
   attrs: {
     viewBox: '0 0 512 511',
@@ -71,7 +86,12 @@ var require$$4 = {
   `,
 };
 
-var require$$5 = {
+var edit$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': edit
+});
+
+var gearOption = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -84,7 +104,12 @@ var require$$5 = {
   `,
 };
 
-var require$$6 = {
+var gearOption$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': gearOption
+});
+
+var home = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -97,7 +122,12 @@ var require$$6 = {
   `,
 };
 
-var require$$7 = {
+var home$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': home
+});
+
+var play = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -110,11 +140,30 @@ var require$$7 = {
   `,
 };
 
+var play$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': play
+});
+
 function getCjsExportFromNamespace (n) {
 	return n && n['default'] || n;
 }
 
+var require$$0 = getCjsExportFromNamespace(add$1);
+
+var require$$1 = getCjsExportFromNamespace(arrowSolid$1);
+
+var require$$2 = getCjsExportFromNamespace(arrow$1);
+
 var require$$3 = getCjsExportFromNamespace(_delete$1);
+
+var require$$4 = getCjsExportFromNamespace(edit$1);
+
+var require$$5 = getCjsExportFromNamespace(gearOption$1);
+
+var require$$6 = getCjsExportFromNamespace(home$1);
+
+var require$$7 = getCjsExportFromNamespace(play$1);
 
 var pattern = {
   Add: require$$0,

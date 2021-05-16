@@ -15,10 +15,12 @@ module.exports = function createRouterModel(args) {
   }
   Object.keys(Models).forEach(modelName => {
     const name = new FileName(modelName)
+    name.data.pop()
     const config = {
       prefix: 'backend',
       controller: createController(name),
-      middleware: 'AuthIndex',
+      middleware: 'Middleware',
+      authorization: 'Authorization',
     }
     Router.api(
       Object.assign({}, config, {
@@ -60,6 +62,13 @@ module.exports = function createRouterModel(args) {
         method: 'put',
         url: `/${name.data.join('-')}/:id?`,
         handle: `update${name.ConverBigHump()}ById`,
+      })
+    )
+    Router.api(
+      Object.assign({}, config, {
+        method: 'patch',
+        url: `/${name.data.join('-')}/:id?`,
+        handle: `patch${name.ConverBigHump()}ById`,
       })
     )
     Router.api(

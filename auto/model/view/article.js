@@ -13,8 +13,8 @@ import DataModel from '../proto/data'
  * @property {String} finished_at 該筆文章的下架時間
  */
 export default class ArticleModel extends DataModel {
-  constructor() {
-    super()
+  constructor(args) {
+    super(args)
     const entity = args || {}
     this.subject = entity.subject || ''
     this.content = entity.content || ''

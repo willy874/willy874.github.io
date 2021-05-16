@@ -22,7 +22,7 @@ fs.readdir(path.join(__dirname, 'history')).then(folder => {
           // console.log(result)
         })
         .catch(error => {
-          console.log('sqlMessage:', error.sqlMessage.red)
+          console.log('sqlMessage:', error.sqlMessage)
           console.log('sqlQuery:', error.sql)
           conn.end()
         })

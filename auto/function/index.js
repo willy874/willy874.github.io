@@ -110,13 +110,43 @@ var observable = class Observable {
   }
 };
 
+var valueString = function valueString(value) {
+  switch (true) {
+    case value === undefined:
+      return 'undefined'
+    case value === null:
+      return 'null'
+    case value === 0:
+      return '0'
+    case value === '':
+      return "''"
+    case isNaN(value):
+      return 'NaN'
+    case Array.isArray(value):
+      return `[${value.map(v => valueString(v)).join(',')}]`
+    case typeof value === 'string':
+      return `'${value}'`
+    case typeof value === 'boolean':
+      return value.toString()
+    case typeof value === 'number':
+      return value.toString()
+    case typeof value === 'function':
+      return value.toString()
+    case typeof value === 'object':
+      return JSON.stringify(value)
+  }
+};
+
 var _function = {
   FileName: fileName,
   Observable: observable,
+  ValueString: valueString,
 };
 var _function_1 = _function.FileName;
 var _function_2 = _function.Observable;
+var _function_3 = _function.ValueString;
 
 exports.FileName = _function_1;
 exports.Observable = _function_2;
+exports.ValueString = _function_3;
 exports.default = _function;

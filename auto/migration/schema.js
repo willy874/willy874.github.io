@@ -8,11 +8,13 @@ module.exports = class Schema {
   static async create(migration, action) {
     const table = new Blueprint(migration)
     action(table)
+    await table.modelWrite()
     return await table.queryCreate()
   }
   static async update(migration, action) {
     const table = new Blueprint(migration)
     action(table)
+    await table.modelWrite()
     return await table.queryUpdate()
   }
   static async drop(migration, action) {

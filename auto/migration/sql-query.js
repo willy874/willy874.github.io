@@ -1,5 +1,10 @@
 // prettier-disable
 const path = require('path')
+const fs = require('fs').promises
+const prettier = require('prettier')
+const config = require('./config')
+const { FileName }  = require('../function')
+
 // FIXME
 /**
  * 針對保留字和 SQL Injection 要做額外處理
@@ -82,4 +87,41 @@ exports.queryDrop = function () {
       })
     }
   })
+}
+
+
+exports.modelWrite = async function () {
+  const tableName = this.BlueprintTableName
+  const tables = this.BlueprintTables
+  const filename =  new FileName(tableName)
+  const writeFile = filename.data.join('-') + '.js'
+  const writePath = path.join(path.join(...config.output), writeFile)
+  const writeString = '' +
+`const Model = require('./core')
+module.exports = class ${filename.ConverBigHump()}Model extends Model {
+  constructor() {
+    super()
+    this.table = '${filename.data.join('_')}'
+    this.fillable = [${tables.map(t => `'${t.name}'`).join(',')}]
+  }
+}`
+  const prettierString = prettier.format(writeString, {
+    semi: false,
+    singleQuote: true,
+    arrowParens: 'avoid',
+    parser: 'babel',
+  })
+  const folders = await fs.readdir(path.join(...config.output))
+  if (folders.includes(writeFile) && !config.overwrite) {
+    return Promise.resolve()
+  }
+  return await fs.writeFile(writePath, prettierString)
+    .then(() => {
+      console.log(
+        folders.includes(writeFile) ? 'Overwrite'.green : 'Create'.green,
+        `${filename.data.join('-')}.js`.yellow,
+        'View Model success.'.green, 
+        writePath.blue
+      )
+    })
 }

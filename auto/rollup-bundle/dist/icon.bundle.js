@@ -53,7 +53,7 @@ var arrow$1 = /*#__PURE__*/Object.freeze({
   'default': arrow
 });
 
-var require$$3 = {
+var _delete = {
   mount: '.icon-add',
   attrs: {
     xmlns: 'http://www.w3.org/2000/svg',
@@ -67,7 +67,12 @@ var require$$3 = {
   `,
 };
 
-var edit = {
+var _delete$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  'default': _delete
+});
+
+var require$$4 = {
   mount: '.icon-add',
   attrs: {
     viewBox: '0 0 512 511',
@@ -80,11 +85,6 @@ var edit = {
     <path d="m496.382812 16.101562c-20.796874-20.800781-54.632812-20.800781-75.414062 0l-29.523438 29.523438 75.414063 75.414062 29.523437-29.527343c10.070313-10.046875 15.617188-23.445313 15.617188-37.695313s-5.546875-27.648437-15.617188-37.714844zm0 0"/>
   `,
 };
-
-var edit$1 = /*#__PURE__*/Object.freeze({
-  __proto__: null,
-  'default': edit
-});
 
 var gearOption = {
   mount: '.icon-add',
@@ -150,7 +150,7 @@ var require$$1 = getCjsExportFromNamespace(arrowSolid$1);
 
 var require$$2 = getCjsExportFromNamespace(arrow$1);
 
-var require$$4 = getCjsExportFromNamespace(edit$1);
+var require$$3 = getCjsExportFromNamespace(_delete$1);
 
 var require$$5 = getCjsExportFromNamespace(gearOption$1);
 

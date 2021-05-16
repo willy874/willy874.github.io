@@ -17,8 +17,8 @@ import { ImageModel } from './index'
  * @property {ImageModel} icon 路由使用的Icon圖片
  */
 export default class NavigationModel extends DataModel {
-  constructor() {
-    super()
+  constructor(args) {
+    super(args)
     const entity = args || {}
     this.id = entity.id || 0
     this.uuid = entity.uuid || ''

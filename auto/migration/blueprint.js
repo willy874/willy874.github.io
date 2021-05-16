@@ -1,5 +1,5 @@
 const TableColumn = require('./table-column')
-const { queryCreate, queryDrop } = require('./sql-query')
+const { queryCreate, queryDrop, modelWrite } = require('./sql-query')
 
 /**
  * Blueprint 負責操作資料庫
@@ -15,6 +15,7 @@ module.exports = class Blueprint {
     // prototype methods
     this.queryCreate = queryCreate
     this.queryDrop = queryDrop
+    this.modelWrite = modelWrite
   }
   /**
    * 建立主鍵，預設為 int 纇型，長度 10，AUTO_INCREMENT。

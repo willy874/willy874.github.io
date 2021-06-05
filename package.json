@@ -6,17 +6,7 @@
   "directories": {
     "doc": "doc"
   },
-  "scripts": {
-    "index": "cd auto & node create-index",
-    "model": "cd auto & node model",
-    "svg": "cd auto & node svg",
-    "plugin": "cd auto & node rollup-bundle",
-    "migration": "cd auto & node migration",
-    "demo": "cd plugins & npm run serve",
-    "backend": "cd backend & npm run dev",
-    "web": "cd web & npm run dev",
-    "app": "cd app & node index"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/willy874/bamboodiary.git"

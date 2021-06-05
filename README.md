@@ -7,21 +7,26 @@
 3. Router 具備基本的 Restful API 自動建立特性，依據 models 來自動產生相關需要的 API，並與 Controller 自動接耦與解耦，增加開發的便利性。 [link](https://github.com/willy874/willy874.github.io/tree/master/app/router)
 
 ## [自動化](https://github.com/willy874/willy874.github.io/tree/master/auto)
- ### [Model 建立工具](https://github.com/willy874/willy874.github.io/tree/master/auto/model)
+
+### [Model 建立工具](https://github.com/willy874/willy874.github.io/tree/master/auto/model)
+
 因為各種 Model 的介面設定與擋案設定處理過於繁雜而重複，為了工作行為不要重工，只要建立一次設定檔，由 nodejs 產生 modeljs 檔案。設定檔也比在建構式時更易於閱讀。內部也有提供是否覆複寫的設定參數。
 
 ### [Rollup 套件打包](https://github.com/willy874/willy874.github.io/tree/master/auto/rollup-bundle)
+
 一些共用函式與套件因為常常要複製貼上與搬運，所以使用 Rollup 來統一打包散亂的資料夾與檔案，便可以統一集中管理，未來會規話另拆出變 npm plugin 來安裝。
 
 ### [Migration 資料庫遷移](https://github.com/willy874/willy874.github.io/tree/master/auto/migration)
+
 過去經常接處的是 PHP Laravel 的後端框架，希望使用接口與介面相似的架構，因此自行設計的 Migration 系統，以 MySQL 為對象直接對資料庫進行操作。
 
 ### [create-index 索引產生器](https://github.com/willy874/willy874.github.io/tree/master/auto/create-index)
-在ES6中經常使用模塊開發，但為了方便引入經常要寫索引檔案，因此寫了一支自動產生索引的工具來為我工作。
+
+在 ES6 中經常使用模塊開發，但為了方便引入經常要寫索引檔案，因此寫了一支自動產生索引的工具來為我工作。
 
 ### [SVG 轉換器](https://github.com/willy874/willy874.github.io/tree/master/auto/svg)
-因為不喜歡直接使用 `img(src="...")` 方式引入 Icon，所以幾乎採用 JS 來掛載，但要把大量的 icon.svg 轉成 JS 檔案使用非常麻煩，因此建立該工具來產生自己需要的 JS 格式。
 
+因為不喜歡直接使用 `img(src="...")` 方式引入 Icon，所以幾乎採用 JS 來掛載，但要把大量的 icon.svg 轉成 JS 檔案使用非常麻煩，因此建立該工具來產生自己需要的 JS 格式。
 
 ## [後台架構](https://github.com/willy874/willy874.github.io/tree/master/backend)
 
@@ -32,16 +37,13 @@
 ## [插件製作](https://github.com/willy874/willy874.github.io/tree/master/plugins)
 
 ### [便利函式](https://github.com/willy874/willy874.github.io/tree/master/plugins/function)
+
 目前已製作命名轉換工具、非同步管理工具。
+
 ### [Dialog UI](https://github.com/willy874/willy874.github.io/tree/master/plugins/dialog)
+
 自行搭建的 Dialog UI 插件，每次較回傳 Promise 來非同步管理視窗。具備多層視窗功能，並可以進行切換。視窗可以用滑鼠及觸控拖拉改變位置，並支援 RWD 的變化來改變定位與寬度。
+
 ### [Icon UI](https://github.com/willy874/willy874.github.io/tree/master/plugins/icon)
+
 可以將 Icon 設定檔引入到內部，吐出可以直接 mount 在畫面上的組件。
-
-## [組件製作](https://github.com/willy874/willy874.github.io/tree/master/backend/src/components)
-未開發至成熟的組件優先放置於 components 以利於經常修改，待穩定後移動至 plugins。
-### [DataTable](https://github.com/willy874/willy874.github.io/tree/master/backend/src/components/data-table)
-因於後台經常要操作 table 組件，這是一個以 Flex 為核心的 table，許多功能待擴充。
-
-### [圖片編輯顯示組件](https://github.com/willy874/willy874.github.io/tree/master/backend/src/components/image-viewbox)
-內部分為兩大功能組件。第一個是將 url 以 GET API 方式取回 Blob 來進行解析，內部有緩存快取，以減少不必要的請求。優點是可以精確攔截每一張讀片被讀取完的時間，而不會受到原生的加載限制了懶加載可以做到的效果。另一項功能組件是圖片編輯，建構在圖片顯示組件的基礎上，實現單圖、多圖上傳預覽等功能，並且支援拖拉上傳、拖拉排序等內置功能。

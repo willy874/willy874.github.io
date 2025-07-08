@@ -1,1 +1,0 @@
-import{__toESM as e,require_react as t}from"./iframe-ZIBG7NBm.js";var n=e(t());function r(e,t){typeof e==`function`?e(t):e&&(e.current=t)}function i(...e){return(0,n.useMemo)(()=>{if(!e.every(e=>e==null))return t=>{e.forEach(e=>{r(e,t)})}},e)}export{i as useForkRef};

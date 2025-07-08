@@ -1,3 +1,0 @@
-import"./jsx-runtime-CoCc0J3V.js";import"./css-CsXqSe5-.js";import{Spin_default as e}from"./Spin-BUBcygYE.js";/* empty css               */var t,n;const r={title:`Example/Spin`,component:e,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{}};var i=r;const a={args:{}};a.parameters={...a.parameters,docs:{...(t=a.parameters)?.docs,source:{originalSource:`{
-  args: {}
-}`,...(n=a.parameters)==null||(n=n.docs)==null?void 0:n.source}}};const o=[`Loading`];export{a as Loading,o as __namedExportsOrder,i as default};

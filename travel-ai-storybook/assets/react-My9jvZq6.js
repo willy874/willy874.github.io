@@ -1,0 +1,1 @@
+import{MDXProvider as e,useMDXComponents as t}from"./lib-Cr1GO0s9.js";export{e as MDXProvider};

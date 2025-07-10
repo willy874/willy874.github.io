@@ -1,4 +1,4 @@
-import"./jsx-runtime-CJpR7UJn.js";import"./global-Soc60vxL.js";import"./useForkRef-C6Rl_bH8.js";import{Input_default as e}from"./Input-DSeelo2l.js";var t,n,r,i,a,o,s,c;const l={title:`Example/Input`,component:e,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{}};var u=l;const d={args:{placeholder:`Please enter text`}},f={args:{value:`Enter text`}},p={args:{disabled:!0,placeholder:`Please enter text`}},m={args:{disabled:!0,value:`Enter text`}};d.parameters={...d.parameters,docs:{...(t=d.parameters)?.docs,source:{originalSource:`{
+import"./jsx-runtime-CdTjp9bf.js";import"./global-UNHamWD0.js";import"./useForkRef-BSYchKwy.js";import{Input_default as e}from"./Input-C4Dj9NYc.js";var t,n,r,i,a,o,s,c;const l={title:`Example/Input`,component:e,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{}};var u=l;const d={args:{placeholder:`Please enter text`}},f={args:{value:`Enter text`}},p={args:{disabled:!0,placeholder:`Please enter text`}},m={args:{disabled:!0,value:`Enter text`}};d.parameters={...d.parameters,docs:{...(t=d.parameters)?.docs,source:{originalSource:`{
   args: {
     placeholder: 'Please enter text'
   }

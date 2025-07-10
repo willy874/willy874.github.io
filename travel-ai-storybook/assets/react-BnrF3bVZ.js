@@ -1,0 +1,1 @@
+import{MDXProvider as e,useMDXComponents as t}from"./lib--kR-Uz39.js";export{e as MDXProvider};

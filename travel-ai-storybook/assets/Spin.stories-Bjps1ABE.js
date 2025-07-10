@@ -1,0 +1,3 @@
+import"./jsx-runtime-CJpR7UJn.js";import"./global-Soc60vxL.js";import{Spin_default as e}from"./Spin-lrUYoVkG.js";var t,n;const r={title:`Example/Spin`,component:e,parameters:{layout:`centered`},tags:[`autodocs`],argTypes:{}};var i=r;const a={args:{}};a.parameters={...a.parameters,docs:{...(t=a.parameters)?.docs,source:{originalSource:`{
+  args: {}
+}`,...(n=a.parameters)==null||(n=n.docs)==null?void 0:n.source}}};const o=[`Loading`];export{a as Loading,o as __namedExportsOrder,i as default};

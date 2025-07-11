@@ -1,1 +1,0 @@
-import{MDXProvider as e,useMDXComponents as t}from"./lib-DbIq8H92.js";export{e as MDXProvider};

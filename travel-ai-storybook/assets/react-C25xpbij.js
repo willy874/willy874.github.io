@@ -1,0 +1,1 @@
+import{MDXProvider as e,useMDXComponents as t}from"./lib-DfrNJQW5.js";export{e as MDXProvider};

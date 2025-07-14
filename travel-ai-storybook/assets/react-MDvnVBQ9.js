@@ -1,0 +1,1 @@
+import{MDXProvider as e,useMDXComponents as t}from"./lib-Duio4LIf.js";export{e as MDXProvider};

@@ -1,0 +1,1 @@
+function e(e){let t={};return Object.entries(e).forEach(([e,n])=>{n&&Object.entries(n).forEach(([n,r])=>{r&&Reflect.set(t,`${e}:${n}`,r)})}),t}export{e as defineArgs};

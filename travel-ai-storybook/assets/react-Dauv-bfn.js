@@ -1,1 +1,0 @@
-import{MDXProvider as e,useMDXComponents as t}from"./lib-DgLaktby.js";export{e as MDXProvider};

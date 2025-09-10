@@ -1,0 +1,1 @@
+import{__toESM as e,require_react as t}from"./iframe-BrZWt-XD.js";var n=e(t());const r=(0,n.createContext)(void 0);try{r.displayName=`InputContext`,r.__docgenInfo={description:``,displayName:`InputContext`,props:{}}}catch{}export{r as InputContext};

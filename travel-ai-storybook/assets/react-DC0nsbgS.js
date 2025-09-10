@@ -1,0 +1,1 @@
+import{MDXProvider as e,useMDXComponents as t}from"./lib-CuC700uF.js";export{e as MDXProvider};

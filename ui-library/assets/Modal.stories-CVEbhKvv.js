@@ -1,0 +1,23 @@
+import{c as e,r as t}from"./iframe-UvsLIA1s.js";import{a as n,i as r,n as i,r as a,t as o}from"./main.esm-DLEYCOB4.js";import{t as s}from"./jsx-runtime-DnwHqaZz.js";import"./react-dom-IQB3YjNZ.js";var c=``+new URL(`asking-question-BrRffMn1.png`,import.meta.url).href;o();var l=e(t()),u=e(s());const d=()=>{let[e,t]=(0,l.useState)(!1);return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(n,{onClick:()=>t(!0),children:`Open Modal`}),(0,u.jsx)(a,{open:e,onOpenChange:({open:e})=>{t(e)},titleNode:`Modal Title`,descriptionNode:`This is a description of the modal.`,children:(0,u.jsx)(`div`,{style:{display:`flex`,justifyContent:`center`,marginBottom:`20px`},children:(0,u.jsx)(`img`,{width:`160`,height:`160`,src:c,alt:``})})})]})};d.__docgenInfo={description:``,methods:[],displayName:`Control`};var f=()=>{let{emitClose:e}=r();return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(n,{variant:`outlined`,onClick:()=>e(),children:`Cancel`}),(0,u.jsx)(n,{onClick:()=>{Promise.resolve().then(()=>{e()})},children:`Confirm`})]})};const p={render:()=>(0,u.jsx)(a,{triggerNode:`Open Dialog`,titleNode:`Dialog Title`,descriptionNode:`This is a description of the dialog.`,actionNode:(0,u.jsx)(f,{}),children:(0,u.jsx)(`div`,{style:{display:`flex`,justifyContent:`center`,marginBottom:`20px`},children:(0,u.jsx)(`img`,{width:`160`,height:`160`,src:c,alt:``})})})},m=()=>{let[e,t]=i({title:`Confirm Title`,confirmText:`Confirm`});return(0,u.jsxs)(u.Fragment,{children:[(0,u.jsx)(n,{onClick:t,children:`Open Confirm`}),e]})};m.__docgenInfo={description:``,methods:[],displayName:`ConfirmHook`};var h=()=>(0,u.jsx)(`div`,{style:{display:`flex`,justifyContent:`center`,marginBottom:`20px`},children:(0,u.jsx)(`img`,{width:`160`,height:`160`,src:c,alt:``})});const g=()=>(0,u.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`repeat(3, 1fr)`,gap:`20px`,padding:`20px`},children:[(0,u.jsx)(a,{position:`top-left`,titleNode:`Top Left`,triggerNode:`Top Left`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`top-center`,titleNode:`Top Center`,triggerNode:`Top Center`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`top-right`,titleNode:`Top Right`,triggerNode:`Top Right`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`left-center`,titleNode:`Left Center`,triggerNode:`Left Center`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`center`,titleNode:`Center`,triggerNode:`Center`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`right-center`,titleNode:`Right Center`,triggerNode:`Right Center`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`bottom-left`,titleNode:`Bottom Left`,triggerNode:`Bottom Left`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`bottom-center`,titleNode:`Bottom Center`,triggerNode:`Bottom Center`,children:(0,u.jsx)(h,{})}),(0,u.jsx)(a,{position:`bottom-right`,titleNode:`Bottom Right`,triggerNode:`Bottom Right`,children:(0,u.jsx)(h,{})})]});g.__docgenInfo={description:``,methods:[],displayName:`Position`};var _={title:`Example/Modal`,parameters:{layout:`centered`,docs:{description:{component:`A modal component that can be used to display content in a modal overlay. It supports various features such as trapping focus, preventing scroll, and more.`}}},tags:[`autodocs`],argTypes:{}};const v={render:()=>(0,u.jsxs)(a.Root,{children:[(0,u.jsx)(a.Trigger,{children:`Open Dialog`}),(0,u.jsxs)(a.Portal,{children:[(0,u.jsx)(a.Backdrop,{}),(0,u.jsx)(a.Positioner,{children:(0,u.jsxs)(a.Content,{children:[(0,u.jsx)(a.Title,{children:`Dialog Title`}),(0,u.jsx)(a.Description,{children:`This is a description of the dialog.`}),(0,u.jsx)(`div`,{style:{display:`flex`,justifyContent:`center`,marginBottom:`20px`},children:(0,u.jsx)(`img`,{width:`160`,height:`160`,src:c,alt:``})})]})})]})]})};v.parameters={...v.parameters,docs:{...v.parameters?.docs,source:{originalSource:`{
+  render: () => {
+    return <Modal.Root>
+        <Modal.Trigger>Open Dialog</Modal.Trigger>
+        <Modal.Portal>
+          <Modal.Backdrop />
+          <Modal.Positioner>
+            <Modal.Content>
+              <Modal.Title>Dialog Title</Modal.Title>
+              <Modal.Description>This is a description of the dialog.</Modal.Description>
+              <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              marginBottom: '20px'
+            }}>
+                <img width="160" height="160" src={AskingQuestionImage} alt="" />
+              </div>
+            </Modal.Content>
+          </Modal.Positioner>
+        </Modal.Portal>
+      </Modal.Root>;
+  }
+}`,...v.parameters?.docs?.source}}};const y=[`Base`,`Control`,`ActionBar`,`ConfirmHook`,`Position`];export{p as ActionBar,v as Base,m as ConfirmHook,d as Control,g as Position,y as __namedExportsOrder,_ as default};

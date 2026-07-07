@@ -1,0 +1,98 @@
+---
+import '../styles/global.css';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+  /** OG 圖片(相對站台根的路徑,如 /images/og.png) */
+  ogImage?: string;
+  /** 文章頁設 true,輸出 og:type=article */
+  article?: boolean;
+  /** 是否隱藏站台 Header/Footer(給全螢幕頁用) */
+  bare?: boolean;
+}
+
+const {
+  title,
+  description = '竹子日誌 — 以竹子為筆名經營的技術部落格,涵蓋 Zero-Trust、前端工程、AI 工作流。',
+  ogImage = '/images/og-default.png',
+  article = false,
+  bare = false,
+} = Astro.props;
+
+const siteName = '竹子日誌';
+const fullTitle = title === siteName ? title : `${title}｜${siteName}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- §7.3 OG / Twitter -->
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content={article ? 'article' : 'website'} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content="zh_TW" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- RSS -->
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={siteName}
+      href="/rss.xml"
+    />
+
+    <!-- §6.1 Noto Sans TC + JetBrains Mono,font-display: swap -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
+    />
+
+    <!-- §6.3 主題切換 script:置於 head 最前,避免 FOUC -->
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('theme');
+        if (saved === 'light' || saved === 'dark') {
+          document.documentElement.dataset.theme = saved;
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    {
+      bare ? (
+        <slot />
+      ) : (
+        <div class="flex min-h-dvh flex-col">
+          <Header />
+          <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8 sm:px-6">
+            <slot />
+          </main>
+          <Footer />
+        </div>
+      )
+    }
+  </body>
+</html>

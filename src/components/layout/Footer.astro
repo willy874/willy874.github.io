@@ -1,0 +1,28 @@
+---
+const year = new Date().getFullYear();
+const links = [
+  { href: '/rss.xml', label: 'RSS' },
+  { href: 'https://github.com/willy874', label: 'GitHub' },
+  { href: '/resume.html', label: '履歷' },
+];
+---
+
+<footer
+  class="border-t py-8 text-sm"
+  style="border-color: var(--color-border); color: var(--color-muted);"
+>
+  <div
+    class="mx-auto flex max-w-5xl flex-col gap-3 px-4 sm:flex-row sm:items-center sm:justify-between sm:px-6"
+  >
+    <p>© {year} 竹子（Willy）· 以 Astro 建構,托管於 GitHub Pages</p>
+    <nav class="flex gap-4">
+      {
+        links.map((l) => (
+          <a href={l.href} class="hover:text-[var(--color-primary)]">
+            {l.label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</footer>

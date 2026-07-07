@@ -1,0 +1,16 @@
+---
+// §4 互動工具頁:Bare layout + ZiweiChart island(client:visible)
+import Bare from '../../layouts/Bare.astro';
+import ZiweiChart from '../../components/islands/ZiweiChart.tsx';
+---
+
+<Bare title="紫微斗數命盤" description="以視覺化呈現紫微斗數十二宮的互動工具。">
+  <main class="mx-auto max-w-3xl px-4 py-10">
+    <header class="mb-8 text-center">
+      <a href="/" class="text-sm hover:underline" style="color: var(--color-primary);">← 回竹子日誌</a>
+      <h1 class="mt-2 text-2xl font-bold">紫微斗數命盤</h1>
+      <p class="mt-1 text-sm" style="color: var(--color-muted);">互動視覺化工具(骨架)</p>
+    </header>
+    <ZiweiChart client:visible />
+  </main>
+</Bare>

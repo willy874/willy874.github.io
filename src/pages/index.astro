@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PostCard from '../components/post/PostCard.astro';
+
+const posts = (await getCollection('posts', (p) => !p.data.draft)).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
+const recent = posts.slice(0, 4);
+
+const talks = (await getCollection('talks')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const featuredTalks = talks.slice(0, 3);
+---
+
+<Base title="竹子日誌">
+  <section class="py-8 sm:py-12">
+    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+      🎋 竹子日誌
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg" style="color: var(--color-muted);">
+      以「竹子」為筆名經營的技術部落格。Zero-Trust / OpenZiti、前端工程(React /
+      TypeScript / TanStack)、AI 工作流(Claude Code、MCP)與演講簡報存檔。
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3 text-sm">
+      <a href="/posts/" class="rounded-md px-4 py-2 font-medium text-white" style="background: var(--color-primary);">
+        閱讀文章
+      </a>
+      <a href="/talks/" class="rounded-md border px-4 py-2 font-medium" style="border-color: var(--color-border);">
+        演講簡報
+      </a>
+    </div>
+  </section>
+
+  <section class="py-8">
+    <div class="mb-4 flex items-baseline justify-between">
+      <h2 class="text-xl font-bold">近期文章</h2>
+      <a href="/posts/" class="text-sm hover:underline" style="color: var(--color-primary);">全部 →</a>
+    </div>
+    {
+      recent.length > 0 ? (
+        <div class="grid gap-4 sm:grid-cols-2">
+          {recent.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      ) : (
+        <p style="color: var(--color-muted);">尚無文章,敬請期待。</p>
+      )
+    }
+  </section>
+
+  {
+    featuredTalks.length > 0 && (
+      <section class="py-8">
+        <div class="mb-4 flex items-baseline justify-between">
+          <h2 class="text-xl font-bold">精選演講</h2>
+          <a href="/talks/" class="text-sm hover:underline" style="color: var(--color-primary);">
+            全部 →
+          </a>
+        </div>
+        <ul class="space-y-3">
+          {featuredTalks.map((talk) => (
+            <li
+              class="flex flex-wrap items-center gap-x-3 gap-y-1 rounded-lg border p-4"
+              style="border-color: var(--color-border); background: var(--color-surface);"
+            >
+              <a href={talk.data.slideUrl} class="font-medium hover:text-[var(--color-primary)]">
+                {talk.data.title}
+              </a>
+              <span class="text-sm" style="color: var(--color-muted);">
+                {talk.data.event} ·{' '}
+                {talk.data.date.toLocaleDateString('zh-TW')}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
+</Base>

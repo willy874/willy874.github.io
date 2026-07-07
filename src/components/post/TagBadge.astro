@@ -1,0 +1,15 @@
+---
+export interface Props {
+  tag: string;
+  active?: boolean;
+}
+const { tag, active = false } = Astro.props;
+---
+
+<a
+  href={`/posts/tags/${tag}/`}
+  class="inline-block rounded-full border px-2.5 py-0.5 text-xs transition-colors hover:border-[var(--color-primary)]"
+  style={`border-color: var(--color-border); color: ${active ? 'var(--color-primary)' : 'var(--color-muted)'};`}
+>
+  #{tag}
+</a>

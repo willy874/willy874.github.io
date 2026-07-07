@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zero-Trust 實戰：從 OpenZiti 的 Dark Services 談起</title>
+    <meta
+      name="description"
+      content="竹子 @ JSDC 2026 — Zero-Trust 網路模型與 OpenZiti Dark Services 實作。"
+    />
+    <!--
+      §4.1:src/pages 下的 .html 會被 Astro 當 page 但「不注入任何東西」。
+      這是既有 zero-trust 簡報 HTML 的理想歸宿 —— 自帶 <style>/<script> 可直接使用。
+      若引用相對資源,放 public/talks-assets/zerotrust-2026/ 並以絕對路徑 /talks-assets/... 引用。
+    -->
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: 'Noto Sans TC', system-ui, sans-serif;
+        background: #0b1f16;
+        color: #e6f2ec;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+      .deck {
+        width: min(96vw, 1100px);
+        aspect-ratio: 16 / 9;
+        position: relative;
+      }
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        padding: 4rem;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #103326, #0b1f16);
+        border: 1px solid #1f6b47;
+      }
+      .slide.active {
+        display: flex;
+      }
+      .kicker {
+        color: #5bbd83;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+      h1 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        line-height: 1.3;
+        margin-top: 0.75rem;
+      }
+      ul {
+        margin-top: 1.5rem;
+        padding-left: 1.5rem;
+        line-height: 2;
+        font-size: clamp(1rem, 2vw, 1.4rem);
+      }
+      .meta {
+        margin-top: 2rem;
+        color: #8fbfa6;
+      }
+      .nav {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        display: flex;
+        gap: 0.5rem;
+      }
+      .nav button {
+        font: inherit;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: 1px solid #1f6b47;
+        background: #103326;
+        color: #e6f2ec;
+        cursor: pointer;
+      }
+      .counter {
+        position: fixed;
+        bottom: 1.75rem;
+        left: 1.5rem;
+        color: #5bbd83;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="deck">
+      <section class="slide active">
+        <span class="kicker">JSDC 2026 · 竹子</span>
+        <h1>Zero-Trust 實戰<br />從 OpenZiti 的 Dark Services 談起</h1>
+        <p class="meta">← → 或空白鍵切換投影片</p>
+      </section>
+      <section class="slide">
+        <span class="kicker">為什麼</span>
+        <h1>邊界防禦已死</h1>
+        <ul>
+          <li>VPN 一旦被突破,內網門戶洞開</li>
+          <li>「網路位置」不該等於「信任」</li>
+          <li>Zero-Trust:每次連線都要驗證身分與授權</li>
+        </ul>
+      </section>
+      <section class="slide">
+        <span class="kicker">怎麼做</span>
+        <h1>Dark Services：服務對外完全隱形</h1>
+        <ul>
+          <li>服務不開任何 inbound port</li>
+          <li>由 OpenZiti overlay 主動 dial-out 建立通道</li>
+          <li>掃描器掃不到,攻擊面趨近於零</li>
+        </ul>
+      </section>
+      <section class="slide">
+        <span class="kicker">Thanks</span>
+        <h1>謝謝聆聽 🎋</h1>
+        <p class="meta">投影片與延伸閱讀:willy874.github.io/talks/</p>
+      </section>
+    </div>
+
+    <div class="counter"><span id="cur">1</span> / <span id="total">4</span></div>
+    <div class="nav">
+      <button id="prev" aria-label="上一頁">←</button>
+      <button id="next" aria-label="下一頁">→</button>
+    </div>
+
+    <script>
+      const slides = [...document.querySelectorAll('.slide')];
+      let i = 0;
+      document.getElementById('total').textContent = String(slides.length);
+      function go(n) {
+        i = (n + slides.length) % slides.length;
+        slides.forEach((s, k) => s.classList.toggle('active', k === i));
+        document.getElementById('cur').textContent = String(i + 1);
+      }
+      document.getElementById('next').onclick = () => go(i + 1);
+      document.getElementById('prev').onclick = () => go(i - 1);
+      addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight' || e.key === ' ') go(i + 1);
+        if (e.key === 'ArrowLeft') go(i - 1);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,146 @@
+@import 'tailwindcss';
+
+/* dark mode 以 [data-theme="dark"] 屬性切換(§6.3),而非預設的 prefers-color-scheme */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/* §6.1 字型策略 + 設計 token */
+@theme {
+  --font-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Noto Sans TC', ui-monospace, monospace;
+
+  /* 內容段寬:約 34 個全形字(§6.2) */
+  --container-prose: 68ch;
+}
+
+/* 雙主題色票(§6.3)——data-theme 切換,prefers-color-scheme 為預設值 */
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f9;
+  --color-border: #e5e7eb;
+  --color-text: #1f2328;
+  --color-muted: #57606a;
+  --color-primary: #2f7d4f; /* 竹綠 */
+  --color-primary-hover: #256640;
+  --color-accent: #b98a3e; /* 竹節褐 */
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --color-bg: #0f1214;
+  --color-surface: #171b1f;
+  --color-border: #2a3138;
+  --color-text: #e6e8ea;
+  --color-muted: #9aa4ae;
+  --color-primary: #5bbd83;
+  --color-primary-hover: #74cf99;
+  --color-accent: #d4a75c;
+  color-scheme: dark;
+}
+
+/* 系統偏好深色但使用者未手動指定時的預設 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-bg: #0f1214;
+    --color-surface: #171b1f;
+    --color-border: #2a3138;
+    --color-text: #e6e8ea;
+    --color-muted: #9aa4ae;
+    --color-primary: #5bbd83;
+    --color-primary-hover: #74cf99;
+    --color-accent: #d4a75c;
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    /* §6.2 標點:漸進增強 */
+    hanging-punctuation: allow-end;
+  }
+
+  body {
+    min-height: 100dvh;
+  }
+
+  /* §7.4 鍵盤焦點可見 */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* §7.4 尊重 prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* §6.2 繁中長文排版 */
+.prose-zh {
+  line-height: 1.9; /* 繁中閱讀最適區間 1.8–2.0 */
+  max-width: var(--container-prose);
+  text-wrap: pretty;
+}
+
+.prose-zh :where(h2, h3, h4) {
+  line-height: 1.4;
+  font-weight: 700;
+  scroll-margin-top: 5rem;
+}
+
+.prose-zh :where(p, ul, ol, blockquote) {
+  margin-block: 1.25em;
+}
+
+.prose-zh :where(a) {
+  color: var(--color-primary);
+  text-underline-offset: 3px;
+  text-decoration-line: underline;
+}
+
+.prose-zh :where(code):not(pre code) {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.prose-zh :where(pre) {
+  padding: 1rem 1.15rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+}
+
+/* Shiki 雙主題:隨 data-theme 切換程式碼配色(§6.3) */
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .astro-code,
+  :root:not([data-theme='light']) .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}

@@ -1,0 +1,97 @@
+---
+// §7.2 giscus 評論(GitHub Discussions 驅動)
+// 啟用步驟:
+//   1. 於 repo Settings 開啟 Discussions
+//   2. 安裝 giscus app: https://github.com/apps/giscus
+//   3. 到 https://giscus.app 產生設定,把 repoId / categoryId 填入下方或改用環境變數
+//
+// 以 IntersectionObserver 延遲注入(等效 client:visible),不影響 LCP。
+// 主題跟隨站台 data-theme,監聽 ThemeToggle 發出的 theme-change 事件。
+
+const GISCUS = {
+  repo: 'willy874/willy874.github.io',
+  repoId: import.meta.env.PUBLIC_GISCUS_REPO_ID ?? '', // TODO: 填入 giscus.app 產生的值
+  category: 'Announcements',
+  categoryId: import.meta.env.PUBLIC_GISCUS_CATEGORY_ID ?? '', // TODO
+};
+const configured = GISCUS.repoId !== '' && GISCUS.categoryId !== '';
+---
+
+<section aria-label="留言區" class="mt-12">
+  <h2 class="mb-4 text-lg font-bold">留言</h2>
+  {
+    configured ? (
+      <div
+        id="giscus-mount"
+        data-repo={GISCUS.repo}
+        data-repo-id={GISCUS.repoId}
+        data-category={GISCUS.category}
+        data-category-id={GISCUS.categoryId}
+      />
+    ) : (
+      <p class="text-sm" style="color: var(--color-muted);">
+        留言功能待設定:開啟 repo Discussions、安裝 giscus app,並於{' '}
+        <code>src/components/post/Giscus.astro</code> 填入 repoId / categoryId。
+      </p>
+    )
+  }
+</section>
+
+{
+  configured && (
+    <script is:inline>
+      (() => {
+        const mount = document.getElementById('giscus-mount');
+        if (!mount) return;
+
+        const currentTheme = () => {
+          const t = document.documentElement.dataset.theme;
+          if (t === 'dark' || t === 'light') return t;
+          return window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light';
+        };
+
+        let loaded = false;
+        const load = () => {
+          if (loaded) return;
+          loaded = true;
+          const s = document.createElement('script');
+          s.src = 'https://giscus.app/client.js';
+          s.async = true;
+          s.crossOrigin = 'anonymous';
+          s.setAttribute('data-repo', mount.dataset.repo);
+          s.setAttribute('data-repo-id', mount.dataset.repoId);
+          s.setAttribute('data-category', mount.dataset.category);
+          s.setAttribute('data-category-id', mount.dataset.categoryId);
+          s.setAttribute('data-mapping', 'pathname');
+          s.setAttribute('data-strict', '1');
+          s.setAttribute('data-reactions-enabled', '1');
+          s.setAttribute('data-emit-metadata', '0');
+          s.setAttribute('data-input-position', 'top');
+          s.setAttribute('data-theme', currentTheme());
+          s.setAttribute('data-lang', 'zh-TW');
+          mount.appendChild(s);
+        };
+
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            load();
+            io.disconnect();
+          }
+        });
+        io.observe(mount);
+
+        // 主題切換時通知 giscus iframe
+        window.addEventListener('theme-change', (e) => {
+          const theme = e.detail ?? currentTheme();
+          const frame = document.querySelector('iframe.giscus-frame');
+          frame?.contentWindow?.postMessage(
+            { giscus: { setConfig: { theme } } },
+            'https://giscus.app'
+          );
+        });
+      })();
+    </script>
+  )
+}

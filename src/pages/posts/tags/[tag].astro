@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import PostCard from '../../../components/post/PostCard.astro';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('posts', (p) => !p.data.draft);
+  const tags = [...new Set(posts.flatMap((p) => p.data.tags))];
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: posts
+        .filter((p) => p.data.tags.includes(tag))
+        .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { tag, posts } = Astro.props as Props;
+---
+
+<Base title={`#${tag}`} description={`標籤「${tag}」的全部文章`}>
+  <div class="py-6">
+    <p class="text-sm" style="color: var(--color-muted);">
+      <a href="/posts/" class="hover:underline">← 全部文章</a>
+    </p>
+    <h1 class="mt-2 text-3xl font-bold">#{tag}</h1>
+    <p class="mt-1" style="color: var(--color-muted);">共 {posts.length} 篇</p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </div>
+</Base>

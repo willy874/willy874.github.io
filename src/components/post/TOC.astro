@@ -1,0 +1,36 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+const { headings } = Astro.props;
+// 只取 h2 / h3 做目錄
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  toc.length > 0 && (
+    <nav
+      aria-label="目錄"
+      class="text-sm"
+      style="color: var(--color-muted);"
+    >
+      <p class="mb-2 font-semibold" style="color: var(--color-text);">
+        目錄
+      </p>
+      <ul class="space-y-1.5 border-l" style="border-color: var(--color-border);">
+        {toc.map((h) => (
+          <li style={h.depth === 3 ? 'padding-left: 1rem;' : ''}>
+            <a
+              href={`#${h.slug}`}
+              class="-ml-px block border-l border-transparent pl-3 hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]"
+            >
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}

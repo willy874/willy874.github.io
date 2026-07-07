@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import TagBadge from './TagBadge.astro';
+
+export interface Props {
+  post: CollectionEntry<'posts'>;
+}
+const { post } = Astro.props;
+const { data } = post;
+
+const dateStr = data.publishDate.toLocaleDateString('zh-TW', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+});
+---
+
+<article
+  class="group rounded-lg border p-4 transition-colors hover:border-[var(--color-primary)]"
+  style="border-color: var(--color-border); background-color: var(--color-surface);"
+>
+  <a href={`/posts/${post.id}/`} class="block">
+    {
+      data.cover && (
+        <Image
+          src={data.cover}
+          alt={data.title}
+          width={720}
+          height={360}
+          class="mb-3 aspect-[2/1] w-full rounded-md object-cover"
+        />
+      )
+    }
+    <div class="flex items-center gap-2 text-xs" style="color: var(--color-muted);">
+      <time datetime={data.publishDate.toISOString()}>{dateStr}</time>
+      {data.series && <span>· 系列:{data.series}</span>}
+    </div>
+    <h3
+      class="mt-1 text-lg font-bold transition-colors group-hover:text-[var(--color-primary)]"
+    >
+      {data.title}
+    </h3>
+    <p class="mt-1 line-clamp-2 text-sm" style="color: var(--color-muted);">
+      {data.description}
+    </p>
+  </a>
+  {
+    data.tags.length > 0 && (
+      <div class="mt-3 flex flex-wrap gap-1.5">
+        {data.tags.map((t) => (
+          <TagBadge tag={t} />
+        ))}
+      </div>
+    )
+  }
+</article>

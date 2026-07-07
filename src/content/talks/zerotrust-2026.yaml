@@ -1,6 +1,0 @@
-title: 'Zero-Trust 實戰：從 OpenZiti 的 Dark Services 談起'
-event: 'JSDC 2026'
-date: 2026-05-18
-slideUrl: '/talks/zerotrust-2026'
-pdfUrl: '/files/2026/zerotrust-slides.pdf'
-abstract: '邊界防禦已死。用 OpenZiti 的 Dark Services 讓服務對外完全隱形,把攻擊面壓到趨近於零。'

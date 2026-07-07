@@ -23,17 +23,4 @@ const posts = defineCollection({
     }),
 });
 
-const talks = defineCollection({
-  loader: glob({ pattern: '**/*.{yaml,yml}', base: './src/content/talks' }),
-  schema: z.object({
-    title: z.string(),
-    event: z.string(), // 場合,如 "JSDC 2026"
-    date: z.coerce.date(),
-    slideUrl: z.string(), // /talks/zerotrust-2026
-    pdfUrl: z.string().optional(), // /files/2026/....pdf
-    videoUrl: z.string().url().optional(),
-    abstract: z.string(),
-  }),
-});
-
-export const collections = { posts, talks };
+export const collections = { posts };

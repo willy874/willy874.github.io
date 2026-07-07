@@ -17,7 +17,7 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap({
-      // /files/** 為純靜態檔案庫,不進 sitemap;/talks/*.html 簡報本體亦排除
+      // /files/** 為純靜態檔案庫、/interview/** 為既有作品,皆不進 sitemap
       filter: (page) =>
         !page.includes('/files/') &&
         !page.includes('/interview/'),

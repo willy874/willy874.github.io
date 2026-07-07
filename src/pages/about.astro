@@ -1,28 +1,99 @@
 ---
 import Base from '../layouts/Base.astro';
+import { PROFILE, PROJECTS, SOCIALS } from '../lib/profile';
 ---
 
-<Base title="關於竹子" description="關於「竹子」與這個技術部落格。">
-  <div class="prose-zh mx-auto py-8">
+<Base title="關於竹子" description="關於竹子(Willy):前端工程師、讀書會主辦與新手教學,以及這個技術部落格。">
+  <div class="mx-auto max-w-3xl py-8">
     <h1 class="text-3xl font-bold">關於竹子</h1>
-    <p>
-      我是竹子(Willy),前端工程師,長期在 React / TypeScript
-      生態打滾,近年鑽研 Zero-Trust 網路(OpenZiti)與 AI 輔助開發工作流(Claude Code、MCP)。
-    </p>
-    <p>這個站是我的技術筆記本,四種內容形態並存:</p>
-    <ul>
-      <li><strong>文章</strong>:技術深度長文,以繁體中文為主</li>
-      <li><strong>演講</strong>:conference talks 的簡報 HTML 存檔</li>
-      <li><strong>互動工具</strong>:如紫微命盤等獨立 HTML 工具頁</li>
-      <li><strong>檔案庫</strong>:PDF、簡報等靜態附件</li>
-    </ul>
-    <p>
-      站台以 Astro 5 建構,託管於 GitHub Pages,零成本運行。原始碼:{' '}
-      <a href="https://github.com/willy874/willy874.github.io">GitHub</a>。
-    </p>
-    <p>
-      我的其他頁面:<a href="/resume.html">履歷</a> ·{' '}
-      <a href="/portfolio.html">作品集</a> · <a href="/interview/">面試作品</a>
+
+    <div class="prose-zh mt-4">
+      <p>
+        你好,我是<strong>竹子</strong>(Willy),一名前端工程師,{PROFILE.since} 年入行。
+        歡迎來到我的技術專欄。
+      </p>
+      <p>
+        我喜歡研究各種專案設計的實作。平時假日會開<strong>線上線下讀書會</strong>,
+        和相同領域的朋友一起交流;平日晚間會帶一些<strong>新手教學</strong>,
+        有任何問題都歡迎私下發問。如果你也喜歡打磨專案設計,很期待與你分享彼此的創意與經驗。
+      </p>
+      <p>
+        這個站集中我所有的文字產出——技術寫作、學習筆記與主題分享。
+        內容以繁體中文為主,涵蓋前端技術、工程實務、設計系統、AI 工作流,
+        以及職涯、商業與各種議題反思。
+      </p>
+    </div>
+
+    <!-- 內容形態 -->
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">這裡有什麼</h2>
+      <ul class="prose-zh mt-3">
+        <li><strong>文章</strong>:依 12 個分類區塊整理的技術與反思長文</li>
+        <li><strong>互動工具</strong>:如紫微命盤等獨立 HTML 工具頁</li>
+        <li><strong>檔案庫</strong>:履歷、PDF 等靜態附件</li>
+      </ul>
+    </section>
+
+    <!-- 精選專案 -->
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">精選專案</h2>
+      <div class="mt-3 grid gap-3 sm:grid-cols-2">
+        {
+          PROJECTS.map((p) => (
+            <a
+              href={p.href}
+              class="rounded-lg border p-4 transition-colors hover:border-[var(--color-primary)]"
+              style="border-color: var(--color-border); background: var(--color-surface);"
+            >
+              <div class="font-mono text-sm font-bold" style="color: var(--color-primary);">
+                {p.name}
+              </div>
+              <p class="mt-1 text-sm" style="color: var(--color-muted);">
+                {p.desc}
+              </p>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- 聯絡與社群 -->
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">聯絡與社群</h2>
+      <p class="mt-3 text-sm" style="color: var(--color-muted);">
+        Email:<a href={`mailto:${PROFILE.email}`} style="color: var(--color-primary);">{PROFILE.email}</a>
+        ｜ Line:{PROFILE.lineId}
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        {
+          SOCIALS.map((s) => (
+            <a
+              href={s.href}
+              class="rounded-md border px-3 py-1.5 text-sm transition-colors hover:border-[var(--color-primary)]"
+              style="border-color: var(--color-border);"
+            >
+              <span class="font-medium">{s.label}</span>
+              <span class="ml-1.5" style="color: var(--color-muted);">{s.handle}</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- 其他頁面 -->
+    <section class="mt-10">
+      <h2 class="text-xl font-bold">其他頁面</h2>
+      <p class="prose-zh mt-3">
+        <a href="/resume.html">履歷</a> ·
+        <a href="/portfolio.html">作品集</a> ·
+        <a href="/interview/">面試作品</a> ·
+        <a href="/rss.xml">RSS 訂閱</a>
+      </p>
+    </section>
+
+    <p class="mt-10 text-sm" style="color: var(--color-muted);">
+      本站以 Astro 建構,託管於 GitHub Pages,原始碼在
+      <a href="https://github.com/willy874/willy874.github.io" style="color: var(--color-primary);">GitHub</a>。
     </p>
   </div>
 </Base>

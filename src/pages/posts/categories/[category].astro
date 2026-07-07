@@ -1,0 +1,39 @@
+---
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import PostCard from '../../../components/post/PostCard.astro';
+import { CATEGORIES, getPublishedPosts } from '../../../lib/categories';
+
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  return CATEGORIES.map((cat) => ({
+    params: { category: cat.slug },
+    props: {
+      cat,
+      posts: posts.filter((p) => p.data.category === cat.name),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { cat, posts } = Astro.props as Props;
+---
+
+<Base title={cat.name} description={`竹子日誌「${cat.name}」分類:${cat.blurb}。共 ${posts.length} 篇。`}>
+  <div class="py-6">
+    <nav class="text-sm" style="color: var(--color-muted);">
+      <a href="/posts/" class="hover:underline">← 全部分類</a>
+    </nav>
+    <header class="mt-2">
+      <h1 class="text-3xl font-bold">{cat.emoji} {cat.name}</h1>
+      <p class="mt-1" style="color: var(--color-muted);">{cat.blurb} · 共 {posts.length} 篇</p>
+    </header>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+
+    {posts.length === 0 && <p class="mt-8" style="color: var(--color-muted);">此分類尚無文章。</p>}
+  </div>
+</Base>

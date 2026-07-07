@@ -7,6 +7,7 @@ import Base from './Base.astro';
 import TOC from '../components/post/TOC.astro';
 import TagBadge from '../components/post/TagBadge.astro';
 import Giscus from '../components/post/Giscus.astro';
+import { categoryByName } from '../lib/categories';
 
 export interface Props {
   post: CollectionEntry<'posts'>;
@@ -35,13 +36,26 @@ if (data.series) {
 const idx = seriesPosts.findIndex((p) => p.id === post.id);
 const prev = idx > 0 ? seriesPosts[idx - 1] : undefined;
 const next = idx >= 0 && idx < seriesPosts.length - 1 ? seriesPosts[idx + 1] : undefined;
+
+const cat = categoryByName(data.category);
 ---
 
 <Base title={data.title} description={data.description} article ogImage={data.cover ? undefined : undefined}>
   <article class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1fr_16rem]">
     <div class="min-w-0">
       <header class="mb-8">
-        <div class="flex items-center gap-2 text-sm" style="color: var(--color-muted);">
+        {
+          cat && (
+            <nav class="text-sm" style="color: var(--color-muted);">
+              <a href="/posts/" class="hover:underline">文章</a>
+              {' / '}
+              <a href={`/posts/categories/${cat.slug}/`} class="hover:underline">
+                {cat.emoji} {cat.name}
+              </a>
+            </nav>
+          )
+        }
+        <div class="mt-1 flex items-center gap-2 text-sm" style="color: var(--color-muted);">
           <time datetime={data.publishDate.toISOString()}>{dateStr}</time>
           {data.series && <span>· 系列:{data.series}</span>}
         </div>

@@ -9,11 +9,13 @@ const posts = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/posts' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string().max(60),
-      description: z.string().max(160), // 兼作 meta description
+      // 匯入的既有文章標題長度不一,不設硬上限;新撰文章建議 ≤ 60 字
+      title: z.string(),
+      description: z.string().max(200), // 兼作 meta description
       publishDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]),
+      category: z.string().optional(), // 12 分類區塊之一,見 src/lib/categories.ts
       series: z.string().optional(), // 如 "zero-trust"
       cover: image().optional(), // 走 astro:assets 最佳化
       draft: z.boolean().default(false),

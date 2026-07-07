@@ -34,6 +34,7 @@ const dateStr = data.publishDate.toLocaleDateString('zh-TW', {
     }
     <div class="flex items-center gap-2 text-xs" style="color: var(--color-muted);">
       <time datetime={data.publishDate.toISOString()}>{dateStr}</time>
+      {data.category && <span>· {data.category}</span>}
       {data.series && <span>· 系列:{data.series}</span>}
     </div>
     <h3

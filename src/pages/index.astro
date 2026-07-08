@@ -1,17 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import PostCard from '../components/post/PostCard.astro';
-import { CATEGORIES, getPublishedPosts } from '../lib/categories';
-import { PROFILE, PROJECTS, SOCIALS } from '../lib/profile';
+import SocialLinks from '../components/SocialLinks.astro';
+import { getPublishedPosts } from '../lib/categories';
+import { PROFILE, PROJECTS } from '../lib/profile';
 
 const posts = await getPublishedPosts();
-const recent = posts.slice(0, 4);
-
-// 各分類篇數(供分類區塊導覽)
-const catCounts = CATEGORIES.map((cat) => ({
-  cat,
-  count: posts.filter((p) => p.data.category === cat.name).length,
-})).filter((c) => c.count > 0);
+const recent = posts.slice(0, 8);
 ---
 
 <Base title="竹子日誌">
@@ -26,41 +21,6 @@ const catCounts = CATEGORIES.map((cat) => ({
     <p class="mt-4 max-w-2xl text-lg" style="color: var(--color-muted);">
       {PROFILE.intro}
     </p>
-    <div class="mt-6 flex flex-wrap gap-3 text-sm">
-      <a href="/posts/" class="rounded-md px-4 py-2 font-medium text-white" style="background: var(--color-primary);">
-        閱讀文章
-      </a>
-      <a href="/about/" class="rounded-md border px-4 py-2 font-medium" style="border-color: var(--color-border);">
-        關於竹子
-      </a>
-      <a href="https://github.com/willy874" class="rounded-md border px-4 py-2 font-medium" style="border-color: var(--color-border);">
-        GitHub
-      </a>
-    </div>
-  </section>
-
-  <!-- 分類區塊 -->
-  <section class="py-8">
-    <h2 class="mb-4 text-xl font-bold">分類區塊</h2>
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        catCounts.map(({ cat, count }) => (
-          <a
-            href={`/posts/categories/${cat.slug}/`}
-            class="flex items-center gap-3 rounded-lg border p-4 transition-colors hover:border-[var(--color-primary)]"
-            style="border-color: var(--color-border); background: var(--color-surface);"
-          >
-            <span class="text-2xl">{cat.emoji}</span>
-            <span class="min-w-0">
-              <span class="block font-medium">{cat.name}</span>
-              <span class="block text-xs" style="color: var(--color-muted);">
-                {count} 篇 · {cat.blurb}
-              </span>
-            </span>
-          </a>
-        ))
-      }
-    </div>
   </section>
 
   <!-- 近期文章 -->
@@ -122,22 +82,7 @@ const catCounts = CATEGORIES.map((cat) => ({
 
   <!-- 社群連結 -->
   <section class="py-8">
-    <h2 class="mb-4 text-xl font-bold">在其他地方找我</h2>
-    <div class="flex flex-wrap gap-2">
-      {
-        SOCIALS.map((s) => (
-          <a
-            href={s.href}
-            class="rounded-md border px-3 py-1.5 text-sm transition-colors hover:border-[var(--color-primary)]"
-            style="border-color: var(--color-border);"
-          >
-            <span class="font-medium">{s.label}</span>
-            <span class="ml-1.5" style="color: var(--color-muted);">
-              {s.handle}
-            </span>
-          </a>
-        ))
-      }
-    </div>
+    <h2 class="mb-4 text-xl font-bold">社群媒體</h2>
+    <SocialLinks />
   </section>
 </Base>

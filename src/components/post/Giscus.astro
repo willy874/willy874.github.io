@@ -10,9 +10,9 @@
 
 const GISCUS = {
   repo: 'willy874/willy874.github.io',
-  repoId: import.meta.env.PUBLIC_GISCUS_REPO_ID ?? '', // TODO: 填入 giscus.app 產生的值
+  repoId: import.meta.env.PUBLIC_GISCUS_REPO_ID ?? 'MDEwOlJlcG9zaXRvcnkzNjI4NzU1NDU=',
   category: 'Announcements',
-  categoryId: import.meta.env.PUBLIC_GISCUS_CATEGORY_ID ?? '', // TODO
+  categoryId: import.meta.env.PUBLIC_GISCUS_CATEGORY_ID ?? 'DIC_kwDOFaEKmc4DAusE',
 };
 const configured = GISCUS.repoId !== '' && GISCUS.categoryId !== '';
 ---

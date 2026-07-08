@@ -8,7 +8,7 @@ export const PROFILE = {
   since: '2019',
   email: 'willy8742891@gmail.com',
   lineId: 'willy874',
-  tagline: '前端工程師 · 讀書會主辦 · 新手教學',
+  tagline: '前端工程師 · 設計系統 · 微前端架構',
   intro:
     '喜歡研究各種專案設計的實作,平時假日開線上線下讀書會與同領域朋友交流,平日晚間帶新手教學。這裡集中我的文字產出:技術寫作、學習筆記與主題分享。',
 };

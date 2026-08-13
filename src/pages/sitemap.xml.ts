@@ -32,6 +32,18 @@ export async function GET(context: APIContext) {
   const entries: Entry[] = [
     { path: '/', lastmod: newest, changefreq: 'daily', priority: '1.0' },
     { path: '/posts/', lastmod: newest, changefreq: 'daily', priority: '0.9' },
+    {
+      path: '/posts/categories/',
+      lastmod: newest,
+      changefreq: 'weekly',
+      priority: '0.7',
+    },
+    {
+      path: '/posts/tags/',
+      lastmod: newest,
+      changefreq: 'weekly',
+      priority: '0.5',
+    },
     { path: '/about/', changefreq: 'monthly', priority: '0.7' },
     { path: '/tools/ziwei/', changefreq: 'monthly', priority: '0.5' },
   ];

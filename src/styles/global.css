@@ -1,12 +1,19 @@
 @import 'tailwindcss';
 
+/* §6.1 字型自架 —— fontsource variable 版,取代原先 fonts.googleapis.com 的
+   render-blocking 外部樣式表(省下兩個 cross-origin 的 DNS/TLS/往返)。
+   兩個套件都是按 unicode-range 切好的子集,瀏覽器只會抓該頁真正用到的那幾份 woff2。 */
+@import '@fontsource-variable/noto-sans-tc';
+@import '@fontsource-variable/jetbrains-mono';
+
 /* dark mode 以 [data-theme="dark"] 屬性切換(§6.3),而非預設的 prefers-color-scheme */
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /* §6.1 字型策略 + 設計 token */
 @theme {
-  --font-sans: 'Noto Sans TC', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Noto Sans TC', ui-monospace, monospace;
+  --font-sans: 'Noto Sans TC Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'Noto Sans TC Variable', ui-monospace,
+    monospace;
 
   /* 內容段寬:約 34 個全形字(§6.2) */
   --container-prose: 68ch;

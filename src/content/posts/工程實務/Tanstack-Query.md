@@ -1,5 +1,5 @@
 ---
-title: "Tanstack Query"
+title: "Tanstack Query：它不只是打 API 的工具"
 description: "當今不管是 react 還是 vue，tanstack query 可以說是劃時代的解決方案。但我發現很多人對於它存在有著很大的誤解，我就想特別來分享一下。 許多人會把它定義為打 Backend API 的工具，但如果這樣定義它就太狹隘了。"
 publishDate: 2025-03-29T08:40:09+08:00
 updatedDate: 2025-03-29T14:08:35+08:00

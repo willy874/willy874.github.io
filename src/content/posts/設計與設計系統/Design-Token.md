@@ -1,5 +1,5 @@
 ---
-title: "Design Token"
+title: "Design Token：設計與前端之間的溝通語言"
 description: "這是一個近年流行的一個前端設計之間的溝通語言，雖然不算普及，但大部分會理解為變數的應用。 雖然早在 sass 流行時期已經被廣泛應用在各種 UI Framework 上面，但實際上被應用的比率依舊不高。 Design token 帶來最大的"
 publishDate: 2025-04-25T08:25:21+08:00
 updatedDate: 2025-04-25T08:33:37+08:00

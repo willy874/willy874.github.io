@@ -36,13 +36,23 @@
 
 待辦(批次 3、4):
 
+- [x] `Post.astro` 移除把 description 當導言渲染(description 只走 meta / JSON-LD)
+- [x] 6 組重複標題處理:15 篇改成唯一且有描述性的標題,slug/網址不動,全站標題已唯一
+- [x] `/posts/categories/`、`/posts/tags/` 索引頁(含 CollectionPage JSON-LD、進 sitemap,
+      `/posts/` 與各分類/標籤頁互相接上)
+- [x] 字型自架:`@fontsource-variable/noto-sans-tc` + `jetbrains-mono`,拿掉 Google Fonts
+      的 preconnect 與外部樣式表;代價是主 CSS 由 ~20 KB gz 漲到 53 KB gz(字型 @font-face
+      約佔 33 KB gz),換掉兩個 cross-origin 往返,且同源可全站快取
+- [ ] ~~11 個單篇 tag 合併~~:重新盤點後單篇 tag 已是 0,本項作廢
 - [ ] **description 重寫**:423/460 篇是內文前 120 字硬切、句子斷半且與首段重複,分批改寫
-- [ ] `Post.astro` 移除把 description 當導言渲染(與內文首段一字不差)
+      (已不再顯示於頁面,但仍是 meta description / JSON-LD / RSS 摘要的內容)
 - [ ] H2 結構補強:455/460 篇無任何 H2,TOC 空轉且 AI 無錨點可引用;優先處理 >800 字技術文
-- [ ] 6 組重複標題處理;11 個單篇 tag 合併
-- [ ] `/posts/tags/`、`/posts/categories/` 索引頁
+      (>800 字且無 H2 者共 82 篇,最長為 `商業與創業/創業.md` 5574 字)
+- [ ] 近重複內容合併決策(重複標題盤點時發現,非標題問題):
+      `工程實務/依賴循環.md`(2024-04)與 `依賴循環-2.md`(2023-09)內文約 95% 相同,
+      屬同篇重貼;`短文與心得/Tanstack-Query.md` 僅 18 字,是無內文的殘稿。
+      需決定保留哪篇、另一篇轉 canonical 或撤下
 - [ ] **slug 英文化**:460 篇改英文 kebab-case,舊中文路徑產 redirect stub(noindex、不進 sitemap)
-- [ ] 字型自架(`@fontsource-variable/noto-sans-tc`)消除 Google Fonts render-blocking
 - [ ] GSC / Bing 驗證與提交 sitemap
 - [ ] OG image 每篇動態產生(Phase 4):build-time 以 satori 系方案產生,需 Noto Sans TC subset
 

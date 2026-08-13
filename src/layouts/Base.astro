@@ -124,13 +124,8 @@ const ogImageUrl = new URL(ogImage, Astro.site).href;
     <!-- §7.3 結構化資料 -->
     {jsonLd && <JsonLd data={jsonLd} />}
 
-    <!-- §6.1 Noto Sans TC + JetBrains Mono,font-display: swap -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Noto+Sans+TC:wght@400;500;700&display=swap"
-    />
+    <!-- §6.1 字型:Noto Sans TC + JetBrains Mono 已自架,@font-face 隨 global.css
+         一起送出(見 src/styles/global.css),不再連 Google Fonts。 -->
 
     <!-- §6.3 主題切換 script:置於 head 最前,避免 FOUC -->
     <script is:inline>

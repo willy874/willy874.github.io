@@ -1,0 +1,92 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { CATEGORIES, getPublishedPosts } from '../../../lib/categories';
+import {
+  SITE,
+  graph,
+  buildCollectionPage,
+  buildBreadcrumb,
+  categoryUrl,
+} from '../../../lib/seo';
+
+const posts = await getPublishedPosts();
+
+const groups = CATEGORIES.map((cat) => {
+  const items = posts.filter((p) => p.data.category === cat.name);
+  return { cat, count: items.length, latest: items.slice(0, 3) };
+}).filter((g) => g.count > 0);
+
+const description = `竹子日誌的 ${groups.length} 個文章分類:${groups
+  .map((g) => g.cat.name)
+  .join('、')}。共 ${posts.length} 篇。`;
+const pageUrl = `${SITE.url}/posts/categories/`;
+
+const jsonLd = graph(
+  buildCollectionPage({
+    name: '全部分類',
+    description,
+    url: pageUrl,
+    items: groups.map((g) => ({
+      title: g.cat.name,
+      url: categoryUrl(g.cat.slug, Astro.site),
+    })),
+  }),
+  buildBreadcrumb([
+    { name: '首頁', url: `${SITE.url}/` },
+    { name: '文章', url: `${SITE.url}/posts/` },
+    { name: '全部分類', url: pageUrl },
+  ])
+);
+---
+
+<Base title="全部分類" description={description} jsonLd={jsonLd}>
+  <div class="py-6">
+    <nav class="text-sm" style="color: var(--color-muted);">
+      <a href="/posts/" class="hover:underline">← 全部文章</a>
+    </nav>
+    <header class="mt-2 mb-8">
+      <h1 class="text-3xl font-bold">全部分類</h1>
+      <p class="mt-1" style="color: var(--color-muted);">
+        {groups.length} 個分類 · 共 {posts.length} 篇
+      </p>
+    </header>
+
+    <div class="grid gap-4 sm:grid-cols-2">
+      {
+        groups.map(({ cat, count, latest }) => (
+          <section
+            class="rounded-lg border p-4"
+            style="border-color: var(--color-border);"
+          >
+            <h2 class="text-lg font-bold">
+              <a
+                href={`/posts/categories/${cat.slug}/`}
+                class="hover:text-[var(--color-primary)]"
+              >
+                {cat.emoji} {cat.name}
+              </a>
+              <span
+                class="ml-2 text-sm font-normal tabular-nums"
+                style="color: var(--color-muted);"
+              >
+                {count} 篇
+              </span>
+            </h2>
+            <p class="mt-1 text-sm" style="color: var(--color-muted);">
+              {cat.blurb}
+            </p>
+            <ul class="mt-3 space-y-1">
+              {latest.map((post) => (
+                <li class="line-clamp-1 text-sm">
+                  <a href={`/posts/${post.id}/`} class="hover:underline">
+                    {post.data.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Base>

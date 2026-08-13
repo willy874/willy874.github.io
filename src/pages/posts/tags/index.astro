@@ -1,0 +1,89 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getPublishedPosts } from '../../../lib/categories';
+import {
+  SITE,
+  graph,
+  buildCollectionPage,
+  buildBreadcrumb,
+  tagUrl,
+} from '../../../lib/seo';
+
+const posts = await getPublishedPosts();
+
+// 標籤依文章數多到少排,同數量再依標籤名排,讓熱門主題浮上來
+const counts = new Map<string, number>();
+for (const post of posts) {
+  for (const tag of post.data.tags) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...counts.entries()]
+  .map(([tag, count]) => ({ tag, count }))
+  .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag, 'zh-Hant'));
+
+const maxCount = tags[0]?.count ?? 1;
+
+/** 依文章數給字級,做出標籤雲的權重感(1 篇 0.875rem → 最熱門 1.5rem)。 */
+const fontSize = (count: number) =>
+  `${(0.875 + (count / maxCount) * 0.625).toFixed(3)}rem`;
+
+const description = `竹子日誌全部 ${tags.length} 個標籤,依文章數排序。熱門主題:${tags
+  .slice(0, 8)
+  .map((t) => t.tag)
+  .join('、')}。`;
+const pageUrl = `${SITE.url}/posts/tags/`;
+
+const jsonLd = graph(
+  buildCollectionPage({
+    name: '全部標籤',
+    description,
+    url: pageUrl,
+    items: tags.map((t) => ({
+      title: `#${t.tag}`,
+      url: tagUrl(t.tag, Astro.site),
+    })),
+  }),
+  buildBreadcrumb([
+    { name: '首頁', url: `${SITE.url}/` },
+    { name: '文章', url: `${SITE.url}/posts/` },
+    { name: '全部標籤', url: pageUrl },
+  ])
+);
+---
+
+<Base title="全部標籤" description={description} jsonLd={jsonLd}>
+  <div class="py-6">
+    <nav class="text-sm" style="color: var(--color-muted);">
+      <a href="/posts/" class="hover:underline">← 全部文章</a>
+    </nav>
+    <header class="mt-2 mb-8">
+      <h1 class="text-3xl font-bold">全部標籤</h1>
+      <p class="mt-1" style="color: var(--color-muted);">
+        {tags.length} 個標籤 · 共 {posts.length} 篇
+      </p>
+    </header>
+
+    <ul class="flex flex-wrap items-baseline gap-x-4 gap-y-3">
+      {
+        tags.map(({ tag, count }) => (
+          <li>
+            <a
+              href={`/posts/tags/${tag}/`}
+              class="hover:text-[var(--color-primary)]"
+              style={`font-size: ${fontSize(count)};`}
+            >
+              #{tag}
+              <span
+                class="ml-1 align-baseline text-xs tabular-nums"
+                style="color: var(--color-muted);"
+              >
+                {count}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>

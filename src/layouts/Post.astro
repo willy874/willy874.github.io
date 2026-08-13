@@ -117,8 +117,9 @@ const jsonLd = graph(
           <time datetime={data.publishDate.toISOString()}>{dateStr}</time>
           {data.series && <span>· 系列:{data.series}</span>}
         </div>
+        {/* description 只走 meta / JSON-LD,不當導言渲染 —— 匯入文章的 description
+            多半就是內文首段前 120 字,印出來會與正文一字不差地重複。 */}
         <h1 class="mt-2 text-3xl font-bold leading-tight">{data.title}</h1>
-        <p class="mt-3 text-lg" style="color: var(--color-muted);">{data.description}</p>
         {
           data.tags.length > 0 && (
             <div class="mt-4 flex flex-wrap gap-1.5">

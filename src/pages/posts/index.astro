@@ -22,6 +22,14 @@ const fmtDate = (d: Date) => d.toLocaleDateString('zh-TW');
       <p class="mt-2" style="color: var(--color-muted);">
         共 {posts.length} 篇,分為 {byCategory.length} 個分類區塊。
       </p>
+      <nav class="mt-3 flex gap-4 text-sm">
+        <a href="/posts/categories/" class="hover:underline" style="color: var(--color-primary);">
+          全部分類 →
+        </a>
+        <a href="/posts/tags/" class="hover:underline" style="color: var(--color-primary);">
+          全部標籤 →
+        </a>
+      </nav>
     </header>
 
     <!-- 分類區塊 -->
@@ -77,7 +85,16 @@ const fmtDate = (d: Date) => d.toLocaleDateString('zh-TW');
     {
       allTags.length > 0 && (
         <section class="mt-12 border-t pt-8" style="border-color: var(--color-border);">
-          <h2 class="mb-3 text-lg font-bold">依標籤瀏覽</h2>
+          <div class="mb-3 flex items-baseline justify-between gap-3">
+            <h2 class="text-lg font-bold">依標籤瀏覽</h2>
+            <a
+              href="/posts/tags/"
+              class="shrink-0 text-sm hover:underline"
+              style="color: var(--color-primary);"
+            >
+              標籤索引 →
+            </a>
+          </div>
           <div class="flex flex-wrap gap-1.5">
             {allTags.map((t) => (
               <TagBadge tag={t} />

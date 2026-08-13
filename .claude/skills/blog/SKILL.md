@@ -28,11 +28,12 @@ src/content/posts/{分類資料夾}/{slug}.md      ← 預設用 .md
 src/content/posts/{分類資料夾}/{slug}.mdx     ← 需要 React island（連播圖、Canvas）才用 .mdx
 ```
 
-- **分類資料夾** = `src/lib/categories.ts` 裡 `CATEGORIES` 的 `slug`（等於 `name` 去掉空白）。12 個分類，只能選一個：
-  `前端技術`／`工程實務`／`設計與設計系統`／`AI與工具`／`職涯與工作`／`商業與創業`／`學習與成長`／`議題討論`／`短文與心得`／`個人反思`／`活動與社群`／`日更系列`
-- frontmatter 的 `category` 要填**帶空白的 `name`**（例：資料夾 `AI與工具`，`category: "AI 與工具"`）。填錯不會 build fail，但麵包屑跟分類頁會抓不到。
-- **網址 = `/posts/{分類資料夾小寫}/{slug}/`**。glob loader 會把路徑每一段丟進 slugify：英文轉小寫、空白轉 `-`、中文原樣保留。所以 `AI與工具/zerotrust-dark-services.md` → `/posts/ai與工具/zerotrust-dark-services/`。
-- **slug 一律英文 kebab-case**，3～5 個字，去掉 the／a／of 這種虛字，含主要關鍵字。中文檔名雖然 build 得過（既有 459 篇匯入文章就是），**新文章不要用**——中文網址在外部分享時會被 percent-encoding 炸成一長串。
+- **分類資料夾** = `src/lib/categories.ts` 裡 `CATEGORIES` 的 `slug`，全部是英文。12 個分類，只能選一個：
+  `frontend`（前端技術）／`engineering`（工程實務）／`design-system`（設計與設計系統）／`ai-tools`（AI 與工具）／`career`（職涯與工作）／`business`（商業與創業）／`learning`（學習與成長）／`discussion`（議題討論）／`notes`（短文與心得）／`reflection`（個人反思）／`community`（活動與社群）／`daily`（日更系列）
+- frontmatter 的 `category` 要填**中文 `name`**（例：資料夾 `ai-tools`，`category: "AI 與工具"`）。填錯不會 build fail，但麵包屑跟分類頁會抓不到。
+- **網址 = `/posts/{分類資料夾}/{slug}/`**，兩段都是英文。例：`engineering/zero-trust-explained.md` → `/posts/engineering/zero-trust-explained/`。
+- **slug 一律英文 kebab-case**，3～5 個字，去掉 the／a／of 這種虛字，含主要關鍵字。**不要用中文檔名**——中文網址在外部分享時會被 percent-encoding 炸成一長串（全站 460 篇已於 2026-08 統一改成英文）。
+- 系列文用帶序號的形式保住排序與語意：`daily-51-cjs-esm-history`、`micro-frontend-9-communication`。
 - **slug 與分類資料夾在發布後視為永久**。GitHub Pages 沒有 redirect 機制，改名 = 舊網址直接 404，既有的分享連結與排名一起消失。搬分類也一樣（網址含分類）。真的非改不可，就在 `public/` 放一頁 meta refresh 的舊網址頁。
 
 圖片與附件：
@@ -68,7 +69,7 @@ lang: zh-Hant
 | 欄位 | 規則 |
 | --- | --- |
 | `title` | **中文 20～30 字**（SERP 大約在 30 個全形字後截斷）。主要關鍵字放前半段。**不要**自己加「｜竹子日誌」，`Base.astro` 會自動接。標題照 persona §4.8：口語、自嘲、不聳動，但要能一眼看出在講什麼——「碎碎念」當標題對搜尋是零分。 |
-| `description` | **60～100 字，schema 硬上限 200**。這一欄同時是 `<meta name="description">`、OG／Twitter description、RSS 摘要，而且會**當副標印在文章頁 H1 底下**。所以：要是完整句子、能離開文章單獨讀懂、含主要關鍵字一次、講「讀者能拿到什麼」。禁止「本文將介紹⋯⋯」「這篇文章會談到⋯⋯」。 |
+| `description` | **60～100 字，schema 硬上限 200**。這一欄是 `<meta name="description">`、OG／Twitter description、JSON-LD 與 RSS 摘要的來源，**不會顯示在文章頁上**（`Post.astro` 已移除，因為匯入文章的 description 常與首段一字不差）。要是完整句子、能離開文章單獨讀懂、含主要關鍵字一次、講「讀者能拿到什麼」。禁止「本文將介紹⋯⋯」「這篇文章會談到⋯⋯」。 |
 | `publishDate` | ISO 8601 帶 `+08:00`。不要用純日期字串。 |
 | `updatedDate` | 內容有實質更新才加。它是「這篇還活著」的訊號，但沒改內容卻亂動 = 沒有意義。 |
 | `category` | 12 個 `name` 之一，**要跟所在資料夾對得起來**。 |
@@ -86,7 +87,7 @@ lang: zh-Hant
 
 1. **正文不要有 `# H1`。** `Post.astro` 已經用 `title` 渲染了 H1，再寫一個 = 一頁兩個 H1。正文最高層級是 `##`。
    （既有匯入文章有些帶 H1，那是匯入產物，別跟著學。）
-2. **第一段不要逐字複製 `description`。** 它已經印在 H1 底下了，重複一次讀者會覺得卡，搜尋引擎也拿不到新資訊。第一段是**另一個切角**的進場：一個現場、一個對話、一個數字。
+2. **第一段不要逐字複製 `description`。** description 是寫給搜尋引擎與分享卡片看的，正文首段是寫給讀者看的，兩者重複等於浪費一次曝光。第一段要**另一個切角**的進場：一個現場、一個對話、一個數字。
 3. **分節線用單獨一行的 `——`，不要用 markdown 的 `---`。** 在 md 裡 `---` 會被當成 `<hr>`，而且跟 frontmatter 分隔符打架。
 
 ### 3.2 骨架
@@ -453,7 +454,10 @@ export default function ParticleFigure({ caption }: { caption: string }) {
 
 這幾件事**不要在文章裡硬幹**，要修就是改 layout／設定，而且要先問過使用者：
 
-- `Post.astro` 的 `ogImage` 目前寫成 `data.cover ? undefined : undefined`，等於永遠吃預設圖 `/images/og-default.png`。單篇要自訂 OG 圖只能靠改 layout。
-- `Base.astro` 沒有輸出 JSON-LD（`BlogPosting` / `BreadcrumbList`）。想吃 rich result 要在 layout 補。
-- RSS 只輸出 `description` 摘要，全文是 Phase 2（見 `src/pages/rss.xml.ts` 註解）。
 - giscus 的 `repoId`／`categoryId` 還沒填（`src/components/post/Giscus.astro`），留言區目前是不會動的。
+- 單篇 OG 圖只能靠 `cover` 欄位（有設就走 astro:assets 產圖，沒設吃站台預設圖）。每篇自動產 OG 圖是 Phase 4。
+- 其餘待辦見專案根目錄的 `TODO.md`。
+
+已經做好、不用再補的（別重複造）：JSON-LD（`src/lib/seo.ts` + `JsonLd.astro`）、canonical／OG／Twitter meta、
+自建 sitemap、動態 robots.txt、`/llms.txt` 與 `/llms-full.txt`、RSS 全文輸出、字型自架、
+`/posts/categories/` 與 `/posts/tags/` 索引頁。

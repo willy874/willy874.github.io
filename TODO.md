@@ -75,7 +75,17 @@
       - `短文與心得/Tanstack-Query.md` 僅 18 字,是沒有內文的殘稿
       - `議題討論/［知識小補給］發電系統.md`(下)結尾斷在「再利用爆震的力量」,文章不完整
       需決定保留哪篇、另一篇轉 canonical 或撤下
-- [ ] **slug 英文化**:460 篇改英文 kebab-case,舊中文路徑產 redirect stub(noindex、不進 sitemap)
+- [x] **slug 英文化**:460 篇全部改成英文 kebab-case,**分類資料夾也一併英文化**,
+      網址從 `/posts/前端技術/自由的框架/` 變成 `/posts/frontend/which-framework-is-really-free/`。
+      - 12 個分類 slug:frontend / engineering / design-system / ai-tools / career / business /
+        learning / discussion / notes / reflection / community / daily
+      - 每篇 slug 都是讀過內容後取的 3～5 字英文,含主要關鍵字;系列文用 `daily-N-關鍵字`、
+        `micro-frontend-N-主題` 這種帶序號的形式,排序與語意都保得住
+      - 舊網址共 483 個轉址頁(459 篇文章 + 12 分類頁 + 12 分類索引)產在 `public/posts/`,
+        走 meta refresh + `location.replace`,一律 noindex、不進 sitemap、
+        帶 `data-pagefind-ignore` 所以也不會被站內搜尋索引
+      - 重產轉址頁:`node scripts/gen-redirects.mjs`(來源是 `scripts/slug-redirects.json`)
+      - **slug 與分類自此視為永久**,再改一次舊連結就會斷第二次
 - [ ] GSC / Bing 驗證與提交 sitemap
 - [ ] OG image 每篇動態產生(Phase 4):build-time 以 satori 系方案產生,需 Noto Sans TC subset
 

@@ -1,24 +1,16 @@
 ---
 title: "AI 選擇性閱讀"
-description: "title: \"AI 選擇性閱讀\" created: \"2026年4月15日 星期三 11:21:43\" modified: \"2026年4月15日 星期三 11:21:43\" folder: \"竹子日誌文章\" tags: AI 工具 提示"
+description: "AI Agent 不會乖乖把你餵的 1000 行讀完，它讀個 200 行就說讀完了。這篇講怎麼用「條件引導 Submodule」把 Prompt 拆細，既省 Token 又避免漏讀。"
 publishDate: 2026-05-03T09:03:17.774Z
 updatedDate: 2026-05-03T09:03:17.774Z
 category: "AI 與工具"
-tags: []
+tags:
+  - "AI"
+  - "工具"
+  - "提示工程"
 draft: false
 lang: zh-Hant
 ---
----
-title: "AI 選擇性閱讀"
-created: "2026年4月15日 星期三 11:21:43"
-modified: "2026年4月15日 星期三 11:21:43"
-folder: "竹子日誌文章"
-tags:
-  - AI
-  - 工具
-  - 提示工程
----
-
 前兩天說要分享一些 AI 使用的小 Tip
 第一個我就要分享「我的 AI 讀 Skill 會漏內容」
 

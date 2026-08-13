@@ -1,0 +1,12 @@
+---
+// 輸出 schema.org JSON-LD。data 已由 src/lib/seo.ts 的 graph() 組好。
+export interface Props {
+  data: object;
+}
+const { data } = Astro.props;
+
+// JSON-LD 內若含 "</script>" 會提早關閉標籤,轉義後再輸出。
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" is:inline set:html={json} />

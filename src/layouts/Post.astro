@@ -2,8 +2,16 @@
 import type { MarkdownHeading } from 'astro';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from './Base.astro';
+import {
+  SITE,
+  graph,
+  buildBlogPosting,
+  buildBreadcrumb,
+  buildPerson,
+  categoryUrl,
+} from '../lib/seo';
 import TOC from '../components/post/TOC.astro';
 import TagBadge from '../components/post/TagBadge.astro';
 import Giscus from '../components/post/Giscus.astro';
@@ -38,9 +46,59 @@ const prev = idx > 0 ? seriesPosts[idx - 1] : undefined;
 const next = idx >= 0 && idx < seriesPosts.length - 1 ? seriesPosts[idx + 1] : undefined;
 
 const cat = categoryByName(data.category);
+
+// §7.3 SEO —— cover 有設就當分享圖(需先過 astro:assets 產出實際 URL),否則用站台預設圖
+const coverOg = data.cover
+  ? await getImage({
+      src: data.cover,
+      width: SITE.ogImageWidth,
+      height: SITE.ogImageHeight,
+      format: 'png',
+    })
+  : undefined;
+
+const postUrl = new URL(
+  Astro.url.pathname.replace(/\/?$/, '/'),
+  Astro.site
+).href;
+const ogImageUrl = coverOg?.src ?? SITE.ogImage;
+
+const crumbs = [
+  { name: '首頁', url: `${SITE.url}/` },
+  { name: '文章', url: `${SITE.url}/posts/` },
+  ...(cat ? [{ name: cat.name, url: categoryUrl(cat.slug, Astro.site) }] : []),
+  { name: data.title, url: postUrl },
+];
+
+const jsonLd = graph(
+  buildBlogPosting({
+    title: data.title,
+    description: data.description,
+    url: postUrl,
+    image: new URL(ogImageUrl, Astro.site ?? SITE.url).href,
+    publishDate: data.publishDate,
+    updatedDate: data.updatedDate,
+    tags: data.tags,
+    category: data.category,
+    lang: data.lang === 'en' ? 'en' : SITE.lang,
+    wordCount: post.body ? post.body.replace(/\s/g, '').length : undefined,
+  }),
+  buildBreadcrumb(crumbs),
+  buildPerson()
+);
 ---
 
-<Base title={data.title} description={data.description} article ogImage={data.cover ? undefined : undefined}>
+<Base
+  title={data.title}
+  description={data.description}
+  article
+  lang={data.lang}
+  ogImage={ogImageUrl}
+  ogImageAlt={data.title}
+  publishedTime={data.publishDate}
+  modifiedTime={data.updatedDate}
+  jsonLd={jsonLd}
+>
   <article class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-[1fr_16rem]">
     <div class="min-w-0">
       <header class="mb-8">

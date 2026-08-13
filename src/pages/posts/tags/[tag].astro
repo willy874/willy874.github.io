@@ -3,6 +3,14 @@ import { getCollection } from 'astro:content';
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import PostCard from '../../../components/post/PostCard.astro';
+import {
+  SITE,
+  graph,
+  buildCollectionPage,
+  buildBreadcrumb,
+  tagUrl,
+  postUrl,
+} from '../../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('posts', (p) => !p.data.draft);
@@ -21,9 +29,29 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { tag, posts } = Astro.props as Props;
+
+const description = `竹子日誌標籤「${tag}」的全部文章,共 ${posts.length} 篇,依發布日期由新到舊排列。`;
+const pageUrl = tagUrl(tag, Astro.site);
+
+const jsonLd = graph(
+  buildCollectionPage({
+    name: `#${tag}`,
+    description,
+    url: pageUrl,
+    items: posts.map((p) => ({
+      title: p.data.title,
+      url: postUrl(p.id, Astro.site),
+    })),
+  }),
+  buildBreadcrumb([
+    { name: '首頁', url: `${SITE.url}/` },
+    { name: '文章', url: `${SITE.url}/posts/` },
+    { name: `#${tag}`, url: pageUrl },
+  ])
+);
 ---
 
-<Base title={`#${tag}`} description={`標籤「${tag}」的全部文章`}>
+<Base title={`#${tag}`} description={description} jsonLd={jsonLd}>
   <div class="py-6">
     <p class="text-sm" style="color: var(--color-muted);">
       <a href="/posts/" class="hover:underline">← 全部文章</a>

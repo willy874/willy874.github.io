@@ -3,6 +3,14 @@ import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Base from '../../../layouts/Base.astro';
 import PostCard from '../../../components/post/PostCard.astro';
 import { CATEGORIES, getPublishedPosts } from '../../../lib/categories';
+import {
+  SITE,
+  graph,
+  buildCollectionPage,
+  buildBreadcrumb,
+  categoryUrl,
+  postUrl,
+} from '../../../lib/seo';
 
 export const getStaticPaths = (async () => {
   const posts = await getPublishedPosts();
@@ -18,9 +26,29 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { cat, posts } = Astro.props as Props;
+
+const description = `竹子日誌「${cat.name}」分類:${cat.blurb}。共 ${posts.length} 篇。`;
+const pageUrl = categoryUrl(cat.slug, Astro.site);
+
+const jsonLd = graph(
+  buildCollectionPage({
+    name: cat.name,
+    description,
+    url: pageUrl,
+    items: posts.map((p) => ({
+      title: p.data.title,
+      url: postUrl(p.id, Astro.site),
+    })),
+  }),
+  buildBreadcrumb([
+    { name: '首頁', url: `${SITE.url}/` },
+    { name: '文章', url: `${SITE.url}/posts/` },
+    { name: cat.name, url: pageUrl },
+  ])
+);
 ---
 
-<Base title={cat.name} description={`竹子日誌「${cat.name}」分類:${cat.blurb}。共 ${posts.length} 篇。`}>
+<Base title={cat.name} description={description} jsonLd={jsonLd}>
   <div class="py-6">
     <nav class="text-sm" style="color: var(--color-muted);">
       <a href="/posts/" class="hover:underline">← 全部分類</a>

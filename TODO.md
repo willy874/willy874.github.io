@@ -17,12 +17,34 @@
 - [ ] 到 https://giscus.app 產生設定,把 `repoId` / `categoryId` 填入 `src/components/post/Giscus.astro`
       (未填時文章頁顯示提示、不報錯)
 
-## RSS / SEO / OG
+## RSS / SEO / AEO(規劃見 `docs/SEO-AEO規劃.md`)
 
-- [ ] RSS 全文輸出(Phase 2):目前輸出摘要;改以 `experimental_AstroContainer.renderToString`
-      產生 rendered HTML 填入 `content` 欄位(見 `src/pages/rss.xml.ts` 註解),需搭配 `sanitize-html`
-- [ ] OG 預設圖:`Base.astro` 引用 `/images/og-default.png`,該檔尚未放置(分享預覽目前缺圖)
-- [ ] OG image 動態產生(Phase 4):build-time 以 satori 系方案產生,需自備 Noto Sans TC subset 字型
+已完成(批次 1、2):
+
+- [x] JSON-LD 結構化資料:`src/lib/seo.ts` + `src/components/seo/JsonLd.astro`
+      (文章 BlogPosting + BreadcrumbList、首頁 WebSite/Blog/Person、關於頁 ProfilePage、
+      分類與標籤頁 CollectionPage)
+- [x] Base.astro 補齊 meta:author、robots、article:published/modified_time、
+      og:image 尺寸與 alt、動態 html lang、canonical 尾斜線正規化
+- [x] Post.astro cover 進 OG(原本是 `undefined : undefined` 死碼)
+- [x] sitemap 自建(`src/pages/sitemap.xml.ts`),含 lastmod / changefreq / priority;
+      `/sitemap-index.xml` 保留舊位址指向它;已移除 `@astrojs/sitemap`
+- [x] robots.txt 改動態(`src/pages/robots.txt.ts`),明列 18 個 AI 爬蟲一律 Allow
+- [x] `/llms.txt`(站台導覽索引)與 `/llms-full.txt`(全文彙整,1.0 MB)
+- [x] RSS 全文輸出(`content:encoded`,AstroContainer + sanitize-html)
+- [x] OG 預設圖 `public/images/og-default.png`(`node scripts/gen-og-default.mjs` 可重產)
+
+待辦(批次 3、4):
+
+- [ ] **description 重寫**:423/460 篇是內文前 120 字硬切、句子斷半且與首段重複,分批改寫
+- [ ] `Post.astro` 移除把 description 當導言渲染(與內文首段一字不差)
+- [ ] H2 結構補強:455/460 篇無任何 H2,TOC 空轉且 AI 無錨點可引用;優先處理 >800 字技術文
+- [ ] 6 組重複標題處理;11 個單篇 tag 合併
+- [ ] `/posts/tags/`、`/posts/categories/` 索引頁
+- [ ] **slug 英文化**:460 篇改英文 kebab-case,舊中文路徑產 redirect stub(noindex、不進 sitemap)
+- [ ] 字型自架(`@fontsource-variable/noto-sans-tc`)消除 Google Fonts render-blocking
+- [ ] GSC / Bing 驗證與提交 sitemap
+- [ ] OG image 每篇動態產生(Phase 4):build-time 以 satori 系方案產生,需 Noto Sans TC subset
 
 ## 工具與檔案庫(§4、Phase 3)
 

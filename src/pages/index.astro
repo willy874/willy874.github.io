@@ -4,12 +4,15 @@ import PostCard from '../components/post/PostCard.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { getPublishedPosts } from '../lib/categories';
 import { PROFILE, PROJECTS } from '../lib/profile';
+import { graph, buildWebSite, buildBlog, buildPerson } from '../lib/seo';
 
 const posts = await getPublishedPosts();
 const recent = posts.slice(0, 8);
+
+const jsonLd = graph(buildWebSite(), buildBlog(), buildPerson());
 ---
 
-<Base title="竹子日誌">
+<Base title="竹子日誌" jsonLd={jsonLd}>
   <!-- Hero -->
   <section class="py-8 sm:py-12">
     <p class="text-sm font-medium" style="color: var(--color-primary);">

@@ -2,9 +2,26 @@
 import Base from '../layouts/Base.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { PROFILE, PROJECTS, FOCUS, COMMUNITY } from '../lib/profile';
+import { SITE, graph, buildPerson, personId, websiteId } from '../lib/seo';
+
+const description =
+  '關於竹子(Willy):前端工程師、讀書會主辦與新手教學,以及這個技術部落格。';
+
+const jsonLd = graph(
+  {
+    '@type': 'ProfilePage',
+    url: `${SITE.url}/about/`,
+    name: '關於竹子',
+    description,
+    inLanguage: SITE.lang,
+    isPartOf: { '@id': websiteId },
+    mainEntity: { '@id': personId },
+  },
+  buildPerson()
+);
 ---
 
-<Base title="關於竹子" description="關於竹子(Willy):前端工程師、讀書會主辦與新手教學,以及這個技術部落格。">
+<Base title="關於竹子" description={description} jsonLd={jsonLd}>
   <div class="mx-auto max-w-3xl py-8">
     <h1 class="text-3xl font-bold">關於竹子</h1>
 

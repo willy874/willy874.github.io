@@ -2,7 +2,6 @@
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 // 方案 A:使用者站台 repo（willy874.github.io），base 保持乾淨的 '/'
@@ -13,16 +12,9 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'ignore',
 
-  integrations: [
-    react(),
-    mdx(),
-    sitemap({
-      // /files/** 為純靜態檔案庫、/interview/** 為既有作品,皆不進 sitemap
-      filter: (page) =>
-        !page.includes('/files/') &&
-        !page.includes('/interview/'),
-    }),
-  ],
+  // sitemap 改由 src/pages/sitemap.xml.ts 自建(需要 lastmod / priority,
+  // 且要能排除轉址 stub 頁),故不再掛 @astrojs/sitemap。
+  integrations: [react(), mdx()],
 
   markdown: {
     shikiConfig: {
@@ -37,5 +29,12 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        // rss.xml.ts 用到 astro:container(RSS 全文渲染),會連帶把 chokidar →
+        // fsevents 的原生 .node 檔拉進 bundle,rollup 解析不了。標為 external 即可。
+        external: ['fsevents'],
+      },
+    },
   },
 });

@@ -1,6 +1,6 @@
 ---
 title: "關於 SASS/SCSS"
-description: "過去大概4, 5年前，當時是 bootstrap 的天下，當時最流行處理 CSS 的手段是 SASS。要嘛是 global 注入後手動管理，要嘛是採用 CSS Module，各大框架甚至有自己的一套。 近年來趨勢逐漸都開始向 Atomic"
+description: "四五年前 SASS 是處理 CSS 的主流手段，現在趨勢往 Atomic 靠攏，Global CSS 因為反查太難而逐漸被淘汰。這篇聊 SASS 使用率一路下降的原因。"
 publishDate: 2024-11-24T11:36:09+08:00
 updatedDate: 2024-11-25T08:42:15+08:00
 category: "前端技術"

@@ -1,6 +1,6 @@
 ---
 title: "關於 React 的效能"
-description: "這個大概是萬年話題，許多人吵了翻天，大家經常為了「有沒有必要使用 useMemo 優化效能」而相互爭吵，但從來沒有人能夠具體提出一個「數字化」的說法去佐證這件事。為了驗證效能，我覺得具體的算法就是計算時間，我想到直接在 browser 上直"
+description: "useMemo 到底該不該用，吵了這麼久卻沒人拿出數字。我直接用 console.time 壓測十萬量級的迴圈、useMemo、Virtual Node 與 DOM 掛載，把真正的效能大戶找出來。"
 publishDate: 2023-07-17T08:37:12+08:00
 updatedDate: 2023-08-14T18:20:34+08:00
 category: "前端技術"

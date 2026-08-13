@@ -1,6 +1,6 @@
 ---
 title: "［知識小補給］PDCA流程化"
-description: "PDCA這套法則已經沿用商場多年，但是又有多少人紮實運作呢？"
+description: "PDCA 這套法則沿用商場多年，但真正紮實跑完一輪的人有多少？這篇是關於流程化的知識小補給。"
 publishDate: 2018-02-21T10:52:14+08:00
 updatedDate: 2018-02-21T10:53:55+08:00
 category: "職涯與工作"

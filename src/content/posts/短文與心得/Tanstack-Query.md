@@ -1,6 +1,6 @@
 ---
 title: "Tanstack Query：近年最超乎預期的套件"
-description: "這大概是近年用過最超乎預期的套件了，"
+description: "Tanstack Query 大概是我近年用過最超乎預期的套件了。（這篇是當時隨手記下的一句話，完整的心得寫在工程實務分類那篇。）"
 publishDate: 2025-02-06T08:46:15+08:00
 updatedDate: 2025-02-06T08:48:08+08:00
 category: "短文與心得"

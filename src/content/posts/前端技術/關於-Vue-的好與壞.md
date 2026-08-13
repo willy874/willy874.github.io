@@ -1,6 +1,6 @@
 ---
 title: "關於 Vue 的好與壞"
-description: "我常常會說 vue 是自助餐，他從來不是「限制你」，而是他提供數種寫法。它寫起來真的很自由，很隨意。 基礎的寫法除了 optional 和 composition 兩大寫法外，其實還有一種由社群提供的 class component 的寫法"
+description: "Vue 是一間自助餐：九種以上的寫法組合、全自動依賴樹、模板把難的地方封裝掉。但這些好處的另一面就是它的壞處，這篇把兩面一起講。"
 publishDate: 2023-05-14T12:12:01+08:00
 updatedDate: 2023-05-20T17:09:42+08:00
 category: "前端技術"

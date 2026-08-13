@@ -1,6 +1,6 @@
 ---
 title: "Design System"
-description: "經常大家認知的 Design system 就停留在色票、文字、元件⋯⋯這些東西，但做過 Design system project 後，我認為並不是這麼狹隘的東西。"
+description: "大家對 Design System 的認知常常停在色票、文字、元件。實際做過一輪 Design System 專案之後，我認為它遠比這個定義寬得多。"
 publishDate: 2025-07-06T00:11:28+08:00
 updatedDate: 2025-07-06T00:22:44+08:00
 category: "短文與心得"

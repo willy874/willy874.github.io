@@ -1,6 +1,6 @@
 ---
 title: "說說 Vue 的問題"
-description: "網路上清一色是捧 react 踩 vue，一派說法是 vue 比 react 用的人少，一派說法是 vue 是中國人寫的，還有一派說法是 vue 黑魔法多。多半我會護航 vue，因為許多人噴的都不在點上，我覺得只是框架優越感而已。但今天我要"
+description: "平常我多半護航 Vue，因為很多人噴的都不在點上。這次換我自己來講 Vue 相較 React 真正不好用的地方，從模板與腳本語意不一致開始。"
 publishDate: 2024-12-06T08:40:47+08:00
 updatedDate: 2024-12-06T16:08:12+08:00
 category: "前端技術"

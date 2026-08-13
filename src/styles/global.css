@@ -108,6 +108,26 @@
   text-decoration-line: underline;
 }
 
+/* 文章圖解(inline SVG / Canvas island)共用樣式 */
+.prose-zh figure {
+  margin-block: 2rem;
+}
+
+.prose-zh figure svg,
+.prose-zh figure canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.prose-zh figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9em;
+  line-height: 1.7;
+  text-align: center;
+  color: var(--color-muted);
+}
+
 .prose-zh :where(code):not(pre code) {
   font-family: var(--font-mono);
   font-size: 0.9em;

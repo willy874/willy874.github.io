@@ -1,6 +1,6 @@
 ---
 title: "Mobile App和 Mobile Web 是不一樣的東西"
-description: "這件事我歷份工作都經歷過，每個人看法迥異，但這兩者絕對不一樣。那他們分辨的定義呢？mobile app 就是你去app store或是下載應用程式安裝檔所跑的程式均歸類為app，讓使用者藉由瀏覽器、app內部瀏覽器打開的應用程式均歸類在we"
+description: "App 與 Web 的分辨點在「預設行為」與「預設介面」。要求兩者統一，得先建立在了解與充足的開發資源上，否則只是因為無知而做的任性。"
 publishDate: 2022-11-17T07:07:25+08:00
 updatedDate: 2022-11-17T07:34:58+08:00
 category: "工程實務"

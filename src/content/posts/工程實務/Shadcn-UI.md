@@ -1,6 +1,6 @@
 ---
 title: "Shadcn UI"
-description: "近期覺得 Shadcn UI 氾濫，切版用、入門用、後台用、AI也推薦你用，看到 PoC 用、學生用、Side Project 用、面試者用，現在幾乎成為前端的優先選型，老實說有點疲乏。 我同意 Headless 系列的 UI Librar"
+description: "Shadcn UI 現在幾乎成了前端的優先選型，老實說有點疲乏。Headless 帶來極強的可修改性，但也帶來閱讀負擔——工程師永遠在彈性和效率之間取捨。"
 publishDate: 2025-08-20T20:24:48+08:00
 updatedDate: 2025-08-22T08:41:41+08:00
 category: "工程實務"

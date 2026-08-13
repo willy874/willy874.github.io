@@ -1,6 +1,6 @@
 ---
 title: "ESModule 的載入特性"
-description: "我們前端每天都在寫的 ESModule ，但你真的懂它是怎麼運行的嗎？"
+description: "我們前端每天都在寫 ESModule，但你真的懂它是怎麼運行的嗎？這篇談它的載入特性。"
 publishDate: 2024-04-11T08:45:17+08:00
 updatedDate: 2024-04-17T08:32:27+08:00
 category: "工程實務"

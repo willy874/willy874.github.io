@@ -1,6 +1,6 @@
 ---
 title: "Service Worker"
-description: "這是一個可以註冊一些 JavaScript 讓瀏覽器背景運作的功能，知名的 PWA 就是基於這樣的系統架構達到這樣的效果。 它可以解決很多你意想不到的東西，包含著長期快取、Web Push、攔截請求、背景長連接。就像是一個開在瀏覽器的伺服器"
+description: "Service Worker 就像一台開在瀏覽器裡的伺服器：長期快取、Web Push、攔截請求、背景長連接，還能不卡主線程做運算。PWA 就是基於它。"
 publishDate: 2025-05-19T21:04:48+08:00
 updatedDate: 2025-05-19T22:55:04+08:00
 category: "工程實務"

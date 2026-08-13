@@ -1,6 +1,6 @@
 ---
 title: "伺服器渲染 (SSR)"
-description: "前日我聊過前端已經不再是那個前端，我覺得可以稍微聊聊現在前端架構上發生什麼變化？為什麼跟過去不一樣了？ 關於伺服器渲染，我要來講講在 SSR 如何實作登入機制。這邊先釐清，我這裡講的 SSR 不是傳統純 Server Side Render"
+description: "SSR 架構下 Token 該放哪？伺服器拿不到 Client 的 LocalStorage。這篇講怎麼用 http only cookie 解決，也講為什麼我更推崇 PreRender。"
 publishDate: 2024-08-20T09:29:00+08:00
 updatedDate: 2024-08-21T08:20:45+08:00
 category: "工程實務"

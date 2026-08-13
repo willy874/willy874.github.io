@@ -1,6 +1,6 @@
 ---
 title: "Domain Driven Design"
-description: "上週是 DDD 年會，從每一場演講中搞懂「什麼是DDD」，我才醒悟⋯⋯原來我們公司一直在推動 DDD。然而對我來說也充滿衝擊，因為DDD並不是廣泛在前端應用的方式，進而導致經驗上的缺乏和水土不服。 其實從前端接收資料對這些 services"
+description: "前端套 DDD 的水土不服：Domain layer 得靠 class、CQRS 讓定義一個行為的成本暴增。但用 Domain 劃分後重構成本大降，微前端也有了溝通橋樑。"
 publishDate: 2023-09-18T07:59:36+08:00
 updatedDate: 2023-09-21T08:40:59+08:00
 category: "工程實務"

@@ -1,6 +1,6 @@
 ---
 title: "Module Federation"
-description: "前面談了很多關於「微前端」的東西，其中一項脫離不了的關鍵技術就是 Module Federation ，中文可以稱呼它模塊聯邦，但後面我一律用 Federation 簡稱。 這是一個讓各應用的函式庫有效的去共用函式的方法，把各種函式庫模組透"
+description: "Module Federation 讓微前端的各應用有效共用函式庫，但它是「同版本共享」而非多版本共存。這篇講共享機制的維護、權重規則與它帶來的打包代價。"
 publishDate: 2023-07-01T18:13:59+08:00
 updatedDate: 2023-07-05T18:16:29+08:00
 category: "工程實務"

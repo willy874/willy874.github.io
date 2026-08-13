@@ -1,6 +1,6 @@
 ---
 title: "Monorepo 踩坑記"
-description: "最近在實行 monorepo 架構，真的是被雷到一個不要不要的。特別是「依賴問題」，難搞的讓人傷腦筋，它總是不按照你想的去 work。 一般在 monorepo 的時候，node\\ modules 的取得會優先讀取 workspace 再讀"
+description: "Monorepo 最難搞的是依賴問題。打包套件內部自動 require 時無法分辨 workspace 還是 root，會去讀它自己所在的 node_modules，坑就從這裡開始。"
 publishDate: 2023-01-14T13:13:12+08:00
 updatedDate: 2023-02-02T09:02:48+08:00
 category: "工程實務"

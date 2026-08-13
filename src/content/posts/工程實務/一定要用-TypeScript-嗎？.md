@@ -1,6 +1,6 @@
 ---
 title: "一定要用 TypeScript 嗎？"
-description: "過去其實出過不少 JavaScript 的超集，包含 Coffee Script 、Flow ⋯⋯等等。近年真的是 TypeScript 獨霸市場，幾乎快要成為前端一致認可的標準，成熟的 Library 幾乎會與 TypeScript 綁在"
+description: "成本高可以寫 any、編譯慢可以部分預編譯、老專案可以用 JSDoc 漸進導入。這些反對理由我都認同，但沒有 TypeScript 的大專案真的很痛苦。"
 publishDate: 2025-06-11T08:17:22+08:00
 updatedDate: 2025-06-11T08:33:46+08:00
 category: "工程實務"

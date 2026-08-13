@@ -1,6 +1,6 @@
 ---
 title: "React Router"
-description: "看似自由的 react 技術圈，目前使用 router 功能的市場仍然被 remix 的 react router 佔領，目前除了 Next 自有的 router system 外，還沒看到其他間居上的 router library 。 用"
+description: "用過 vue-router 之後，其他路由系統我都覺得難用。這篇列出 react-router-dom v6 讓我卡住的地方：不建議操作 Router 實體、沒有導航攔截、無法針對 route id 導向。"
 publishDate: 2024-09-28T13:09:07+08:00
 updatedDate: 2024-09-28T14:20:46+08:00
 category: "工程實務"

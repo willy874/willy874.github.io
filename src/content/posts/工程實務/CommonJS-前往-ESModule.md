@@ -1,6 +1,6 @@
 ---
 title: "CommonJS 前往 ESModule"
-description: "ES6 ESModule 的模組化協議橫空出世，當時被 Node.js 的標準霸佔的 CommonJS 近年被社群逐漸蠶食，慢慢大家都只寫 ESModule。但事實上，大家寫的 ESModule 並不是真的上了瀏覽器還是用 ESModule"
+description: "大家寫的 ESModule 上了瀏覽器多半不是真的用 ESModule 在跑。這篇講遷移時最麻煩的兩個東西：export default 與 require，以及兩種模組化為什麼不等價。"
 publishDate: 2025-03-30T10:58:04+08:00
 updatedDate: 2025-04-04T12:58:27+08:00
 category: "工程實務"

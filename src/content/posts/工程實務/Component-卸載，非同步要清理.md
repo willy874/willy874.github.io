@@ -1,6 +1,6 @@
 ---
 title: "Component 卸載，非同步要清理"
-description: "不管你是寫什麼前端框架，你一定有一些行為是 Component Mounted 的時間點要執行。執行時也很常會有「非同步」行為。 常態來說，可能要打 API 行為，可能有一些 IO 建立的行為，凡是所有你需要使用 async 或是 Prom"
+description: "元件掛載時打 API 很常見，但元件被卸載後 callback 並不會中止，還是會把非同步跑完，執行「不需要的行為」。趕快檢查你的元件有沒有好好清理。"
 publishDate: 2024-09-05T08:38:28+08:00
 updatedDate: 2024-09-05T08:49:06+08:00
 category: "工程實務"

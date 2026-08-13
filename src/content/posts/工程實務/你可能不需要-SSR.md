@@ -1,6 +1,6 @@
 ---
 title: "你可能不需要 SSR"
-description: "現今 SSR 框架當道，什麼都要搞 SSR 框架，Nuxt, Next, Universal，各種技術不斷興起。前後端花了近十年分離的架構即將又要融合為一塊，這就是現在網頁前端的趨勢。 我們先分析 SSR 帶來的好處： 能倚賴 Server"
+description: "SEO 用 SSG 排程預渲染就夠了、渲染效率未必更快、CLS 本來就不該是問題。這篇把 SSR 的好處一條條拆開檢查，再看它帶來的四個副作用。"
 publishDate: 2024-05-31T07:33:05+08:00
 updatedDate: 2024-06-06T07:05:30+08:00
 category: "工程實務"

@@ -1,6 +1,6 @@
 ---
 title: "useEffect 要 Cleanup"
-description: "分享一下前陣子工作上遇到的感觸 我們寫那麼久的 React，從 functional component 寫都知道 useEffect 要 cleanup，講的大家都知道。聽了任何事件要清除，改了外部狀態要恢復。 但 Promise 的 c"
+description: "事件要清除、外部狀態要恢復，大家都知道。但 Promise 的 callback 嚴格說也是一種 event callback，那是不是也該 cleanup？"
 publishDate: 2025-04-16T21:45:28+08:00
 updatedDate: 2025-04-28T23:10:17+08:00
 category: "工程實務"

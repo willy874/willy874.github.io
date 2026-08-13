@@ -1,6 +1,6 @@
 ---
 title: "［議題討論］7-ELEVEN 「X-STORE」"
-description: "https://youtu.be/UaURDH2K4PA https://youtu.be/MXSU4ACPiDE 我先提出這個議題，有想法的可以先提出來，24小時後我會提出我這邊的想法和論述。 竹：有什麼想法都可以講喔！ 不管是從投資者、"
+description: "無人商店用上人工智慧、RFID、大數據物流與圖像辨識。這篇整理群友從投資者、經營者、消費者角度的討論，以及五個問題與六個優點。"
 publishDate: 2018-01-31T03:08:49+08:00
 updatedDate: 2018-02-03T16:52:42+08:00
 category: "議題討論"

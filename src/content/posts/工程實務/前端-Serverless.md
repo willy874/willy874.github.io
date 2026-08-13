@@ -1,6 +1,6 @@
 ---
 title: "前端 Serverless"
-description: "許多從前端剛摸後端的人以為連線資料庫只是一個單純的 HTTP 請求，事實上，資料庫服務溝通其實很多時候是一個 Socket 連線，並不是你以為的 WebSocket，而是純粹的 TCP 請求。 前端近年 SSR 架構興起，也因為 Next."
+description: "Next.js 帶起 Serverless 的 Rendering Service，但 Edge runtime 是閹割版的 Node.js。想串外部服務才發現沒有 net module，也就是沒有 Socket 能力。"
 publishDate: 2025-06-27T08:21:40+08:00
 updatedDate: 2025-06-27T08:36:26+08:00
 category: "工程實務"

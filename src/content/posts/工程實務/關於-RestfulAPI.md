@@ -1,6 +1,6 @@
 ---
 title: "關於 RestfulAPI"
-description: "很多人以為 restful API 只是把行為區分成 GET, POST, PUT, PATCH, DELETE 這些不同的 mothod。然而，如果真的這麼簡單，有什麼好了解的呢？其實不只是 restful API 的規範，更要知道 ht"
+description: "Restful API 不只是分 GET、POST、PUT、DELETE，你還得懂 http 規範和瀏覽器規範。這篇列出三種一看就會踩雷的 API 設計。"
 publishDate: 2024-09-12T08:29:55+08:00
 updatedDate: 2024-09-12T08:47:29+08:00
 category: "工程實務"

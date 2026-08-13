@@ -1,6 +1,6 @@
 ---
 title: "JSDoc"
-description: "雖然jsdoc已經很久了，但不知道的人意外還是不少。我一直以來都很推使用 jsdoc ，也確實推坑不少人使用，近日感覺使用的人真的越來越多。 過去在提議使用 jsdoc 時，很多人都說，為什麼不乾脆使用 TypeScript 就好？當然是因"
+description: "「為什麼不乾脆用 TypeScript 就好？」因為不是每份工作都能讓你任意導入技術。JSDoc 不只是閹割版型別檢查器，它在編輯器輔助上的價值也很高。"
 publishDate: 2023-09-07T18:44:07+08:00
 updatedDate: 2023-09-16T11:26:21+08:00
 category: "工程實務"

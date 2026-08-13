@@ -1,6 +1,6 @@
 ---
 title: "Webpack升版（一）"
-description: "近期舊專案要幫 webpack 升級，從4升到5，以往升級其實還沒遇過這麼大的專案要升版，但這一次我真的碰壁了。龐大而複雜的架構與依賴讓我極難修復各種問題。 從升級的方式，因原先是用 Vue cli 去建構的專案，首先要找到它提供的升級的介"
+description: "把一個龐大的 Vue-cli 專案從 webpack 4 升到 5。這篇記下升級介面的選擇、Node 版本與 polyfill 的坑，以及 TS 錯誤噴到崩潰時關不掉檢查的怪事。"
 publishDate: 2022-12-08T18:34:32+08:00
 updatedDate: 2022-12-10T13:40:27+08:00
 category: "工程實務"

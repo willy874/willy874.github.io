@@ -1,6 +1,6 @@
 ---
 title: "寫 Class 有什麼問題？"
-description: "現在的前端非常不流行寫 class 這樣的語法糖，但實際上 class 就是 function 的進階應用而已。過往盛行的物件導向程式設計大家想導入到 JavaScript 使用，但各種水土不服問題不斷誕生。另一個原因就是物件導向的設計模式"
+description: "class 其實只是 function 的進階應用。想寫的話要注意：解構後 this 會消失、用 this 改狀態不會響應。OOP 和 FP 從來不是對立的。"
 publishDate: 2024-09-03T00:08:25+08:00
 updatedDate: 2024-09-03T08:50:01+08:00
 category: "工程實務"

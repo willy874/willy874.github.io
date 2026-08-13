@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享Day 19"
-description: "每一次開新專案都沒有一次是一樣的，每一次都在思考如何拆分如何共用，這些架構規劃很有趣，處理起來也很繁瑣。 這次老樣子先開 monorepo，我把測試相關的應用程式放在 apps 資料夾，拆分包分在 packages資料夾。起手勢就是把 es"
+description: "新專案的架構規劃：monorepo 分 apps 與 packages，先把 eslint 和 builder 的 config 抽出來共用，打包從純 rollup 改成 vite。"
 publishDate: 2025-09-12T08:41:06+08:00
 updatedDate: 2025-09-20T13:42:08+08:00
 category: "日更系列"

@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 52"
-description: "繼昨天談到的 JavaScript Module System ，可以來提及一下近期發生的事。所謂的打包知識是非常龐雜，打包知識多半毫無系統化，大部分的知識點都在原始碼、Github Issues 、散落的文章。 我近期遇到 webpack"
+description: "webpack 怎樣都不肯把 require 轉成 __webpack_require__，我丟給 Claude Code 查，燒到 token limit 還沒解決。自己查半小時就找到答案：package.json 的 type 設成 module。"
 publishDate: 2025-10-20T17:57:13+08:00
 updatedDate: 2025-10-21T16:37:17+08:00
 category: "日更系列"

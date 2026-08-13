@@ -1,6 +1,6 @@
 ---
 title: "Side Project 的找人的感想"
-description: "可能很多人在找 Side project 的夥伴時會擔心「這個人外務這麼多，有時間做 side project 嗎？」，有些是「這個人目前挺閒的，應該會分配更多時間給我的 project 吧？」 然而，我不是這麼想。 我反而覺得「習慣去花時"
+description: "找 Side Project 夥伴時，「比較閒」不等於「會擠出時間」。我反而覺得習慣花時間在非盈利外務的人，才是真正擠得出時間的那種人。"
 publishDate: 2025-08-20T09:28:08+08:00
 updatedDate: 2025-08-20T09:38:46+08:00
 category: "商業與創業"

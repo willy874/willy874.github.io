@@ -1,6 +1,6 @@
 ---
 title: "關於前端工程師的無關緊要的分享Day 9"
-description: "我覺得現在做 Side Project 真的很難。 明明初期規劃 Product 的過程很辛苦，工作量龐大，然後要去統合很多職能。開始做之後夥伴又愛做不做，真的是工作是不會有那麼多的理由的。 但就是因為是 Side Project ，沒有支"
+description: "Side Project 給錢給不了上班的薪水，不給會被說白嫖專業，談分潤又叫畫大餅。我優秀的 Side Project 夥伴幾乎都是在國外的台灣人，那在台灣的人呢？"
 publishDate: 2025-09-07T20:22:53+08:00
 updatedDate: 2025-09-09T08:13:46+08:00
 category: "日更系列"

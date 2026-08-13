@@ -1,6 +1,6 @@
 ---
 title: "Figma Auto Layout"
-description: "我覺得 auto layout 某種層面就模擬了 CSS Flex box 的特性，真的大幅改變了 UI 設計稿的生態。 在過去畫設計稿，大家都以為是畫圖，大家常用 Illustrator, Photoshop 來畫出介面，甚至有的直接給你"
+description: "Auto Layout 某種程度模擬了 CSS Flexbox，打破了設計與前端之間的溝通橫溝。從「太花時間了不可能都用」到現在出現歧視鏈，這個變遷很有趣。"
 publishDate: 2025-05-27T08:38:54+08:00
 updatedDate: 2025-05-28T08:12:44+08:00
 category: "設計與設計系統"

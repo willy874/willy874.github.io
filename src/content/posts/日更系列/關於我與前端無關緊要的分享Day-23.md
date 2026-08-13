@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享Day 23"
-description: "過去都覺得 Button 是超級簡單的元件，然而真的開始做才會知道，它超級困難⋯⋯ Variant 除了基本的 Variant，可以表示 filled & outlined，甚至是 text。但 Theme 超不適合和 Variant 混合"
+description: "以為 Button 是最簡單的元件，做下去才知道超級困難。Variant 與 Theme 該不該混用、icon 讓 Size 的 padding 難以分類、Loading 要不要保留原寬度。"
 publishDate: 2025-09-20T13:48:10+08:00
 updatedDate: 2025-09-24T08:11:38+08:00
 category: "日更系列"

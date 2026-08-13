@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 41"
-description: "UI Library 已經卡住兩週，都在調整架構。真的覺得 Primitive UI 的設計很困難，API 設計常常會卡到很多底層設計的盲點，東迴避西迴避。 剛好最近工作也需要重構 UI Library ，把工具鏈進行大幅度的升級，將較舊時"
+description: "UI Library 卡了兩週都在調架構，Primitive UI 的 API 設計常常撞到底層盲點。測試案例動不動比原始碼大兩三倍，維護難度又更高。"
 publishDate: 2025-10-11T12:02:27+08:00
 updatedDate: 2025-10-11T12:19:33+08:00
 category: "日更系列"

@@ -1,6 +1,6 @@
 ---
 title: "Code to Figma"
-description: "當 AI 可以直接產出 prototype 來溝通需求，Figma 還有存在的必要嗎？ 我的答案是這樣： 只要設計師跟工程師不是同一個人，就不可能不需要溝通工具 。 那你相信你們家工程師的 UI/UX 設計能力嗎？答案應該很明顯了吧。 身為"
+description: "當 AI 能直接產出 prototype，Figma 還有必要嗎？只要設計師和工程師不是同一個人，就一定需要溝通工具。這篇講反方向的 Code to Figma 怎麼做。"
 publishDate: 2026-05-19T14:30:00+08:00
 updatedDate: 2026-05-19T14:55:00+08:00
 category: "AI 與工具"

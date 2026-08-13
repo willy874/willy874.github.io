@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享Day 24"
-description: "曾經我製作過無數的 Dialog 元件，嘗試使用各種各樣的方法，踩過無數的坑。 這種基於視窗彈出的元件一定要實作「Portal 」，在 vue 的話叫 「Teleport」，並且搭配 position fixed 定位到指定的位置。 Pos"
+description: "做 Dialog 一定要實作 Portal，因為 overflow 這個天坑連 fixed 都躲不掉。這篇也講定位為什麼一定要用絕對位置，以及鎖捲軸時的抖動怎麼處理。"
 publishDate: 2025-09-20T13:55:50+08:00
 updatedDate: 2025-09-24T08:12:03+08:00
 category: "日更系列"

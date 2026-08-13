@@ -1,6 +1,6 @@
 ---
 title: "Side Project 宣傳"
-description: "因為沒有留言和愛心去頂流量，其實觸及真的蠻有限，但仍然有許多人願意私訊我與我聊聊，希望能再進一步擴大這個觸及率。 歡迎有興趣的幫我留言 +1 這個計畫你可以當作從頭建置一個 antd, mui, vuetify, element ui 這樣"
+description: "從零打造一套 UI Library，不基於任何現有框架，從 bundle script 到每個元件細節都自己做。目標是能同時跑在 SSR 與微前端架構下。"
 publishDate: 2024-07-03T08:35:29+08:00
 updatedDate: 2024-07-03T08:39:15+08:00
 category: "設計與設計系統"

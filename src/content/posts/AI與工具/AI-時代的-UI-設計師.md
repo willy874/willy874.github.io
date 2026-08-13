@@ -1,6 +1,6 @@
 ---
 title: "AI 時代的 UI 設計師"
-description: "最近自己嘗試了一輪，也跟身邊幾個設計師朋友聊過，想分享一下「AI 時代的設計師到底怎麼工作」。 —— 先講畫 Figma 這件事。 以前我們都是手工規劃需求、手工拉框、手工畫圖，慢得令人髮指。但 AI 時代開始不一樣了。 現在的流程可以是這"
+description: "先用 PRD 產出畫圖用的 Spec，丟給 AI Agent 生成能跑的 prototype，再讓 AI 讀 DOM 反灌回 Figma。這篇講整套流程，也講設計師得到的提速為什麼不如工程師。"
 publishDate: 2026-05-17T14:30:00+08:00
 updatedDate: 2026-05-17T14:30:00+08:00
 category: "AI 與工具"

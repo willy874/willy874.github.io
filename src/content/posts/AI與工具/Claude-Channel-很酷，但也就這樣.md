@@ -1,6 +1,6 @@
 ---
 title: "Claude Channel 很酷，但也就這樣"
-description: "我真的很喜歡 Claude，上了 Max 之後整個工作流被改造了一輪，這點我不否認。 但最近出的 Channel 功能，我玩了一陣子之後，老實說⋯⋯蠻雞肋的。 概念很酷啦，可以透過 Telegram 之類的通道跟 Claude 對話，感覺像"
+description: "透過 Telegram 隨時跟 Claude 對話聽起來很棒，實際用起來電腦睡眠就斷、閒置太久就斷、訊息漏掉沒有補救。說白了，這是一個沒有 uptime 保證的本地服務。"
 publishDate: 2026-03-26T00:00:00+08:00
 updatedDate: 2026-03-26T00:00:00+08:00
 category: "AI 與工具"

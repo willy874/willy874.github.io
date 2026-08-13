@@ -1,6 +1,6 @@
 ---
 title: "Vibe Drawing"
-description: "現在大家都鼓吹 Vibe Coding，但隨著工程師使用 AI 的比例提高、模型的聰明度增加、更多的 Skill 技巧，似乎嘴砲造一個產品不再是難事。 但為了對齊溝通的橫溝，Figma 這類工具仍然佔據非常重要的角色。除非你完全信任工程師產"
+description: "寫程式可以完全靠嘴砲了，那設計稿呢？為了讓 AI 能順利產出 Figma 設計稿，我洋洋灑灑寫了很多 Skill Rule 來解決它產不順的問題。"
 publishDate: 2026-05-03T14:30:47+08:00
 updatedDate: 2026-05-03T14:30:47+08:00
 category: "AI 與工具"

@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享Day 22"
-description: "從頭去研究色彩系統，才發現現在 CSS 系統飛躍性的進步，跟過去顏色系統已經完全不一樣了。包含 color mix, oklch 等等功能。 傳統要用基礎色延伸成透明疊色語法上滿限制，也不太能疊 CSS 變數混搭半透明。但有了 color"
+description: "CSS 的色彩系統進步飛快，color-mix 讓半透明疊色和 CSS 變數混搭終於可行。但致命缺點是不能 transition，算出來的顏色也不好預期。"
 publishDate: 2025-09-15T13:01:02+08:00
 updatedDate: 2025-09-22T07:57:03+08:00
 category: "日更系列"

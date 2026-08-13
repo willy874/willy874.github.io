@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 53"
-description: "Monorepo 其實有蠻多流派，有的人喜歡把主框架放在 root，有的人喜歡把共用的放在 root 管理，也有的人喜歡 root 乾乾淨淨。 我個人特別喜歡切分清楚的 monorepo，每一個 package 有獨立的存在和切分價值，不會"
+description: "Monorepo 有很多流派：主框架放 root、共用放 root、或是 root 乾乾淨淨。我偏好切分清楚的那種，每個 package 都有獨立的存在價值，代價是比較麻煩。"
 publishDate: 2025-10-21T16:37:41+08:00
 updatedDate: 2025-10-23T06:34:23+08:00
 category: "日更系列"

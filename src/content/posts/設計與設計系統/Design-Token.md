@@ -1,6 +1,6 @@
 ---
 title: "Design Token：設計與前端之間的溝通語言"
-description: "這是一個近年流行的一個前端設計之間的溝通語言，雖然不算普及，但大部分會理解為變數的應用。 雖然早在 sass 流行時期已經被廣泛應用在各種 UI Framework 上面，但實際上被應用的比率依舊不高。 Design token 帶來最大的"
+description: "Design Token 讓 CSS 的共用被規範化，也讓設計師參與了開發流程，代價是知識門檻。這篇講 System、Seed、Alias 三層 Token，以及實務上的普及率。"
 publishDate: 2025-04-25T08:25:21+08:00
 updatedDate: 2025-04-25T08:33:37+08:00
 category: "設計與設計系統"

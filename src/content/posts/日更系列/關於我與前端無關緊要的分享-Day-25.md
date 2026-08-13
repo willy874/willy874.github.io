@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 25"
-description: "各種 Icon 採用方案中，我最喜歡的莫過於 SVG了。有最大的控制彈性，可以改顏色、可以改大小、可以改細節、可以加動畫。完全不需要像是過去使用 Font Icon 還要去重新打包發布字型，就可以在 runtime 做到改變。 也許會有人說"
+description: "各種 Icon 方案我最喜歡 SVG。這篇講怎麼把 SVG 文字直接 mount 到 HTML、用 currentColor 控制顏色、用 em 讓尺寸繼承 font-size。"
 publishDate: 2025-09-21T21:57:53+08:00
 updatedDate: 2025-09-25T07:15:47+08:00
 category: "日更系列"

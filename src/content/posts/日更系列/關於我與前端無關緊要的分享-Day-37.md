@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 37"
-description: "這年頭似乎比較流行使用 Primitive UI ，也有人稱之 Atomic UI ，也有人稱之 Headless UI，反正其實在講的都是同一件事，就是原子化元件設計。 原子化設計之後，誕生了諸如 Redix UI, Base UI, C"
+description: "Primitive UI、Atomic UI、Headless UI 講的都是同一件事。原子化把樣式控制權還給你，但版本管理、依賴共用、權重管理這些問題也一併曝露出來。"
 publishDate: 2025-10-04T17:37:11+08:00
 updatedDate: 2025-10-07T07:55:59+08:00
 category: "日更系列"

@@ -1,6 +1,6 @@
 ---
 title: "UI Framework Side Project"
-description: "我今年大概大部分的心力都在這，年初時開了這個 side project 一路做到現在，總算是看到了點成果。為了讓一群相互不認識的願意貢獻參與不是容易事，畢竟讓大家下班後努力付出不是容易事。 這個計畫你可以當作從頭建置一個 antd, mui"
+description: "今年大部分心力都投在這個 Side Project：從零造一套像 antd、mui、vuetify 的 UI Library。UI 設計師相對好找，前端反而少之又少。"
 publishDate: 2024-07-02T08:38:27+08:00
 updatedDate: 2024-07-02T08:47:00+08:00
 category: "設計與設計系統"

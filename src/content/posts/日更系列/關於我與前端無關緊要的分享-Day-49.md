@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 49"
-description: "現在幾乎壟斷前端市場的 tailwind ，語法幾乎成爲 Atomic CSS 的「標準」，在這之下去擠壓其他解決方案的空間。或許統一是好事，但社群發展因此就不鼓勵異聲，會得到「為什麼還要造新輪子？」這樣的質疑。 但 tailwind 是最"
+description: "tailwind 幾乎成了 Atomic CSS 的標準，但它跟 UI Library 其實不太合：無法動態拆 CSS Chunk、掃描原始碼需要曝露、變數架構更隱晦。"
 publishDate: 2025-10-19T15:53:21+08:00
 updatedDate: 2025-10-19T16:06:31+08:00
 category: "日更系列"

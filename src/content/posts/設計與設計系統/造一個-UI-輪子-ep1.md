@@ -1,6 +1,6 @@
 ---
 title: "造一個 UI 輪子  ep1"
-description: "最近暫停了 UI Library 的專案，覺得一群人走的好疲憊，我想一個人做。重新回到自己火力全開的開發，琢磨各種架構和 UI 元件底層。 說到開發 UI 元件，從基礎元件來說肯定就是 Button 了！很基礎，應該⋯⋯很簡單吧？ 但基於"
+description: "暫停了一群人的 UI Library 專案，改成自己一個人做。從最基礎的 Button 開始，光是 Variants、Theme、Size、Shape 加上 Token 關聯性就複雜到不行。"
 publishDate: 2025-04-22T00:40:00+08:00
 updatedDate: 2025-04-22T00:47:12+08:00
 category: "設計與設計系統"

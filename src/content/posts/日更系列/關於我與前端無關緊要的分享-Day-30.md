@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 30"
-description: "Portal 是許多元件的的基礎，也可以跟 Dialog 進行延伸與變化。舉凡 Select, Dropdown, Input Picker, Tooltip, Modal, Drawer 這些都是相關體系分類。他們的共同點就是脫離元素的地"
+description: "Select、Dropdown、Tooltip、Modal 都建立在 Portal 上。點背景要不要關、撞到邊界要不要換邊、內容過多怎麼滾，每個邊際問題都得處理。"
 publishDate: 2025-09-28T15:06:50+08:00
 updatedDate: 2025-09-29T11:12:14+08:00
 category: "日更系列"

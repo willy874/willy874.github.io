@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 51"
-description: "JavaScript 發跡後發展多年，直到 Nodejs 才真正模組化的實作誕生，那是一個有點像 Function 的一個堵塞請求，讓垮檔案變得可以被溝通。大家熟悉的那 require 就是 CommonJS 的語法，從 webpack 時"
+description: "CommonJS 與 ESModule 是天生不對等的兩種實作，轉換工具解決不了。這篇講 Node.js 生態的歷史包袱，以及為什麼這塊連 LLM 也幫不上忙。"
 publishDate: 2025-10-20T13:12:23+08:00
 updatedDate: 2025-10-20T17:58:48+08:00
 category: "日更系列"

@@ -1,6 +1,6 @@
 ---
 title: "Design Token：可替換版型與識別形象的前置設計"
-description: "這真的是奠定一套識別形象很重要的觀念，也是製作一套可替換版型風格很重要的前置設計，更是一個與工程師達成共識高速溝通的利器。 Token 這個詞彙最早是用於服務之間溝通的一把金鑰，用於辨識這個使用者對象。但拉來設計界變成是一個類似key wo"
+description: "Design Token 是一組類似 key word alias 的標籤，把「什麼場景用什麼顏色」定義下來，換 Dark Mode 時只要換掉 Token。這篇講它跟一般顏色表的差別。"
 publishDate: 2023-03-20T08:40:08+08:00
 updatedDate: 2023-04-08T14:47:53+08:00
 category: "設計與設計系統"

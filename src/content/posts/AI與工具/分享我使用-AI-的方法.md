@@ -1,6 +1,6 @@
 ---
 title: "分享我使用 AI 的方法"
-description: "前置聲明，面對巨大而混亂的系統，AI 幾乎難以幫上什麼關鍵。 現在開發 side project ，我開始採用 AI 來幫我逐序產生出東西。 最初從 user story、核心需求開始分析，搞清楚產品方向。 再來產出架構文件，挑選技術選型、"
+description: "從 user story、架構文件、架構程式碼、單元測試到頁面文件，一層層讓 AI 產出並回寫成 Context。這篇拆解整套流程，也講為什麼架構階段最關鍵。"
 publishDate: 2025-04-16T08:10:39+08:00
 updatedDate: 2025-04-16T08:34:36+08:00
 category: "AI 與工具"

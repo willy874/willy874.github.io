@@ -1,6 +1,6 @@
 ---
 title: "關於我與前端無關緊要的分享 Day 40"
-description: "近年越來越常聽到設計師主動請求則採用 Storybook，什麼時候開始在設計師的領域被傳開來了？ 我經歷數間公司，大部分公司導入 storybook 的失敗都在於不重視元件庫迭代。輕易修改，輕易加功能，文件規格沒有工程師以外的人協助維護。A"
+description: "設計師開始主動要求導入 Storybook 了。導入失敗多半敗在不重視元件庫迭代；而 .stories 檔案其實也是給 AI 很好的 Context。"
 publishDate: 2025-10-09T10:47:33+08:00
 updatedDate: 2025-10-10T10:02:07+08:00
 category: "日更系列"

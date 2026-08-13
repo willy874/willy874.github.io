@@ -1,6 +1,6 @@
 ---
 title: "Frontend 和 UI/UX 整合"
-description: "既然開始寫 Spec，也要開始畫 UI。工程師背景的我就想要找找有沒有 Open Source 的資源，也想找各種整合資源。 原本在想 Material Design 和 MUI 本身就是高度整合的組合，理所當然認為有豐富的開源資源可以用，"
+description: "工程師背景的我想找開源的 UI 設計資源來加速，結果發現設計圈的開源遠不如工程圈蓬勃。這大概也解釋了為什麼「造輪子」在設計端這麼普遍。"
 publishDate: 2025-11-20T23:36:29+08:00
 updatedDate: 2025-12-12T10:37:54+08:00
 category: "設計與設計系統"

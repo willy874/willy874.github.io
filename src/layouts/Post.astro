@@ -61,7 +61,9 @@ const postUrl = new URL(
   Astro.url.pathname.replace(/\/?$/, '/'),
   Astro.site
 ).href;
-const ogImageUrl = coverOg?.src ?? SITE.ogImage;
+// OG 圖優先序:文章有設 cover 就用 cover,否則用 build 時每篇動態產生的卡片
+//(scripts/build-og.mjs 寫入 /images/og/<id>.png),再退回站台預設圖。
+const ogImageUrl = coverOg?.src ?? `/images/og/${post.id}.png`;
 
 const crumbs = [
   { name: '首頁', url: `${SITE.url}/` },

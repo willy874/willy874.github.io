@@ -455,7 +455,7 @@ export default function ParticleFigure({ caption }: { caption: string }) {
 這幾件事**不要在文章裡硬幹**，要修就是改 layout／設定，而且要先問過使用者：
 
 - giscus 的 `repoId`／`categoryId` 還沒填（`src/components/post/Giscus.astro`），留言區目前是不會動的。
-- 單篇 OG 圖只能靠 `cover` 欄位（有設就走 astro:assets 產圖，沒設吃站台預設圖）。每篇自動產 OG 圖是 Phase 4。
+- 單篇 OG 圖已自動化：有設 `cover` 就走 astro:assets 產圖，沒設會由 `scripts/build-og.mjs`（`pnpm build` 時執行）自動產一張含標題的品牌卡片。文章端不用手動處理 OG 圖。
 - 其餘待辦見專案根目錄的 `TODO.md`。
 
 已經做好、不用再補的（別重複造）：JSON-LD（`src/lib/seo.ts` + `JsonLd.astro`）、canonical／OG／Twitter meta、

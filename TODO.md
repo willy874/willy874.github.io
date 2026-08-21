@@ -87,7 +87,12 @@
       - 重產轉址頁:`node scripts/gen-redirects.mjs`(來源是 `scripts/slug-redirects.json`)
       - **slug 與分類自此視為永久**,再改一次舊連結就會斷第二次
 - [ ] GSC / Bing 驗證與提交 sitemap
-- [ ] OG image 每篇動態產生(Phase 4):build-time 以 satori 系方案產生,需 Noto Sans TC subset
+- [x] **OG image 每篇動態產生(Phase 4)**:`scripts/build-og.mjs` 於 `pnpm build` 前執行。
+      蒐集全部標題用字 → 下載 Noto Sans TC 靜態 OTF → `subset-font` 裁成只含用到的字
+      (~435 KB)→ satori 排版成 SVG(文字轉 path)→ `@resvg/resvg-js` 轉 PNG →
+      寫入 `public/images/og/<id>.png`(454 張)。字型內嵌 + 文字向量化,CI(無中文字型)
+      產出與本機一致。`Post.astro` 優先用 cover,否則用該篇卡片,再退回站台預設圖。
+      產物與字型快取皆 gitignore。舊 `scripts/gen-og-default.mjs` 已由本腳本取代
 
 ## 工具與檔案庫(§4、Phase 3)
 

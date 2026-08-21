@@ -8,6 +8,10 @@ node_modules/
 # pagefind index (generated at build time)
 public/pagefind/
 
+# 每篇動態 OG 圖 + 站台預設圖(build 時由 scripts/build-og.mjs 產生)
+public/images/og/
+public/images/og-default.png
+
 # logs & env
 *.log
 .env

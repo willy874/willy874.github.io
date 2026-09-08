@@ -12,7 +12,7 @@ draft: false
 lang: zh-Hant
 ---
 
-最近「壹加壹」做的字幕服務 What'Sub 燒得很兇。
+最近「壹加壹」做的字幕服務 What'Sub 在社群上吵了好幾天。
 
 一個瀏覽器端的 AI 字幕工具，聽打、斷句、對時間、上樣式、匯出全包，主打「影片留在你的電腦」。
 
@@ -20,7 +20,7 @@ lang: zh-Hant
 
 想想，那我也來蹭一下好了。
 
-但我不打算蹭立場，我打算蹭原始碼。因為這東西的核心引擎，寫得比我看過的很多「正規團隊產品」都還要兇猛。稱讚的、貶低的，各路人馬都想插一句，那我就用一個前端工程師的身分，把它整個掀開來看。
+但我不打算蹭立場，我打算蹭原始碼。因為這東西的核心引擎，做的事情比我看過的很多「正規團隊產品」都還要底層。稱讚的、貶低的，各路人馬都想插一句，那我就用一個前端工程師的身分，把它整個掀開來看。
 
 前端沒有秘密。你送到瀏覽器的東西，我全部看得到。
 
@@ -32,9 +32,9 @@ lang: zh-Hant
 
 這個不是。
 
-它有串金流、有訂閱制、有月繳年繳、有加購包、有推薦碼、有電子發票、有統編查詢、有自動續訂、有錢包、有訂單、有重寄發票。金流那條線是完整跑通的，不是接個 Stripe demo 就自以為收工。它甚至有後台、有管理者中心，一整套算蠻完善的系統。
+它有串金流、有訂閱制、有月繳年繳、有加購包、有推薦碼、有電子發票、有統編查詢、有自動續訂、有錢包、有訂單、有重寄發票。金流那條線是完整跑通的，不是接個 Stripe demo 就自以為收工。它甚至有後台、有管理者中心，一整套系統都在。
 
-SEO 更誇張。八個行銷頁全部靜態預渲染，每一頁的 `title`、`description`、`canonical` 都是**手寫**的，不是模板套出來的。七個內容頁每頁三組 JSON-LD。長尾意圖頁的策略清楚到不行——`/fcpxml/` 打「SRT 轉 FCPXML」，`/compare/` 直接打競品比較。
+SEO 那邊，八個行銷頁全部靜態預渲染，每一頁的 `title`、`description`、`canonical` 都是**手寫**的，不是模板套出來的。七個內容頁每頁三組 JSON-LD。長尾意圖頁也分得很清楚——`/fcpxml/` 打「SRT 轉 FCPXML」，`/compare/` 直接打競品比較。
 
 還有 `llms.txt`。會在 2026 年主動放 `llms.txt` 的台灣 SaaS，我一隻手數得完。
 
@@ -42,7 +42,7 @@ SEO 更誇張。八個行銷頁全部靜態預渲染，每一頁的 `title`、`d
 
 這就是我一直在講的，[功能做出來只是一句話](/posts/ai-tools/shipping-features-is-one-sentence/)，難的從來是做出來之後的那些事。而這個人把「之後」也做了。
 
-產品先落地再說，這就是 AI 時代該有的態度。
+產品先落地再說。我覺得這才是 AI 時代該有的態度。
 
 ——
 
@@ -68,7 +68,7 @@ SEO 更誇張。八個行銷頁全部靜態預渲染，每一頁的 `title`、`d
 
 ## 三個自製引擎，一個 byte 都沒解碼
 
-這是我最熟悉，也覺得最瘋狂的地方。
+這是我最熟悉的一塊，也是我看得最久的一塊。
 
 它用 React 19。沒有 router、沒有 state manager、沒有 UI Library、沒有 CSS framework，幾乎你想得到的，都沒有。
 
@@ -92,7 +92,7 @@ React 在這裡只是一個渲染層。真正的重量壓在瀏覽器原生能�
 
 先用 `File.slice()` 只切出檔案開頭那一小段，手刻 parser 走 `moov > trak > mdia > minf > stbl`，把目錄讀出來。有了目錄，它就知道每一個 AAC packet 躺在第幾個 byte。接著它量測這台機器的 I/O latency 跟 throughput，用一個成本模型算「跳著讀划不划算」——因為硬碟每跳一次都有成本，兩段離很近的資料，一次讀完反而比跳兩次快。算完之後只讀那幾段 byte range，最後手工組一個合法的 `.m4a` 出來。
 
-`File.slice()` 這件事本身一點都不神祕，[MDN 上就一頁](https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice)，而且它是 lazy 的——你切了不代表你讀了，真的要讀還得去 `arrayBuffer()`。神祕的是有人願意為了它去讀 MP4 規格書。
+`File.slice()` 這件事本身一點都不神祕，[MDN 上就一頁](https://developer.mozilla.org/en-US/docs/Web/API/Blob/slice)，它還是 lazy 的——你切了不代表你讀了，真的要讀還得去 `arrayBuffer()`。神祕的是有人願意為了它去讀 MP4 規格書。
 
 <figure>
   <svg viewBox="0 0 720 262" role="img" aria-labelledby="fig-vc95-mp4-title" xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +143,7 @@ React 在這裡只是一個渲染層。真正的重量壓在瀏覽器原生能�
 
 一支 10 GB 的影片，可能只讀了 80 MB 就生出音檔。
 
-然後是 PCM 分支，這個更狠。
+然後是 PCM 分支，這段我看了兩次才看懂。
 
 AAC 這個格式有一個很討厭的特性：編碼器會在開頭偷偷塞幾幀靜音進去，這叫 encoder delay，也叫 priming。所以你把一段聲音編碼再解碼回來，它會比原本晚一點點。晚多少？看編碼器的實作，每台機器可能都不一樣。
 
@@ -192,7 +192,7 @@ priming 這件事不是它發明的。Apple 的 [QuickTime File Format 文件](h
 
 問題在「拿出來」這個動作。
 
-它用 [`VideoDecoder`](https://developer.mozilla.org/en-US/docs/Web/API/VideoDecoder) 硬解，這是 WebCodecs 的 API，等於直接把瀏覽器底層的解碼器開給你用，[規格在 W3C](https://www.w3.org/TR/webcodecs/)。而且它是從關鍵幀 seek，不是每一格都解——關鍵幀就是 [`EncodedVideoChunk` 的 `type` 為 `key`](https://developer.mozilla.org/en-US/docs/Web/API/EncodedVideoChunk/type) 的那些，它們不依賴前後幀，可以獨立解出來。
+它用 [`VideoDecoder`](https://developer.mozilla.org/en-US/docs/Web/API/VideoDecoder) 硬解，這是 WebCodecs 的 API，等於直接把瀏覽器底層的解碼器開給你用，[規格在 W3C](https://www.w3.org/TR/webcodecs/)。它也不是每一格都解，是從關鍵幀 seek——關鍵幀就是 [`EncodedVideoChunk` 的 `type` 為 `key`](https://developer.mozilla.org/en-US/docs/Web/API/EncodedVideoChunk/type) 的那些，它們不依賴前後幀，可以獨立解出來。
 
 解出來的畫面在 GPU 上。但你要比對像素，就得把它搬回 CPU，這個動作叫 [`getImageData`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/getImageData)。
 
@@ -244,7 +244,7 @@ priming 這件事不是它發明的。Apple 的 [QuickTime File Format 文件](h
       </marker>
     </defs>
   </svg>
-  <figcaption>上面那排短豎線每一根都是一次 GPU 停頓。把 32 格縮小拼成一張圖再一次讀回來，停頓次數從 32 降到 1——同樣的資料量，成本差在「來回幾趟」。</figcaption>
+  <figcaption>上面那排短豎線每一根都是一次 GPU 停頓。把 32 格縮小拼成一張圖再一次讀回來，停頓次數從 32 降到 1。同樣的資料量，差別只在來回跑了幾趟。</figcaption>
 </figure>
 
 還有一個細節我很喜歡。
@@ -289,20 +289,20 @@ priming 這件事不是它發明的。Apple 的 [QuickTime File Format 文件](h
     </g>
     <text x="28" y="234" font-size="12" fill="var(--color-muted)">每 128 個 frame 準時被呼叫一次，主執行緒再忙也影響不到它</text>
   </svg>
-  <figcaption>上面那條時而擁擠時而空白的是主執行緒，下面那排整齊的方塊是音訊執行緒。同一份工作放錯執行緒，結果差的不是效能數字，是使用者聽不聽得到爆音。</figcaption>
+  <figcaption>上面那條時而擁擠時而空白的是主執行緒，下面那排整齊的方塊是音訊執行緒。同一份工作放錯執行緒，使用者聽到的就是爆音。</figcaption>
 </figure>
 
 Chrome 團隊的 [Audio Worklet is now available by default](https://developer.chrome.com/blog/audio-worklet) 那篇是我看過講得最白話的，想入門就從那篇開始。
 
 到處都是成本模型、能力探測、斷言檢查、多層 fallback。裝置還會分級——用 `hardwareConcurrency` 跟 `deviceMemory` 分成 strong／ok／weak，ETA 係數各給 0.8／1.5／3。
 
-說白了，這種東西不是「叫 AI 弄一弄」弄得出來的。這是有人很清楚自己要什麼，然後用 AI 把它敲出來。這叫 Domain Knowledge，作者對這個領域熟到不行。
+這種東西不是「叫 AI 弄一弄」弄得出來的。這是有人清楚知道自己要什麼，然後用 AI 把它敲出來。這叫 Domain Knowledge，作者對這個領域很熟。
 
 順帶一提，前端沒有任何一個自己寫的 `dangerouslySetInnerHTML` 或 `innerHTML=`，掃到的 12 個全部是 React 內部的，沒有可利用的 XSS sink。這點意外做得蠻結實。
 
 後端能看到的有限，但也很有趣。24 個 `/api/*` 端點，每支一個 handler，內部用 `?op=` 分流，不帶 op 就回 `404 unknown op`。授權邊界一致：匿名打過去全部 `401 請先登入`，拿合法但非管理員的 token 打 `/api/admin` 是 `403 沒有管理權限`。權限分級是真的落在後端，不是靠前端不顯示按鈕。
 
-錯誤訊息克制到不行，沒有 stack trace、沒有框架版本、沒有 DB 錯誤、沒有內部路徑。外部 host 只有 6 個：Google 登入、藍新金流、gtag、Google Fonts、YouTube。沒有 Sentry、沒有 LogRocket、沒有一堆第三方追蹤。
+錯誤訊息很克制，沒有 stack trace、沒有框架版本、沒有 DB 錯誤、沒有內部路徑。外部 host 只有 6 個：Google 登入、藍新金流、gtag、Google Fonts、YouTube。沒有 Sentry、沒有 LogRocket、沒有一堆第三方追蹤。
 
 蠻乾淨的⋯⋯？
 
@@ -353,7 +353,7 @@ Chrome 團隊的 [Audio Worklet is now available by default](https://developer.c
     </defs>
     <text x="360" y="228" font-size="13" fill="var(--color-muted)" text-anchor="middle">同一份 code，打包兩次</text>
   </svg>
-  <figcaption>左右是兩個世界，中間唯一的共用只有一張價格表——而且是同一份 code 打包兩次。這不是模組化，是把重複做得比較整齊。</figcaption>
+  <figcaption>左右是兩個世界，中間唯一共用的只有一張價格表——同一份 code 打包兩次，兩邊各拿一份。</figcaption>
 </figure>
 
 聰明嗎？聰明。
@@ -364,7 +364,7 @@ Chrome 團隊的 [Audio Worklet is now available by default](https://developer.c
 
 每一個都刻得很好。
 
-但刻的是輪子，而且是特大號的輪子。Edge Case 其實覆蓋不全，認真去抓一定抓得到問題。UI 元件的成熟度是時間淬煉出來的，不是 AI 小抄一下就能補足。
+但刻的是輪子，特大號的輪子。Edge Case 覆蓋不全，認真去抓一定抓得到問題。UI 元件的成熟度是時間淬煉出來的，不是 AI 小抄一下就能補足。
 
 一顆 1.1 MB 的大禮包，三個自製引擎、一個手刻 Router、三個手刻 Store，全部塞在同一顆檔案裡。沒有模組化、沒有分層、沒有切分的規劃。
 
@@ -414,13 +414,13 @@ Safari 直接 UA sniffing 踢掉，不給用 OPFS。
 
 `showOpenFilePicker` 是 Chromium 限定，Firefox 跟 Safari 都沒有。所以才會有那句「用 Chrome 或 Edge 開同一個專案輸出」。說白了就是不考慮 polyfill，我就是 Chromium Only，我就是放棄那些不用 Chromium 的所有客戶。
 
-還有一顆 31 MB 的 ffmpeg.wasm。在能跑的機器上，它是神。在不能跑的機器上，它下載 31 MB 然後慢慢磨。
+還有一顆 31 MB 的 ffmpeg.wasm。在能跑的機器上，它什麼都解得動。在不能跑的機器上，使用者要先下載 31 MB，然後慢慢磨。
 
-它的能力檢查其實做得很完整（WebAssembly、Worker、AudioContext、`fetch` + ReadableStream 都是必要，codec 探測還加 6 秒 race timeout），這點很專業。
+它的能力檢查做得很完整（WebAssembly、Worker、AudioContext、`fetch` + ReadableStream 都是必要，codec 探測還加 6 秒 race timeout），這點我給分。
 
 但最後的結果，往往就是「你這台電腦我跑不動喔～」。
 
-更別提那瘋狂的字體加載，光是滑過去就狂向 Google 抓字體，流量直接爆炸。
+還有字體。游標滑過去換一個字重，就跟 Google Fonts 要一次，光是把首頁滑完，字體請求就沒停過。
 
 ——
 
@@ -511,7 +511,7 @@ OPFS 裡有 `subtitle-extract.m4a`、`scenecut/`。IndexedDB 開了四個：`wha
 
 那如果哪天要找工程師維護？
 
-他要接手的是：一顆超級 SPA、1,534 條散在各處的硬寫字串、三個沒有文件的自製 parser、一個手刻 Router、三個手寫 store，還有一個放棄手機的 1024px 無 RWD 架構。
+他要接手的是：一顆 1.1 MB 的單檔 SPA、1,534 條散在各處的硬寫字串、三個沒有文件的自製 parser、一個手刻 Router、三個手寫 store，還有一個放棄手機的 1024px 無 RWD 架構。
 
 這種東西，人接不了。
 
@@ -519,7 +519,7 @@ OPFS 裡有 `subtitle-extract.m4a`、`scenecut/`。IndexedDB 開了四個：`wha
 
 UI Library 手刻，就不要講 Design System 了，它甚至無法規範自己的視覺標準。做到哪、刻到哪，沒有治理跟統一。更別提哪天要上 Dark Mode 的成本，UI 設計師大概只會說「你可以請 AI 調整就好」。
 
-後端也不用說。宣傳影片當下已經 20 萬瀏覽量，轉化率算 1% 就好，2000 人跑去註冊然後上傳？這種程度的流量可以直接搞垮沒有擴張設計的網站。不用故意攻擊，光粉絲進去逛街都堪稱大型 DDoS。
+後端也不用說。宣傳影片當下已經 20 萬瀏覽量，轉化率算 1% 就好，2000 人跑去註冊然後上傳？這種程度的流量可以直接搞垮沒有擴張設計的網站。不用故意攻擊，光粉絲進去逛一圈，效果就跟一次 DDoS 差不多。
 
 ——
 
@@ -527,7 +527,7 @@ UI Library 手刻，就不要講 Design System 了，它甚至無法規範自己
 
 我不是要酸這個站。
 
-相反，我覺得它很了不起。一個人（或極小團隊）用 Vibe Coding 做到這個程度，我看到的是可能性，不是笑話。從商業面到領域知識，從使用者體驗到打磨，說是一個人能做的 95 分不誇張。
+相反，我覺得它很了不起。一個人（或極小團隊）用 Vibe Coding 做到這個程度，我看到的是可能性，不是笑話。從商業面到領域知識，從使用者體驗到打磨，一個人能做到這樣，我給 95 分。
 
 但缺的那 5 分，剛好全部是「不好玩但重要」的東西。
 
@@ -539,7 +539,7 @@ AI 很擅長幫你做爽的那些，但這些看不到商業價值的無聊東�
 
 但你不會半夜三點跳起來說「幫我規劃一下未來三年的模組邊界」，也不會說「幫我檢查這網站資訊安全有沒有遺漏」。
 
-那些事情，要有人「記得要做」才會發生。這也是我一直說[解決方案比寫 code 重要](/posts/engineering/solutions-matter-more-than-code/)的原因——AI 讓「做出來」變得非常便宜，但「做得扎實」還是一樣昂貴。
+那些事情，要有人「記得要做」才會發生。這也是我之前寫過的[解決方案比寫 code 重要](/posts/engineering/solutions-matter-more-than-code/)——AI 讓「做出來」變得非常便宜，但「做得扎實」還是一樣昂貴。
 
 如果你是個人小創作者，我誠摯推薦你去訂閱使用。它懂你的痛、懂你需要什麼，讓你輕鬆享受剪片最快樂的部分，解決最痛苦的上字幕。
 

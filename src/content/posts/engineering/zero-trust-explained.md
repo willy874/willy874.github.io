@@ -8,6 +8,7 @@ tags:
   - "安全"
   - "工程實務"
   - "議題討論"
+series: "zero-trust"
 draft: false
 lang: zh-Hant
 ---
